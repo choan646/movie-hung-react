@@ -1,24 +1,69 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
+import { lazy, Suspense } from "react";
+import { BoxLoading } from "react-loadingg";
 
+//Layout
+import AppLayout from "./Layouts/AppLayout";
+import AdminLayout from "./Layouts/AdminLayout";
+
+//Custom Route
+import AdminRoute from "./auth/AdminRoute";
+
+//Pages
+const Home = lazy(() => import("./pages/Home"));
+const Movie = lazy(() => import("./pages/Movie"));
+const Checkout = lazy(() => import("./pages/Checkout"));
+const AdminMovies = lazy(() => import("./pages/AdminMovies"));
+const AdminUsers = lazy(() => import("./pages/AdminUsers"));
+const LoginPage = lazy(() => import("./pages/LoginPage"));
+
+//Component App
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Suspense fallback={<BoxLoading />}>
+      <BrowserRouter>
+        <Switch>
+          {/* Route Admin */}
+          <Route path="/admin" exact>
+            <AdminLayout>
+              <Switch>
+                <Redirect exact from="/admin" to="/admin/movies" />
+                <AdminRoute path="/admin/movies">
+                  <AdminMovies />
+                </AdminRoute>
+                <AdminRoute path="/admin/users">
+                  <AdminUsers />
+                </AdminRoute>
+              </Switch>
+            </AdminLayout>
+          </Route>
+
+          {/* Route Login */}
+          <Route path="/login">
+            <LoginPage />
+          </Route>
+
+          {/* Route Checkout */}
+          <Route path="/Checkout/:movieId">
+            <Checkout />
+          </Route>
+
+          {/* Route Main */}
+          <Route path="/">
+            <AppLayout>
+              <Switch>
+                <Route path="/" exact>
+                  <Home />
+                </Route>
+                <Route path="/movie/:category">
+                  <Movie />
+                </Route>
+              </Switch>
+            </AppLayout>
+          </Route>
+        </Switch>
+      </BrowserRouter>
+    </Suspense>
   );
 }
 
