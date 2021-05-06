@@ -21,45 +21,45 @@ export default function Header() {
   const toggle = () => setIsOpen(!isOpen);
   return (
     <div id="header">
-      <Navbar color="light" light expand="md">
-        <Row lg={2} className="w-100">
+      <Navbar expand="md">
+        <Row lg={2}>
           <Col lg={5}>
             <NavbarBrand>
-              <Link to="/"><img className="webLogo" src="../public/img/web-logo.png" alt="logo"/></Link>
+              <Link to="/"><img className="webLogo" styleLogo src="/img/web-logo.png" alt="logo"/></Link>
             </NavbarBrand>
           </Col>
           <Col lg={7}>
             <Row lg={1}>
               <Collapse isOpen={isOpen} navbar>
-                <Nav navbar className="w-100">
-                  <Col lg={9} className="d-flex">
+                <Nav navbar>
+                  <Col lg={7} className="d-flex">
                     <NavItem>
-                      <NavLink href="#lichChieu">Lịch chiếu</NavLink>
+                      <NavLink href="#lichChieu">Lịch Chiếu</NavLink>
                     </NavItem>
                     <NavItem>
-                      <NavLink href="#cumRap">Cụm rạp</NavLink>
+                      <NavLink href="#cumRap">Cụm Rạp</NavLink>
                     </NavItem>
                     <NavItem>
-                      <NavLink href="#tinTuc">Tin tức</NavLink>
+                      <NavLink href="#tinTuc">Tin Tức</NavLink>
                     </NavItem>
                     <NavItem>
-                      <NavLink href="#ungDung">Ứng dụng</NavLink>
+                      <NavLink href="#ungDung">Ứng Dụng</NavLink>
                     </NavItem>
                   </Col>
-                  <Col lg={3} className="d-flex">
-                    <NavItem>
+                  <Col lg={5} className="d-flex">
+                    <NavItem className="navRight">
                       <NavLink>
-                      <Link to="/login">Đăng nhập</Link>
+                      <Link to="/login" className="btnLogin"><img src="img/avatar.png"/>Đăng Nhập</Link>
                       </NavLink>
                     </NavItem>
-                    <UncontrolledDropdown nav inNavbar>
-                      <DropdownToggle nav caret>
+                    <UncontrolledDropdown nav inNavbar className="navRight">
+                      <DropdownToggle nav caret className="btnLocation">
+                        <img src="img/location-header.png"/>
                         Dia Chi
                       </DropdownToggle>
-                      <DropdownMenu right>
+                      <DropdownMenu left>
                         <DropdownItem>tphcm</DropdownItem>
                         <DropdownItem>hanoi</DropdownItem>
-                        <DropdownItem divider />
                         <DropdownItem>quangtri</DropdownItem>
                       </DropdownMenu>
                     </UncontrolledDropdown>
