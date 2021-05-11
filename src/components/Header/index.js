@@ -49,12 +49,12 @@ export default function Header() {
                   <Col lg={5} className="d-flex">
                     <NavItem className="navRight">
                       <NavLink>
-                      <Link to="/login" className="btnLogin"><img src="img/avatar.png"/>Đăng Nhập</Link>
+                      <Link to="/login" className="btnLogin"><img src="/img/avatar.png"/>Đăng Nhập</Link>
                       </NavLink>
                     </NavItem>
                     <UncontrolledDropdown nav inNavbar className="navRight">
                       <DropdownToggle nav caret className="btnLocation">
-                        <img src="img/location-header.png"/>
+                        <img src="/img/location-header.png"/>
                         Dia Chi
                       </DropdownToggle>
                       <DropdownMenu left>

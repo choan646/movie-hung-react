@@ -12,6 +12,8 @@ import AdminRoute from "./auth/AdminRoute";
 //Pages
 const Home = lazy(() => import("./pages/Home"));
 const Movie = lazy(() => import("./pages/Movie"));
+const News = lazy(() => import("./pages/News"));
+const Cinemas =lazy(() => import("./pages/Cinemas"))
 const Checkout = lazy(() => import("./pages/Checkout"));
 const AdminMovies = lazy(() => import("./pages/AdminMovies"));
 const AdminUsers = lazy(() => import("./pages/AdminUsers"));
@@ -24,7 +26,7 @@ function App() {
       <BrowserRouter>
         <Switch>
           {/* Route Admin */}
-          <Route path="/admin" exact>
+          <Route path="/admin">
             <AdminLayout>
               <Switch>
                 <Redirect exact from="/admin" to="/admin/movies" />
@@ -44,7 +46,7 @@ function App() {
           </Route>
 
           {/* Route Checkout */}
-          <Route path="/Checkout/:movieId">
+          <Route path="/checkout/:movieId">
             <Checkout />
           </Route>
 
@@ -55,8 +57,17 @@ function App() {
                 <Route path="/" exact>
                   <Home />
                 </Route>
-                <Route path="/movie/:category">
+                {/* Route chi tiet phim */}
+                <Route path="/movie/movieId">
                   <Movie />
+                </Route>
+                {/* Route tin-tuc */}
+                <Route path="/tin-tuc/:newId">
+                  <News />
+                </Route>
+                {/* Route rap-chieu-phim */}
+                <Route path="/rap-chieu-phim/:cinemasId">
+                  <Cinemas />
                 </Route>
               </Switch>
             </AppLayout>

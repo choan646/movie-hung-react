@@ -1,0 +1,28 @@
+#lichChieu {
+  margin: auto;
+  padding-top: 70px;
+  width: 900px;
+  .nav-tabs {
+    border: none;
+    margin-bottom: 30px;
+    justify-content: center;
+    .nav-item {
+      .nav-link {
+        border: none;
+        font-size: 20px;
+        color: #000;
+        margin-right: 10px;
+        transition: all 0.2s;
+        &:hover {
+          cursor: pointer;
+          font-size: 24px;
+        }
+      }
+      .active {
+        color: #fa5238 !important;
+        font-size: 24px;
+        font-weight: bold;
+      }
+    }
+  }
+}

@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function AdminMovies() {
+export default function SapChieu() {
     return (
         <div>
-            <h1>AdminMovies</h1>
+            <p>day la sap chieu</p>
         </div>
     )
 }

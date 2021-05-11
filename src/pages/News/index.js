@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function AdminMovies() {
+export default function News() {
     return (
         <div>
-            <h1>AdminMovies</h1>
+            <p>day la tin tuc</p>
         </div>
     )
 }
