@@ -25,7 +25,14 @@ export default function Header() {
         <Row lg={2}>
           <Col lg={5}>
             <NavbarBrand>
-              <Link to="/"><img className="webLogo" styleLogo src="/img/web-logo.png" alt="logo"/></Link>
+              <Link to="/">
+                <img
+                  className="webLogo"
+                  styleLogo
+                  src="/img/web-logo.png"
+                  alt="logo"
+                />
+              </Link>
             </NavbarBrand>
           </Col>
           <Col lg={7}>
@@ -46,15 +53,18 @@ export default function Header() {
                       <NavLink href="#ungDung">Ứng Dụng</NavLink>
                     </NavItem>
                   </Col>
-                  <Col lg={5} className="d-flex">
+                  <Col lg={5}>
                     <NavItem className="navRight">
                       <NavLink>
-                      <Link to="/login" className="btnLogin"><img src="/img/avatar.png"/>Đăng Nhập</Link>
+                        <Link to="/login" className="btnLogin">
+                          <img src="/img/avatar.png" alt="avatar"/>
+                          Đăng Nhập
+                        </Link>
                       </NavLink>
                     </NavItem>
-                    <UncontrolledDropdown nav inNavbar className="navRight">
+                    {/* <UncontrolledDropdown nav inNavbar className="navRight">
                       <DropdownToggle nav caret className="btnLocation">
-                        <img src="/img/location-header.png"/>
+                        <img src="/img/location-header.png" alt="mark"/>
                         Dia Chi
                       </DropdownToggle>
                       <DropdownMenu left>
@@ -62,7 +72,7 @@ export default function Header() {
                         <DropdownItem>hanoi</DropdownItem>
                         <DropdownItem>quangtri</DropdownItem>
                       </DropdownMenu>
-                    </UncontrolledDropdown>
+                    </UncontrolledDropdown> */}
                   </Col>
                 </Nav>
               </Collapse>

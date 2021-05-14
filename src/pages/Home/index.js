@@ -1,8 +1,8 @@
-import ListMovies from "src/components/ListMovies";
+import ListMovies from "src/pages/Home/ListMovies";
 import React from "react";
 import { Link } from "react-router-dom";
-import Slider from 'src/components/Slider'
-import BackNews from "src/components/BackNews";
+import Slider from 'src/pages/Home/Slider'
+import BackNews from "src/pages/Home/BackNews";
 
 export default function Home() {
   return (

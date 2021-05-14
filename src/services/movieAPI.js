@@ -2,14 +2,8 @@ import axiosClient from "./axiosClient";
 
 const movieAPI = {
   getMovie: () => {
-    return axiosClient.get("QuanLyPhim/LayDanhSachPhim");
+    return axiosClient.get("QuanLyPhim/LayDanhSachPhim?maNhom=GP03");
   },
-  getMovieByCategory: (category) => {
-    const params = {
-      maDanhMuc: category,
-      maNhom: "GP01",
-    };
-    return axiosClient.get("QuanLyPhim/LayDanhSachPhim", { params });
-  },
+ 
 };
 export default movieAPI;

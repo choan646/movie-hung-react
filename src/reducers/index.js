@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
-import movie from "./movie";
+import movieReducer from "./movie";
 import authReducer from "./auth";
 
 const rootReducer = combineReducers({
   // nơi khai báo reducers con
-  movie,
+   movie : movieReducer,
   auth: authReducer,
 });
 export default rootReducer;

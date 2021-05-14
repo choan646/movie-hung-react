@@ -9,8 +9,9 @@ import {
   Col,
 } from "reactstrap";
 import classnames from "classnames";
-import DangChieu from "../DangChieu";
-import SapChieu from "../SapChieu";
+import DangChieu from "src/pages/Home/DangChieu";
+import SapChieu from "src/pages/Home/SapChieu";
+
 
 export default function ListMovies() {
   const [activeTab, setActiveTab] = useState("dangChieu");

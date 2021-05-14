@@ -1,17 +1,15 @@
 import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import {getMovieByCategory} from "../../actions/movie";
+import {getMovie} from "src/actions/movie";
 import {BoxLoading } from 'react-loadingg'
 
 export default function Movie() {
   const dispatch = useDispatch();
-  const { category } = useParams();
-  const { movie, isLoading, error } = useSelector((state) => state.movie);
+  const { data, isLoading, error } = useSelector((state) => state.movie);
 
   useEffect(() => {
-    dispatch(getMovieByCategory(category));
-  }, [category]);
+    dispatch(getMovie());
+  }, []);
   if(isLoading){
       return <div>
           <BoxLoading />;
@@ -22,6 +20,7 @@ export default function Movie() {
           {error}
       </div>
   }
+  console.log(data)
   return (
     <div>
       <h1>Movie detail...</h1>

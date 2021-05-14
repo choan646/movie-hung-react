@@ -58,7 +58,7 @@ function App() {
                   <Home />
                 </Route>
                 {/* Route chi tiet phim */}
-                <Route path="/movie/movieId">
+                <Route path="/movie/:movieId">
                   <Movie />
                 </Route>
                 {/* Route tin-tuc */}
