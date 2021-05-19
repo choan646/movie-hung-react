@@ -1,0 +1,70 @@
+#ungDung {
+  margin-top: 70px;
+  background-repeat: repeat;
+  background-size: auto;
+  .content {
+    width: 74%;
+    margin: auto;
+    padding: 100px;
+    .content__left {
+      color: #fff;
+      margin-top: 40px;
+      h3 {
+        font-weight: 500;
+        font-size: 34px;
+        margin-bottom: 30px;
+        line-height: 55px;
+      }
+      .text__first {
+        font-size: 16px;
+      }
+      .link__app__button {
+        background-color: #fb4226;
+        border-radius: 5px;
+        color: #fff;
+        text-decoration: none;
+        padding: 10px 20px;
+        margin: 10px 0;
+        font-weight: 700;
+        font-size: 18px;
+        display: inline-block;
+      }
+      .text__end {
+        font-size: 15px;
+        a {
+          text-decoration: underline;
+          color: #fff;
+          display: inline-block;
+          margin: 10px 5px;
+        }
+      }
+    }
+    .content__right {
+        margin-left: 70px;
+        position: relative;
+        .vien__mobile{
+            width: 200px;
+            height: 400px;
+            overflow: hidden;
+        }
+        .screen__mobile{
+            position: absolute;
+            top: 10px;
+            left: 21px;
+            width: 188px;
+            img{
+                width: 188px;
+            height: 380px;
+            border-radius: 20px;
+            }
+        }
+        .slick-current{
+            border-radius: 20px;
+
+        }
+        .slick-prev,.slick-next{
+            display: none!important;
+        }
+    }
+  }
+}

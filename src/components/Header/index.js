@@ -44,10 +44,10 @@ export default function Header() {
                       <NavLink href="#lichChieu">Lịch Chiếu</NavLink>
                     </NavItem>
                     <NavItem>
-                      <NavLink href="#cumRap">Cụm Rạp</NavLink>
+                      <NavLink href="#cumRapBackNews">Cụm Rạp</NavLink>
                     </NavItem>
                     <NavItem>
-                      <NavLink href="#tinTuc">Tin Tức</NavLink>
+                      <NavLink href="#tintucBackNewNext">Tin Tức</NavLink>
                     </NavItem>
                     <NavItem>
                       <NavLink href="#ungDung">Ứng Dụng</NavLink>

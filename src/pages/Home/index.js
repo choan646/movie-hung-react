@@ -3,18 +3,20 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Slider from 'src/pages/Home/Slider'
 import BackNews from "src/pages/Home/BackNews";
+import BackNewNext from "./BackNewNext";
+import UngDung from "./UngDung";
 
 export default function Home() {
   return (
     <div>
       <Slider></Slider>
+      <Link to="/checkout/:movieId">Test Check out</Link>
      <ListMovies></ListMovies>
      <BackNews></BackNews>
       <div id="cumRap" style={{height:"300px", backgroundColor:"yellow"}}>cum rap</div>
-      <BackNews></BackNews>
+      <BackNewNext></BackNewNext>
       <div id="tinTuc" style={{height:"300px", backgroundColor:"green"}}>tintuc</div>
-      <div id="ungDung" style={{height:"300px", backgroundColor:"purple"}}>ung dung</div>
-      <Link to="/checkout/:movieId">Test Check out</Link>
+      <UngDung></UngDung>
     </div>
   );
 }
