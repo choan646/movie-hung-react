@@ -15,9 +15,12 @@ const Movie = lazy(() => import("./pages/Movie"));
 const News = lazy(() => import("./pages/News"));
 const Cinemas =lazy(() => import("./pages/Cinemas"))
 const Checkout = lazy(() => import("./pages/Checkout"));
-const AdminMovies = lazy(() => import("./pages/AdminMovies"));
-const AdminUsers = lazy(() => import("./pages/AdminUsers"));
+const AdminHome = lazy(() => import("./pages/Admin/AdminHome"));
+const AdminMovies = lazy(() => import("./pages/Admin/AdminMovies"));
+const AdminUsers = lazy(() => import("./pages/Admin/AdminUsers"));
+const AdminCinemas = lazy(() => import("./pages/Admin/AdminCinemas"));
 const LoginPage = lazy(() => import("./pages/LoginPage"));
+const Register = lazy(() => import("./pages/RegisterPage"));
 
 //Component App
 function App() {
@@ -29,12 +32,18 @@ function App() {
           <Route path="/admin">
             <AdminLayout>
               <Switch>
-                <Redirect exact from="/admin" to="/admin/movies" />
+                <Redirect exact from="/admin" to="/admin/home" />
+                <AdminRoute path="/admin/home">
+                  <AdminHome />
+                </AdminRoute>
                 <AdminRoute path="/admin/movies">
                   <AdminMovies />
                 </AdminRoute>
                 <AdminRoute path="/admin/users">
                   <AdminUsers />
+                </AdminRoute>
+                <AdminRoute path="/admin/cinemas">
+                  <AdminCinemas />
                 </AdminRoute>
               </Switch>
             </AdminLayout>
@@ -43,6 +52,9 @@ function App() {
           {/* Route Login */}
           <Route path="/login">
             <LoginPage />
+          </Route>
+          <Route path="/register">
+            <Register/>
           </Route>
 
           {/* Route Checkout */}

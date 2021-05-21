@@ -14,7 +14,14 @@ import './Layouts/_footer.scss';
 import './Layouts/_slider.scss';
 import './Layouts/_listMovies.scss';
 import './Layouts/_ungDung.scss';
+import './Layouts/_login.scss';
+import './Layouts/_register.scss';
 
 
+//ADMIN
+import './Layouts/_admin.scss';
+
+
+//RESPONSIVE
 import './Layouts/_responsive.scss';
 

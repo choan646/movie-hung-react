@@ -9,16 +9,20 @@ import {
   Nav,
   NavItem,
   NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
 } from "reactstrap";
+import { useSelector, useDispatch } from "react-redux";
 
 export default function Header() {
+  // const dispatch = useDispatch();
+
   const [isOpen, setIsOpen] = useState(false);
+  const { userInfo, isLoading, error } = useSelector((state) => state.auth);
+  // console.log(userInfo.hoTen);
+
+  
 
   const toggle = () => setIsOpen(!isOpen);
+
   return (
     <div id="header">
       <Navbar expand="md">
@@ -54,25 +58,18 @@ export default function Header() {
                     </NavItem>
                   </Col>
                   <Col lg={5}>
-                    <NavItem className="navRight">
+                    <NavItem className="navRight d-flex">
                       <NavLink>
-                        <Link to="/login" className="btnLogin">
-                          <img src="/img/avatar.png" alt="avatar"/>
-                          Đăng Nhập
+                      <Link to="/login" className="btnLogin">
+                          Đăng Nhập
+                        </Link> 
+                      </NavLink>
+                      <NavLink>
+                        <Link to="/register" className="btnRegister">
+                          Đăng Ký
                         </Link>
                       </NavLink>
                     </NavItem>
-                    {/* <UncontrolledDropdown nav inNavbar className="navRight">
-                      <DropdownToggle nav caret className="btnLocation">
-                        <img src="/img/location-header.png" alt="mark"/>
-                        Dia Chi
-                      </DropdownToggle>
-                      <DropdownMenu left>
-                        <DropdownItem>tphcm</DropdownItem>
-                        <DropdownItem>hanoi</DropdownItem>
-                        <DropdownItem>quangtri</DropdownItem>
-                      </DropdownMenu>
-                    </UncontrolledDropdown> */}
                   </Col>
                 </Nav>
               </Collapse>
