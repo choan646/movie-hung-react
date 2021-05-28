@@ -1,4 +1,3 @@
-import axios from "axios";
 import React from "react";
 import {
   GET_MOVIE_REQUEST,
@@ -12,8 +11,6 @@ export const getMovie = () => {
     dispatch({ type: GET_MOVIE_REQUEST });
     try {
       const { data } = await moviesAPI.getMovie();
-      // console.log(data) ok co ne
-      // console.log(data)
       dispatch({ type: GET_MOVIE_SUCCESS, payload: { data } });
     } catch (error) {
       dispatch({

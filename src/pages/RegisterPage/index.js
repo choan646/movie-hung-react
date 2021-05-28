@@ -4,7 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { Input, FormGroup, Label, Alert, Modal } from "reactstrap";
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Redirect,Link } from "react-router-dom";
 
 // Tạo schame validation
 const schema = yup.object().shape({
@@ -62,6 +62,9 @@ export default function Register() {
 //     }
 //     return <Redirect to="/" />;
 //   }
+if(userInfo){
+  return <Redirect to="/"/>
+}
 
   return (
     <div

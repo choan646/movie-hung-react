@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { Row, Col } from "reactstrap";
+import { Row, Col, Modal, ModalBody, ModalFooter, Button } from "reactstrap";
 import {
   Collapse,
   Navbar,
@@ -9,19 +9,30 @@ import {
   Nav,
   NavItem,
   NavLink,
+  Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
 } from "reactstrap";
 import { useSelector, useDispatch } from "react-redux";
+import { BoxArrowRight } from "react-bootstrap-icons";
 
 export default function Header() {
   // const dispatch = useDispatch();
-
+  const [modal, setModal] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const { userInfo, isLoading, error } = useSelector((state) => state.auth);
-  // console.log(userInfo.hoTen);
 
-  
+  const toggleNav = () => setIsOpen(!isOpen);
 
-  const toggle = () => setIsOpen(!isOpen);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const toggleDropdown = () => setDropdownOpen((prevState) => !prevState);
+
+  const resetLocalStorage = () => {
+    localStorage.clear();
+    window.location.reload(); //Tạm thời để như thế này, sau này k được reload
+  };
+  const toggleModal = () => setModal(!modal);
 
   return (
     <div id="header">
@@ -58,25 +69,67 @@ export default function Header() {
                     </NavItem>
                   </Col>
                   <Col lg={5}>
-                    <NavItem className="navRight d-flex">
-                      <NavLink>
-                      <Link to="/login" className="btnLogin">
-                          Đăng Nhập
-                        </Link> 
-                      </NavLink>
-                      <NavLink>
-                        <Link to="/register" className="btnRegister">
-                          Đăng Ký
-                        </Link>
-                      </NavLink>
-                    </NavItem>
+                    {userInfo ? (
+                      <NavItem>
+                        <Dropdown
+                          className="dropOptions navRight"
+                          isOpen={dropdownOpen}
+                          toggle={toggleDropdown}
+                        >
+                          <DropdownToggle caret>
+                            {userInfo.hoTen}
+                          </DropdownToggle>
+                          <DropdownMenu>
+                            <DropdownItem onClick={toggleModal}>
+                              Chỉnh Sửa Thông Tin
+                              <Modal
+                                id="modalInfo"
+                                isOpen={modal}
+                                toggle={toggleModal}
+                              >
+                                <ModalBody>
+                                  {/* FORM */}
+                                  abc
+                                </ModalBody>
+                                <ModalFooter>
+                                  <Button color="primary" onClick={toggleModal}>
+                                    Xác Nhận
+                                  </Button>
+                                  <Button color="danger" onClick={toggleModal}>
+                                    Thoát
+                                  </Button>
+                                </ModalFooter>
+                              </Modal>
+                            </DropdownItem>
+                            <DropdownItem divider />
+                            <DropdownItem onClick={() => resetLocalStorage()}>
+                              Đăng Xuất
+                              <BoxArrowRight style={{ marginLeft: "30px" }} />
+                            </DropdownItem>
+                          </DropdownMenu>
+                        </Dropdown>
+                      </NavItem>
+                    ) : (
+                      <NavItem className="navRight d-flex">
+                        <NavLink>
+                          <Link to="/login" className="btnLogin">
+                            Đăng Nhập
+                          </Link>
+                        </NavLink>
+                        <NavLink>
+                          <Link to="/register" className="btnRegister">
+                            Đăng Ký
+                          </Link>
+                        </NavLink>
+                      </NavItem>
+                    )}
                   </Col>
                 </Nav>
               </Collapse>
             </Row>
           </Col>
           <Col lg={12}>
-            <NavbarToggler onClick={toggle} />
+            <NavbarToggler onClick={toggleNav} />
           </Col>
         </Row>
       </Navbar>

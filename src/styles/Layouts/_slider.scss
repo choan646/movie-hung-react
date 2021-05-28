@@ -1,40 +1,63 @@
-.carousel{
-    padding-top: 60px;
-    .carousel-inner{  
-        .carousel-item{
-            width: 100%;
-            height: 640px;
-            img{
-                width: 100%;
-                height:100%;
-            }
-        }
+.carousel {
+  padding-top: 60px;
+  position: relative;
+  .carousel-inner {
+    .carousel-item {
+      width: 100%;
+      height: 640px;
+      img {
+        width: 100%;
+        height: 100%;
+      }
     }
-    .carousel-indicators{
-        li{
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background-color:#C5C5C5;
-            margin: 0 5px;
-            margin-bottom: 70px;
-        }
-        .active{
-            background-color: #fb4226;
-        }
+  }
+  .carousel-indicators {
+    li {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: #c5c5c5;
+      margin: 0 5px;
+      margin-bottom: 70px;
     }
-    .carousel-control-prev{
-        left: 0;
-        .carousel-control-prev-icon{
-            width: 30px;
-            height: 30px;
-        }
+    .active {
+      background-color: #fb4226;
     }
-    .carousel-control-next{
-        right: 0;
-        .carousel-control-next-icon{
-            width: 30px;
-            height: 30px;
-        }
+  }
+  .carousel-control-prev {
+    left: 0;
+    .carousel-control-prev-icon {
+      width: 30px;
+      height: 30px;
     }
+  }
+  .carousel-control-next {
+    right: 0;
+    .carousel-control-next-icon {
+      width: 30px;
+      height: 30px;
+    }
+  }
+  .slider__iconPlayTrailer {
+    position: absolute;
+    color: #c5c5c5;
+    top: 40%;
+    left: 47%;
+    transition: all 0.3s;
+    padding: 0;
+    &:hover {
+      cursor: pointer;
+      color: #fb4226 !important;
+      opacity: 0.7;
+    }
+  }
+  &:hover {
+    .slider__iconPlayTrailer {
+      color: #fff;
+    }
+  }
+}
+.modalTrailler {
+  margin-left: 333px;
+  margin-top: 120px;
 }

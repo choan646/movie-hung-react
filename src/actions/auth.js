@@ -23,22 +23,22 @@ export function login(values) {
     }
   };
 }
-export function register(values) {
-  return async (dispatch) => {
-    dispatch({ type: REGISTER_REQUEST });
-    try {
-      const { data } = await authAPI.register(values);
+// export function register(values) {
+//   return async (dispatch) => {
+//     dispatch({ type: REGISTER_REQUEST });
+//     try {
+//       const { data } = await authAPI.register(values);
 
-      //Lưu thông tin xuống localStorage để giữ trạng thái đăng nhập khi user tắt trang web hoặc refresh
-      localStorage.setItem("userInfo", JSON.stringify(data));
-      //JSON.stringify(data) chuyển obj thành chuỗi
+//       //Lưu thông tin xuống localStorage để giữ trạng thái đăng nhập khi user tắt trang web hoặc refresh
+//       localStorage.setItem("userInfo", JSON.stringify(data));
+//       //JSON.stringify(data) chuyển obj thành chuỗi
 
-      dispatch({ type: REGISTER_SUCCESS, payload: { data } });
-    } catch (error) {
-      dispatch({
-        type: REGISTER_FAILURE,
-        payload: { error: error.response.data },
-      });
-    }
-  };
-}
+//       dispatch({ type: REGISTER_SUCCESS, payload: { data } });
+//     } catch (error) {
+//       dispatch({
+//         type: REGISTER_FAILURE,
+//         payload: { error: error.response.data },
+//       });
+//     }
+//   };
+// }

@@ -31,36 +31,43 @@
         }
       }
       .navRight {
+        margin-left: 30px;
           .btnLogin,.btnRegister{
-            margin-left: 30px;
+            margin-left: 20px;
             color: #9b9b9b;
             font-size:14px;
             display: inline-block;
             &:hover {
-                color: #9b9b9b!important;
+                color: #000!important;
             }
           }
           .btnLogin{
               border-right: 1px solid #9b9b9b;
-              padding-right: 50px;
+              padding-right: 30px;
               
           }
-          .btnRegister{
-            margin-top: 2px;
+      }
+      .dropOptions{
+        margin-left: 150px!important;
+        .dropdown-toggle {
+          background-color: #fff;
+          color: #9b9b9b;
+          &::after{
+            margin-left: 20px
           }
-          .dropdown-menu{
-            .dropdown-item{
-              font-size: 14px;
-              &:hover{
-                  background-color: #60c5ef;
-                  transition: all 0.3s;
-              } 
-            }
-          }
+        }
+        .dropdown-menu {
+          font-size: 13px;
+        }
       }
     }
   }
 }
 #header .navbar .row ul li a{
   text-align: right!important;
+}
+#modalInfo{
+  .modal-content {
+    background-color: #fff!important;
+  }
 }

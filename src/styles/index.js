@@ -16,6 +16,8 @@ import './Layouts/_listMovies.scss';
 import './Layouts/_ungDung.scss';
 import './Layouts/_login.scss';
 import './Layouts/_register.scss';
+import './Layouts/_detailMovie.scss';
+
 
 
 //ADMIN

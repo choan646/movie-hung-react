@@ -11,6 +11,7 @@ import {
 import classnames from "classnames";
 import DangChieu from "src/pages/Home/DangChieu";
 import SapChieu from "src/pages/Home/SapChieu";
+import BackNews from "src/pages/Home/BackNews";
 
 
 export default function ListMovies() {
@@ -62,6 +63,7 @@ export default function ListMovies() {
           </Row>
         </TabPane>
       </TabContent>
+     <BackNews></BackNews>
     </div>
   );
 }

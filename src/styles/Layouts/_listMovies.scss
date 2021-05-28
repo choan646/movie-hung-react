@@ -12,7 +12,7 @@
         font-size: 20px;
         color: #000;
         margin-right: 10px;
-        transition: all 0.2s;
+        transition: font-size 0.2s;
         &:hover {
           cursor: pointer;
           font-size: 24px;
@@ -22,6 +22,70 @@
         color: #fa5238 !important;
         font-size: 24px;
         font-weight: bold;
+      }
+    }
+  }
+  .tab-content {
+    .card {
+      .card-header {
+        width: 100%;
+        height: 74%;
+        padding: 0;
+        position: relative;
+        img {
+          width: 100%;
+          height: 300px;
+        }
+        .card-icon {
+          position: absolute;
+          top: 0;
+          left: 0;
+          padding-top: 60%;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.394);
+          color: #fff;
+          display: none;
+          svg {
+            transition: all 0.2s;
+            font-weight: 100;
+            &:hover {
+              cursor: pointer!important;
+              color: #fa5238;
+              opacity: 0.8;
+            }
+          }
+        }
+        &:hover {
+          .card-icon {
+            display: block;
+          }
+        }
+      }
+      .card-body {
+        .card__button {
+          background-color: #fa5238;
+          padding: 7px;
+          width: 100%;
+          margin: 10px 0;
+          border: none;
+          border-radius: 5px;
+          display: none;
+          a {
+            color: #fff;
+            text-decoration: none;
+          }
+        }
+        &:hover {
+          h6,
+          p {
+            display: none;
+          cursor: pointer;
+          }
+          .card__button {
+            display: block;
+          }
+        }
       }
     }
   }

@@ -59,7 +59,7 @@ export default function LoginPage() {
         backgroundPosition: "center",
       }}
     >
-      <Modal isOpen>
+      <Modal className="form__login__content" isOpen>
         <form className="form__login" onSubmit={handleSubmit(handleLogin)}>
           <div className="logo__login">
             <Link to="/">
