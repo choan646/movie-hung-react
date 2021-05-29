@@ -56,7 +56,9 @@ export default function Header() {
                 <Nav navbar>
                   <Col lg={7} className="d-flex">
                     <NavItem>
-                      <NavLink href="#lichChieu">Lịch Chiếu</NavLink>
+                      <NavLink href="#lichChieu">
+                      Lịch Chiếu
+                      </NavLink>
                     </NavItem>
                     <NavItem>
                       <NavLink href="#cumRapBackNews">Cụm Rạp</NavLink>

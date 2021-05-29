@@ -8,7 +8,6 @@ import {
   CardText,
   CardBody,
   CardTitle,
-  Button,
   Modal,
 } from "reactstrap";
 import * as Icon from "react-bootstrap-icons";

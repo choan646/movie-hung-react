@@ -1,30 +1,42 @@
 -danh sách việc làm ở home: slider bự chạy video nhưng bị cái vòng lặp sinh ra 3 cái video chồng lên nhau, cái video cuối nằm trên cùng nên luôn luôn có nó
-			    thêm nút click, hover hình play để trailer từ link ở swagger
-			    thêm nút button với sự kiện onclick qua trang chi tiết bộ phim đó, sử dụng querry param lấy id phim, 
+			    
+			   
 			
 			    thanh lọc ngay dưới slider bự của trang
+
 			    nút đăng nhập, đăng ký : khi đăng nhập thì hiện tên người đã đăng nhập và mất đi nút đăng ký.Cùng lúc đó cho xổ ra nút đăng xuất(vào localstorge 
 				xóa info đi là được), đổi thông tin
 				nút đăng xuất phải render lại header
+
 			    làm mượt các nút ở thanh navbar lúc trượt xuống, làm thêm nút back-to-top nếu scroll xuống
+
 			    Phần filter theo rạp: ...chưa nghĩ ra
+
 			    Phần tin tức: thanh nav sẽ sử dụng tab
 					  có các nút bấm like tăng số like, bấm thêm lần nữa giảm like và màu sẽ thay đổi dựa theo đó (nút bình luận bỏ k cần làm)
 					  các item thì chia thành 2 hàng: hàng 1 6-6 hàng 2 4-4-4, ở hàng 2 có item cuối 12-12-12-12
 					 tạm thời bây giờ ý tưởng của nút xem thêm là: tăng height(tự xử lý thêm nếu gặp vấn đề)
+
+
 			    phần dưới xong hết rồi
 -trang chi tiết tin tức, thì không cần làm cũng được nếu k đủ thời gian
+
 -trang rạp chiếu : (được click vào ở nút chi tiết trong phần filter rạp của trang home)
+
 		dùng tab phân ra 2 cái(lịch chiếu, thông tin rạp) là ok
+
 		phần lịch chiếu cũng làm như filter
--trang chi tiết phim: cũng có cái chạy trailer
-		      không chia 2 phần, chỉ cần show ra được thông tin của phim là được
+
+-trang chi tiết phim: Lúc nhấp trên thanh NAV của header thì cũng phải về lại được các component của trang home
+
 -trang login: làm thêm về phần vallidation
+
 -trang register: chưa submit được form, vallidation chưa có nhiều, bắt được là đã login k vào được trang register nữa
 		 register xong thì submit form đưa thông tin lên ( có thể làm được thì lấy form đó đăng nhập luôn), còn dễ nhất thì nhảy sang lại trang login xong để người dùng bấm đăng
 			nhập
 		 ...
 -trang checkout: hiện tại chưa có lịch nên không có ý tưởng, nhưng mà trang này để chọn ghế, sau khi đã chọn được phim-> rạp phim->lịch chiếu(ngày và buổi)
 		Thanh toán...
+
 -Trang admin: chưa làm được gì :((
 					  
