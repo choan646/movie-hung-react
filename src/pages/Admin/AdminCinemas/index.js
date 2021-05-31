@@ -4,6 +4,15 @@ export default function AdminCinemas() {
     return (
         <div>
             <h1>Quản Lý Lịch Chiếu</h1>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <h1 style={{textAlign:"center", color:"darkblue"}}>Cố Gắng Lên</h1>
         </div>
     )
 }

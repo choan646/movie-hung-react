@@ -13,7 +13,7 @@ import AdminRoute from "./auth/AdminRoute";
 const Home = lazy(() => import("./pages/Home"));
 const Movie = lazy(() => import("./pages/Movie"));
 const News = lazy(() => import("./pages/News"));
-const Cinemas =lazy(() => import("./pages/Cinemas"))
+const Cinemas = lazy(() => import("./pages/Cinemas"));
 const Checkout = lazy(() => import("./pages/Checkout"));
 const AdminHome = lazy(() => import("./pages/Admin/AdminHome"));
 const AdminMovies = lazy(() => import("./pages/Admin/AdminMovies"));
@@ -54,7 +54,7 @@ function App() {
             <LoginPage />
           </Route>
           <Route path="/register">
-            <Register/>
+            <Register />
           </Route>
 
           {/* Route Checkout */}
