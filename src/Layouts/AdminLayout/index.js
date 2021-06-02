@@ -1,26 +1,29 @@
 import React, { useState } from "react";
-import { Redirect, Link } from "react-router-dom";
+import { Redirect, Link, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
+
 import {
   ButtonDropdown,
   DropdownItem,
   DropdownMenu,
   DropdownToggle,
 } from "reactstrap";
+import qs from "qs";
 
 export default function AdminLayout({ children }) {
-  const { userInfo } = useSelector((state) => state.auth);
+  const { userInfo, isLoading, error } = useSelector((state) => state.auth);
   const [dropdownOpen, setOpen] = useState(false);
   const toggleLogout = () => setOpen(!dropdownOpen);
+  const location = useLocation();
 
   const handleLogout = () => {
     localStorage.clear();
     // window.location.reload();
-    
-  }
+  };
   if (!userInfo) {
-    return <Redirect to="/login" />;
+    return <Redirect to="/login" />;   
   }
+
   const nameAdmin = userInfo.hoTen;
   return (
     <div id="admin">
@@ -37,7 +40,9 @@ export default function AdminLayout({ children }) {
             {/* <img src="/img/dropdown-icon.png" alt="dropdown" /> */}
           </DropdownToggle>
           <DropdownMenu>
-            <DropdownItem onClick={()=>handleLogout()}>Đăng Xuất</DropdownItem>
+            <DropdownItem onClick={() => handleLogout()}>
+              Đăng Xuất
+            </DropdownItem>
           </DropdownMenu>
         </ButtonDropdown>
       </div>

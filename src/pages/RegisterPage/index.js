@@ -1,70 +1,65 @@
 import React from "react";
-import { useForm, Controller } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
-import { Input, FormGroup, Label, Alert, Modal } from "reactstrap";
+import { FormGroup, Label, Alert, Modal, Button } from "reactstrap";
 import { useSelector, useDispatch } from "react-redux";
-import { Redirect,Link } from "react-router-dom";
+import { Redirect,useLocation, Link } from "react-router-dom";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as yup from "yup";
+import { register } from "src/actions/auth";
+import qs from "qs";
+
 
 // Tạo schame validation
-const schema = yup.object().shape({
+const signUpUserSchema = yup.object().shape({
   taiKhoan: yup
     .string()
     .required("Tài khoản không được để trống")
-    .min(3, "Tài khoản phải từ 3 đến 20 kí tự")
-    .max(20, "Tài khoản phải từ 5 đến 20 kí tự"),
+    .min(3, "Tài khoản phải từ 3 ký tự trở lên")
+    .max(20, "Tài khoản tối đa 20 ký tự"),
   matKhau: yup
     .string()
     .required("Mật khẩu không được để trống")
-    .min(3, "Tài khoản phải từ 3 đến 20 kí tự")
-    .max(20, "Tài khoản phải từ 5 đến 20 kí tự"),
-    email: yup
+    .min(3, "Mật khẩu phải từ 3 ký tự trở lên")
+    .max(20, "Mật khẩu tối đa 20 ký tự"),
+  email: yup
     .string()
     .required("Email không được để trống")
-    .min(3, "Email phải từ 3 đến 20 kí tự")
-    .max(20, "Email phải từ 5 đến 40 kí tự"),
-    soDt: yup
+    .min(3, "Email phải từ 3 ký tự trở lên")
+    .max(40, "Email tối đa 40 ký tự")
+    .email("Email không đúng cú pháp"),
+  soDt: yup
     .string()
+    .matches(/^[0-9]+$/)
     .required("Số điện thoại không được để trống")
-    .min(3, "Số điện thoại phải từ 3 đến 20 kí tự")
-    .max(20, "Số điện thoại phải từ 5 đến 20 kí tự"),
-    hoTen:yup
+    .min(3, "Số điện thoại 3 ký tự trở lên")
+    .max(20, "Số điện thoại tối đa 20 ký tự"),
+  hoTen: yup
     .string()
     .required("Họ Tên không được để trống")
-    .min(3, "Họ Tên phải từ 3 đến 20 kí tự")
-    .max(20, "Họ Tên phải từ 5 đến 20 kí tự"),
+    .min(3, "Họ Tên phải từ 3 ký tự trở lên")
+    .max(30, "Họ Tên tối đa 30 ký tự"),
 });
 
 export default function Register() {
-    const dispatch = useDispatch();
-    const { userInfo, isLoading, error } = useSelector((state) => state.auth);
-    
-  const {
-    register,
-    formState: { errors },
-    handleSubmit,
-    // sử dụng khi UI component không hỗ register
-    control,
-  } = useForm({
-    resolver: yupResolver(schema),
-  });
+  const dispatch = useDispatch();
+  const { userInfo, isLoading, error } = useSelector((state) => state.auth);
+  const location = useLocation();
+
 
   const handleRegister = (values) => {
     dispatch(register(values));
   };
-
-//   if (userInfo) {
-//     const { redirectTo } = qs.parse(location.search, {
-//       ignoreQueryPrefix: true,
-//     });
-//     if (redirectTo) {
-//       return <Redirect to={redirectTo} />;
-//     }
-//     return <Redirect to="/" />;
-//   }
-if(userInfo){
-  return <Redirect to="/"/>
-}
+  // if (userInfo) {
+  //   return <Redirect to="/" />;
+  // }
+  if (userInfo) {
+    const { redirectTo } = qs.parse(location.search, {
+      ignoreQueryPrefix: true,
+    });
+    if (redirectTo) {
+      return <Redirect to={redirectTo} />;
+    }
+    return <Redirect to="/" />;
+  }
 
   return (
     <div
@@ -75,140 +70,125 @@ if(userInfo){
       }}
     >
       <Modal className="form__register__content" isOpen>
-        <form className="form__register" onSubmit={handleSubmit(handleRegister)}>
-          <div className="logo__register">
-            <Link to="/">
-              <img
-                className="webLogo"
-                styleLogo
-                src="/img/group@2x.png"
-                alt="logo"
-              />
-            </Link>
-          </div>
-          <div className="content__register">
-            <h1>Đăng Ký Tài Khoản</h1>
-          </div>
-          <div className="row">
-            <div className="col-md-6">
-              <FormGroup>
-                <Label>Tài Khoản</Label>
-                <Controller
-                  name="taiKhoan"
-                  control={control}
-                  defaultValue=""
-                  rules={{
-                    required: {
-                      value: true,
-                      message: "Tài khoản không được để trống",
-                    },
-                  }}
-                  render={({ field }) => {
-                    return <Input type="text" {...field} />;
-                  }}
-                />
-                {errors.taiKhoan && (
-                  <Alert color="danger">{errors.taiKhoan.message}</Alert>
-                )}
-              </FormGroup>
-            </div>
-            <div className="col-md-6">
-              <FormGroup>
-                <Label>Mật Khẩu</Label>
-                <Controller
-                  name="matKhau"
-                  control={control}
-                  defaultValue=""
-                  rules={{
-                    required: {
-                      value: true,
-                      message: "Mật khẩu không được để trống",
-                    },
-                  }}
-                  render={({ field }) => {
-                    return <Input type="password" {...field} />;
-                  }}
-                />
-                {errors.matKhau && (
-                  <Alert color="danger">{errors.matKhau.message}</Alert>
-                )}
-              </FormGroup>
-            </div>
-            
-            <div className="col-md-6">
-              <FormGroup>
-                <Label>Họ Tên</Label>
-                <Controller
-                  name="hoTen"
-                  control={control}
-                  defaultValue=""
-                  rules={{
-                    required: {
-                      value: true,
-                      message: "Họ tên không được để trống",
-                    },
-                  }}
-                  render={({ field }) => {
-                    return <Input type="text" {...field} />;
-                  }}
-                />
-                {errors.hoTen && (
-                  <Alert color="danger">{errors.hoTen.message}</Alert>
-                )}
-              </FormGroup>
-            </div>
-            <div className="col-md-6">
-              <FormGroup>
-                <Label>Số Điện Thoại</Label>
-                <Controller
-                  name="soDt"
-                  control={control}
-                  defaultValue=""
-                  rules={{
-                    required: {
-                      value: true,
-                      message: "Số điện thoại không được để trống",
-                    },
-                  }}
-                  render={({ field }) => {
-                    return <Input type="text" {...field} />;
-                  }}
-                />
-                {errors.soDt && (
-                  <Alert color="danger">{errors.soDt.message}</Alert>
-                )}
-              </FormGroup>
-            </div>
-            <div className="col-md-12">
-              <FormGroup>
-                <Label>Email</Label>
-                <Controller
-                  name="email"
-                  control={control}
-                  defaultValue=""
-                  rules={{
-                    required: {
-                      value: true,
-                      message: "Email không được để trống",
-                    },
-                  }}
-                  render={({ field }) => {
-                    return <Input type="text" {...field} />;
-                  }}
-                />
-                {errors.email && (
-                  <Alert color="danger">{errors.email.message}</Alert>
-                )}
-              </FormGroup>
-            </div>
-          </div>
+        <Formik
+          initialValues={{
+            taiKhoan: "",
+            hoTen: "",
+            matKhau: "",
+            email: "",
+            soDt: "",
+            maNhom: "GP11",
+            maLoaiNguoiDung: "KhachHang",
+          }}
+          validationSchema={signUpUserSchema}
+          onSubmit={handleRegister}
+          render={(formikProps) => (
+            <Form className="form__register">
+              <div className="logo__register">
+                <Link to="/">
+                  <img
+                    className="webLogo"
+                    styleLogo
+                    src="/img/group@2x.png"
+                    alt="logo"
+                  />
+                </Link>
+              </div>
+              <div className="content__register">
+                <h1>Đăng Ký Tài Khoản</h1>
+              </div>
+              <div className="row form__register__detail">
+                <FormGroup className="col-6">
+                  <Label>Tài Khoản </Label>
+                  <Field
+                    type="text"
+                    className="form-control"
+                    name="taiKhoan"
+                    onChange={formikProps.handleChange}
+                  />
+                  <ErrorMessage name="taiKhoan">
+                    {(msg) => <Alert color="danger">{msg}</Alert>}
+                  </ErrorMessage>
+                </FormGroup>
+                <FormGroup className="col-6">
+                  <Label>Mật Khẩu </Label>
+                  <Field
+                    type="password"
+                    className="form-control"
+                    name="matKhau"
+                    onChange={formikProps.handleChange}
+                  />
+                  <ErrorMessage name="matKhau">
+                    {(msg) => <Alert color="danger">{msg}</Alert>}
+                  </ErrorMessage>
+                </FormGroup>
+                <FormGroup className="col-6">
+                  <Label>Họ Tên </Label>
+                  <Field
+                    type="text"
+                    className="form-control"
+                    name="hoTen"
+                    onChange={formikProps.handleChange}
+                  />
+                  <ErrorMessage name="hoTen">
+                    {(msg) => <Alert color="danger">{msg}</Alert>}
+                  </ErrorMessage>
+                </FormGroup>
 
-          {error && <Alert color="danger">{error}</Alert>}
-          <button className="btn btn-primary mt-3">Đăng Ký</button>
-          <Link to="/" className="back__home">
-            +
-          </Link>
-        </form>
+                <FormGroup className="col-6">
+                  <Label>Số Điện Thoại </Label>
+                  <Field
+                    type="text"
+                    className="form-control"
+                    name="soDt"
+                    onChange={formikProps.handleChange}
+                  />
+                  <ErrorMessage name="soDt">
+                    {(msg) => <Alert color="danger">{msg}</Alert>}
+                  </ErrorMessage>
+                </FormGroup>
+                <FormGroup className="col-6">
+                  <Label>Email </Label>
+                  <Field
+                    type="email"
+                    className="form-control"
+                    name="email"
+                    onChange={formikProps.handleChange}
+                  />
+                  <ErrorMessage name="email">
+                    {(msg) => <Alert color="danger">{msg}</Alert>}
+                  </ErrorMessage>
+                </FormGroup>
+
+                <FormGroup className="col-6">
+                  <Label>Mã Nhóm </Label>
+                  <Field
+                    type="text"
+                    className="form-control"
+                    disabled
+                    value="GP11"
+                    name="maNhom"
+                  />
+                </FormGroup>
+                <FormGroup className="col-6" hidden>
+                  <Label>abc</Label>
+                  <Field
+                    type="text"
+                    className="form-control"
+                    value="KhachHang"
+                    name="maLoaiNguoiDung"
+                  />
+                </FormGroup>
+              </div>
+              <div className="button__submitForm">
+                <button className="btn btn-primary">Đăng Ký </button>
+              </div>
+              <Link to="/" className="back__home">
+                +
+              </Link>
+            </Form>
+          )}
+        />
       </Modal>
     </div>
   );

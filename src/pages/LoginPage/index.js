@@ -13,13 +13,13 @@ const schema = yup.object().shape({
   taiKhoan: yup
     .string()
     .required("Tài khoản không được để trống")
-    .min(3, "Tài khoản phải từ 3 đến 20 kí tự")
-    .max(20, "Tài khoản phải từ 5 đến 20 kí tự"),
+    .min(3, "Tài khoản phải từ 3 ký tự trở lên")
+    .max(20, "Tài khoản tối đa 20 ký tự"),
   matKhau: yup
     .string()
     .required("Mật khẩu không được để trống")
-    .min(3, "Tài khoản phải từ 3 đến 20 kí tự")
-    .max(20, "Tài khoản phải từ 5 đến 20 kí tự"),
+    .min(3, "Mật khẩu phải từ 3 ký tự trở lên")
+    .max(20, "Mật khẩu tối đa 20 ký tự"),
 });
 
 export default function LoginPage() {
@@ -28,7 +28,7 @@ export default function LoginPage() {
   const location = useLocation();
 
   const {
-    register,
+    // register,
     formState: { errors },
     handleSubmit,
     // sử dụng khi UI component không hỗ register
@@ -40,6 +40,7 @@ export default function LoginPage() {
   const handleLogin = (values) => {
     dispatch(login(values));
   };
+  
   if (userInfo) {
     const { redirectTo } = qs.parse(location.search, {
       ignoreQueryPrefix: true,
@@ -135,7 +136,7 @@ export default function LoginPage() {
             <button className="btn btn-success">Đăng Nhập</button>
           </div>
           <div className="row link__register">
-            <Link to="/register">Đăng Ký Tài Khoản</Link>
+            <Link to="/register"><b>Đăng Ký Tài Khoản</b></Link>
           </div>
           <Link to="/" className="back__home">
             +

@@ -1,6 +1,9 @@
+import { parse } from "qs";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import {Table, Button, Modal,FormGroup, ModalBody, ModalFooter } from 'reactstrap';
+import {Table, Button, Modal,FormGroup, ModalBody, ModalFooter, Label, Input } from 'reactstrap';
+import qs from "qs";
+
 
 export default function AdminHome() {
     const [modal, setModal] = useState(false);
@@ -8,7 +11,6 @@ export default function AdminHome() {
   const toggle = () => setModal(!modal);
   
   const { userInfo } = useSelector((state) => state.auth);
-  console.log(userInfo);
   return (
     <div className="infoAdmin">
       <h1>Thông Tin Tài Khoản</h1>
@@ -19,7 +21,7 @@ export default function AdminHome() {
             <td>{userInfo.taiKhoan}</td>
           </tr>
           <tr>
-            <th>Tên Admin</th>
+            <th>Họ Tên Admin</th>
             <td>{userInfo.hoTen}</td>
           </tr>
           <tr>
@@ -39,7 +41,38 @@ export default function AdminHome() {
           <Button color="primary" onClick={toggle}>Chỉnh sửa thông tin </Button>
           <Modal isOpen={modal} toggle={toggle} >
         <ModalBody>
-          <p>day chua lam logic va css</p>
+          <form>
+            <FormGroup>
+              <Label>
+                Tên Tài Khoản
+              </Label>
+              <Input type="text" placeholder={userInfo.taiKhoan}/>
+            </FormGroup>
+            <FormGroup>
+              <Label>
+                Họ Tên Admin
+              </Label>
+              <Input type="text" placeholder={userInfo.hoTen}/>
+            </FormGroup>
+            <FormGroup>
+              <Label>
+                Email
+              </Label>
+              <Input type="text" placeholder={userInfo.email}/>
+            </FormGroup>
+            <FormGroup>
+              <Label>
+                Số Điện Thoại
+              </Label>
+              <Input type="text" placeholder={userInfo.soDT}/>
+            </FormGroup>
+            <FormGroup disabled>
+              <Label>
+                Mã Nhóm 
+              </Label>
+              <Input disabled value={userInfo.maNhom}/>
+            </FormGroup>
+          </form>
         </ModalBody>
         <ModalFooter>
           <Button color="primary" onClick={toggle}>Do Something</Button>

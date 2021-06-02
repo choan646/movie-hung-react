@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Row, Col, Modal, ModalBody, ModalFooter, Button } from "reactstrap";
 import {
@@ -18,7 +18,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { BoxArrowRight } from "react-bootstrap-icons";
 
 export default function Header() {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const [modal, setModal] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const { userInfo, isLoading, error } = useSelector((state) => state.auth);
@@ -30,8 +30,9 @@ export default function Header() {
 
   const resetLocalStorage = () => {
     localStorage.clear();
-    window.location.reload(); //Tạm thời để như thế này, sau này k được reload
+    // window.location.reload(); //Tạm thời để như thế này, sau này k được reload
   };
+
   const toggleModal = () => setModal(!modal);
 
   return (
@@ -56,9 +57,7 @@ export default function Header() {
                 <Nav navbar>
                   <Col lg={7} className="d-flex">
                     <NavItem>
-                      <NavLink href="#lichChieu">
-                      Lịch Chiếu
-                      </NavLink>
+                      <NavLink href="#lichChieu">Lịch Chiếu</NavLink>
                     </NavItem>
                     <NavItem>
                       <NavLink href="#cumRapBackNews">Cụm Rạp</NavLink>
