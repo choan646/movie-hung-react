@@ -16,6 +16,7 @@ import {
 } from "reactstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { BoxArrowRight } from "react-bootstrap-icons";
+import { logout } from "src/actions/auth";
 
 export default function Header() {
   const dispatch = useDispatch();
@@ -28,9 +29,12 @@ export default function Header() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const toggleDropdown = () => setDropdownOpen((prevState) => !prevState);
 
-  const resetLocalStorage = () => {
-    localStorage.clear();
-    // window.location.reload(); //Tạm thời để như thế này, sau này k được reload
+  // const resetLocalStorage = () => {
+  //   localStorage.clear();
+  //   // window.location.reload(); //Tạm thời để như thế này, sau này k được reload
+  // };
+  const handleLogout = () => {    
+    dispatch(logout());
   };
 
   const toggleModal = () => setModal(!modal);
@@ -45,7 +49,7 @@ export default function Header() {
                 <img
                   className="webLogo"
                   styleLogo
-                  src="/img/web-logo.png"
+                  src="/img/logoAdc.png"
                   alt="logo"
                 />
               </Link>
@@ -103,7 +107,7 @@ export default function Header() {
                               </Modal>
                             </DropdownItem>
                             <DropdownItem divider />
-                            <DropdownItem onClick={() => resetLocalStorage()}>
+                            <DropdownItem onClick={() => handleLogout()}>
                               Đăng Xuất
                               <BoxArrowRight style={{ marginLeft: "30px" }} />
                             </DropdownItem>

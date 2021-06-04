@@ -1,25 +1,24 @@
--danh sách việc làm ở home: slider bự chạy video nhưng bị cái vòng lặp sinh ra 3 cái video chồng lên nhau, cái video cuối nằm trên cùng nên luôn luôn có nó
-			    
-			   
-			
-			    thanh lọc ngay dưới slider bự của trang
+-danh sách việc làm ở home: .slider bự chạy video nhưng bị cái vòng lặp sinh ra 3 cái video chồng lên nhau, cái video cuối nằm trên cùng nên luôn luôn có nó
 
-			    nút đăng nhập, đăng ký : khi đăng nhập thì hiện tên người đã đăng nhập và mất đi nút đăng ký.Cùng lúc đó cho xổ ra nút đăng xuất(vào localstorge 
-				xóa info đi là được), đổi thông tin
-				nút đăng xuất phải render lại header
+			    .thanh lọc ngay dưới slider bự của trang
 
-			    làm mượt các nút ở thanh navbar lúc trượt xuống, làm thêm nút back-to-top nếu scroll xuống
+			    .nút đăng nhập, đăng ký : đổi thông tin
 
-			    Phần filter theo rạp: ...chưa nghĩ ra
+			    .làm mượt các nút ở thanh navbar lúc trượt xuống, làm thêm nút back-to-top nếu scroll xuống
 
-			    Phần tin tức: thanh nav sẽ sử dụng tab
-					  có các nút bấm like tăng số like, bấm thêm lần nữa giảm like và màu sẽ thay đổi dựa theo đó (nút bình luận bỏ k cần làm)
-					  các item thì chia thành 2 hàng: hàng 1 6-6 hàng 2 4-4-4, ở hàng 2 có item cuối 12-12-12-12
-					 tạm thời bây giờ ý tưởng của nút xem thêm là: tăng height(tự xử lý thêm nếu gặp vấn đề)
+			    .Phần filter theo rạp: ...chưa nghĩ ra
+
+			    ===\                              SUY NGHĨ THÊM NẾU CÒN THỜI GIAN :
+			    ====\  có các nút bấm like tăng số like, bấm thêm lần nữa giảm like và màu sẽ thay đổi dựa theo đó (nút bình luận bỏ k cần làm)
+			    =====*  các item thì chia thành 2 hàng: hàng 1 6-6 hàng 2 4-4-4, ở hàng 2 có item cuối 12-12-12-12
+			    ====/	 tạm thời bây giờ ý tưởng của nút xem thêm là: tăng height(tự xử lý thêm nếu gặp vấn đề)
+			    ===/ 	Phần tin tức: thanh nav sẽ sử dụng tab
+						-trang chi tiết tin tức, thì không cần làm cũng được nếu k đủ thời gian
 
 
-			    phần dưới xong hết rồi
--trang chi tiết tin tức, thì không cần làm cũng được nếu k đủ thời gian
+			    phần dưới xong hết rồi, Responsive
+				--Phần Đặt vé tham khảo trong videologin
+
 
 -trang rạp chiếu : (được click vào ở nút chi tiết trong phần filter rạp của trang home)
 
@@ -31,12 +30,15 @@
 
 -trang login: làm thêm về phần vallidation
 
--trang register: chưa submit được form, vallidation chưa có nhiều, bắt được là đã login k vào được trang register nữa
-		 register xong thì submit form đưa thông tin lên ( có thể làm được thì lấy form đó đăng nhập luôn), còn dễ nhất thì nhảy sang lại trang login xong để người dùng bấm đăng
-			nhập
+				 
 		 ...
 -trang checkout: hiện tại chưa có lịch nên không có ý tưởng, nhưng mà trang này để chọn ghế, sau khi đã chọn được phim-> rạp phim->lịch chiếu(ngày và buổi)
 		Thanh toán...
 
--Trang admin: chưa làm được gì :((
+-Trang admin: Làm Lại Loayout khác cho đẹp, phần bên trái sidebar phải có nhảy ra nhảy vào, active lúc đang xem thì nó phải có màu khác biệt, góc phải trên chỉnh lại thêm icon vào các kiểu
+		sửa thông tin admin chưa được
+
+==Còn nhiều thứ về logic và cả ux-ui
+import sweetAlert react
+tách nhỏ các item đã làm /// sửa được listItem nhưng cái slider bự vẫn bị
 					  

@@ -2,20 +2,43 @@ import {
   GET_USER_REQUEST,
   GET_USER_SUCCESS,
   GET_USER_FAILURE,
+  UPDATE_USER_REQUEST,
+  UPDATE_USER_SUCCESS,
+  UPDATE_USER_FAILURE,
+  DELETE_USER_REQUEST,
+  DELETE_USER_SUCCESS,
+  DELETE_USER_FAILURE,
 } from "../constants/users";
 const initialState = {
-  data: [],
+  user: [],
   isLoading: false,
   error: null,
 };
 function userReducer(state = initialState, action) {
   switch (action.type) {
+    //GET_USER
     case GET_USER_REQUEST:
       return { ...state, isLoading: true, error: null };
 
     case GET_USER_SUCCESS:
-      return { ...state, data: action.payload.data, isLoading: false };
+      return { ...state, user: action.payload.data, isLoading: false };
     case GET_USER_FAILURE:
+      return { ...state, isLoading: false, error: action.payload.error };
+    //UPDATE_USER
+    case UPDATE_USER_REQUEST:
+      return { ...state, isLoading: true, error: null };
+
+    case UPDATE_USER_SUCCESS:
+      return { ...state, user: action.payload.data, isLoading: false };
+    case UPDATE_USER_FAILURE:
+      return { ...state, isLoading: false, error: action.payload.error };
+
+    //DELETE_USER_
+    case DELETE_USER_REQUEST:
+      return { ...state, isLoading: true, error: null };
+      case DELETE_USER_SUCCESS:
+      return { ...state, user: action.payload.data, isLoading: false };
+    case DELETE_USER_FAILURE:
       return { ...state, isLoading: false, error: action.payload.error };
     default:
       return state;

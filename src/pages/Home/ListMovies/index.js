@@ -9,8 +9,8 @@ import {
   Col,
 } from "reactstrap";
 import classnames from "classnames";
-import DangChieu from "src/pages/Home/DangChieu";
-import SapChieu from "src/pages/Home/SapChieu";
+import DangChieu from "./DangChieu";
+import SapChieu from "./SapChieu";
 import BackNews from "src/pages/Home/BackNews";
 
 
@@ -51,14 +51,14 @@ export default function ListMovies() {
         <TabPane tabId="dangChieu">
           <Row>
             <Col sm="12">
-              <DangChieu></DangChieu>
+              <DangChieu/>
             </Col>
           </Row>
         </TabPane>
         <TabPane tabId="sapChieu">
           <Row>
             <Col sm="12">
-              <SapChieu></SapChieu>
+              <SapChieu/>
             </Col>
           </Row>
         </TabPane>

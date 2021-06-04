@@ -17,6 +17,7 @@ axiosClient.interceptors.request.use(
       const {accessToken} = JSON.parse(userInfo)
       config.headers.Authorization = `Bearer ${accessToken}`;
     }
+
     return config;
   },
   (error) => {
@@ -34,6 +35,7 @@ axiosClient.interceptors.response.use(
   (error) => {
     if(error.status === 401){
       //Xu ly logout: clear localStorage, day nguoi dung ve trang login
+      console.log("Lỗi 401")
     }
     if(error.status === 500){
       //Xu ly thong bao cho nguoi dung dang co loi~ tu server

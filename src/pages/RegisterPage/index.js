@@ -1,12 +1,11 @@
 import React from "react";
-import { FormGroup, Label, Alert, Modal, Button } from "reactstrap";
+import { FormGroup, Label, Alert, Modal } from "reactstrap";
 import { useSelector, useDispatch } from "react-redux";
-import { Redirect,useLocation, Link } from "react-router-dom";
+import { Redirect, useLocation, Link } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from "yup";
 import { register } from "src/actions/auth";
-import qs from "qs";
-
+// import qs from "qs";
 
 // Tạo schame validation
 const signUpUserSchema = yup.object().shape({
@@ -42,22 +41,13 @@ const signUpUserSchema = yup.object().shape({
 export default function Register() {
   const dispatch = useDispatch();
   const { userInfo, isLoading, error } = useSelector((state) => state.auth);
-  const location = useLocation();
-
 
   const handleRegister = (values) => {
     dispatch(register(values));
   };
-  // if (userInfo) {
-  //   return <Redirect to="/" />;
-  // }
+
+
   if (userInfo) {
-    const { redirectTo } = qs.parse(location.search, {
-      ignoreQueryPrefix: true,
-    });
-    if (redirectTo) {
-      return <Redirect to={redirectTo} />;
-    }
     return <Redirect to="/" />;
   }
 
@@ -163,7 +153,6 @@ export default function Register() {
                 <FormGroup className="col-6">
                   <Label>Mã Nhóm </Label>
                   <Field
-                    type="text"
                     className="form-control"
                     disabled
                     value="GP11"
@@ -173,7 +162,6 @@ export default function Register() {
                 <FormGroup className="col-6" hidden>
                   <Label>abc</Label>
                   <Field
-                    type="text"
                     className="form-control"
                     value="KhachHang"
                     name="maLoaiNguoiDung"

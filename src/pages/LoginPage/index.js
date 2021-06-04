@@ -40,17 +40,19 @@ export default function LoginPage() {
   const handleLogin = (values) => {
     dispatch(login(values));
   };
-  
+
+  // Chưa hiểu lắm
   if (userInfo) {
-    const { redirectTo } = qs.parse(location.search, {
-      ignoreQueryPrefix: true,
-    });
-    if (redirectTo) {
-      return <Redirect to={redirectTo} />;
+    // const { redirectTo } = qs.parse(location.search, {
+    //   ignoreQueryPrefix: true,
+    // });
+    if (userInfo.maLoaiNguoiDung === "QuanTri") {
+      return <Redirect to="/admin" />;
     }
     return <Redirect to="/" />;
+    // console.log(userInfo)
   }
-
+  //
   return (
     <div
       id="login"
@@ -136,7 +138,9 @@ export default function LoginPage() {
             <button className="btn btn-success">Đăng Nhập</button>
           </div>
           <div className="row link__register">
-            <Link to="/register"><b>Đăng Ký Tài Khoản</b></Link>
+            <Link to="/register">
+              <b>Đăng Ký Tài Khoản</b>
+            </Link>
           </div>
           <Link to="/" className="back__home">
             +

@@ -1,4 +1,3 @@
-import React from "react";
 import {
   GET_MOVIE_REQUEST,
   GET_MOVIE_SUCCESS,
@@ -6,7 +5,7 @@ import {
 } from "../constants/movie";
 import moviesAPI from "../services/movieAPI";
 
-export const getMovie = () => {
+export function getMovie () {
   return async (dispatch) => {
     dispatch({ type: GET_MOVIE_REQUEST });
     try {

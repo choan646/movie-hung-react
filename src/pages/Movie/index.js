@@ -86,7 +86,7 @@ export default function Movie() {
                   width="900px"
                   height="468px"
                   frameborder="0"
-                ></iframe>
+                />
               </Modal>
             </div>
           </div>

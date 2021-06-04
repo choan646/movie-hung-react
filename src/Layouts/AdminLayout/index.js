@@ -1,34 +1,35 @@
 import React, { useState } from "react";
-import { Redirect, Link, useLocation } from "react-router-dom";
-import { useSelector } from "react-redux";
-
+import { Redirect, Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "src/actions/auth";
 import {
   ButtonDropdown,
   DropdownItem,
   DropdownMenu,
   DropdownToggle,
 } from "reactstrap";
-import qs from "qs";
 
 export default function AdminLayout({ children }) {
+  const dispatch = useDispatch();
+
   const { userInfo, isLoading, error } = useSelector((state) => state.auth);
   const [dropdownOpen, setOpen] = useState(false);
   const toggleLogout = () => setOpen(!dropdownOpen);
-  const location = useLocation();
 
-  const handleLogout = () => {
-    localStorage.clear();
-    // window.location.reload();
+  const handleLogout = () => {    
+    dispatch(logout());
   };
+
   if (!userInfo) {
-    return <Redirect to="/login" />;   
+    return <Redirect to="/login" />;
   }
 
   const nameAdmin = userInfo.hoTen;
   return (
     <div id="admin">
       <div className="d-flex title__admin">
-        <h2>Cybersoft</h2>
+        {/* <h2>Cybersoft</h2> */}
+        <img style={{width:"50px"}} src="/img/logoAdc.png" alt="logo" />
         {/* <h1>Chào Mừng Đến Trang ADMIN</h1> */}
         <ButtonDropdown
           className="account"
