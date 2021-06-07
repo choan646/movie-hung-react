@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getMovie } from "src/actions/movie";
-import { BoxLoading } from "react-loadingg";
+import { SemipolarLoading } from "react-loadingg";
 import { useParams } from "react-router-dom";
 import { PlayCircle } from "react-bootstrap-icons";
 import { Modal } from "reactstrap";
@@ -24,14 +24,13 @@ export default function Movie() {
   if (isLoading) {
     return (
       <div>
-        <BoxLoading />;
+        <SemipolarLoading color="#6B439B" />
       </div>
     );
   }
   if (error) {
     return <div>{error}</div>;
   }
-  // console.log(data)
   return (
     <>
       {movieSelected.map((itemTrue) => (

@@ -28,17 +28,16 @@
 
 -trang chi tiết phim: Lúc nhấp trên thanh NAV của header thì cũng phải về lại được các component của trang home
 
--trang login: làm thêm về phần vallidation
-
-				 
+-trang login: làm thêm về phần vallidation 
 		 ...
 -trang checkout: hiện tại chưa có lịch nên không có ý tưởng, nhưng mà trang này để chọn ghế, sau khi đã chọn được phim-> rạp phim->lịch chiếu(ngày và buổi)
 		Thanh toán...
 
--Trang admin: Làm Lại Loayout khác cho đẹp, phần bên trái sidebar phải có nhảy ra nhảy vào, active lúc đang xem thì nó phải có màu khác biệt, góc phải trên chỉnh lại thêm icon vào các kiểu
-		sửa thông tin admin chưa được
+-Trang admin: Phân trang tất cả dữ liệu (duoc user, ở user còn thêm máy cái modal nữa,sau mỗi lần xóa )
+		ở phần info sau mỗi lần sửa
+		sửa tiếp cái phân trang
 
 ==Còn nhiều thứ về logic và cả ux-ui
-import sweetAlert react
 tách nhỏ các item đã làm /// sửa được listItem nhưng cái slider bự vẫn bị
-					  
+
+

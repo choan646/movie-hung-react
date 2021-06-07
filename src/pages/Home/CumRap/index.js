@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import BackNews from "../BackNews";
-import { BoxLoading } from "react-loadingg";
+import { SemipolarLoading } from "react-loadingg";
 import { useDispatch, useSelector } from "react-redux";
 import { getCinemas,getCumRapByCinemas } from "src/actions/cinemas";
 import { Nav, NavItem, NavLink, TabContent, TabPane } from "reactstrap";
@@ -23,7 +23,7 @@ export default function CumRap() {
   if (isLoading) {
     return (
       <div>
-        <BoxLoading />;
+        <SemipolarLoading color="#6B439B" />;
       </div>
     );
   }

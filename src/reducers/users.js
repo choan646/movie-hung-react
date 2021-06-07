@@ -2,6 +2,9 @@ import {
   GET_USER_REQUEST,
   GET_USER_SUCCESS,
   GET_USER_FAILURE,
+  GET_USERBY_REQUEST,
+  GET_USERBY_SUCCESS,
+  GET_USERBY_FAILURE,
   UPDATE_USER_REQUEST,
   UPDATE_USER_SUCCESS,
   UPDATE_USER_FAILURE,
@@ -24,7 +27,17 @@ function userReducer(state = initialState, action) {
       return { ...state, user: action.payload.data, isLoading: false };
     case GET_USER_FAILURE:
       return { ...state, isLoading: false, error: action.payload.error };
-    //UPDATE_USER
+    
+      //GET_USERBY
+      case GET_USERBY_REQUEST:
+      return { ...state, isLoading: true, error: null };
+
+    case GET_USERBY_SUCCESS:
+      return { ...state, user: action.payload.data, isLoading: false };
+    case GET_USERBY_FAILURE:
+      return { ...state, isLoading: false, error: action.payload.error };
+
+      //UPDATE_USER
     case UPDATE_USER_REQUEST:
       return { ...state, isLoading: true, error: null };
 

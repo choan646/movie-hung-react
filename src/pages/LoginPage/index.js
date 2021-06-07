@@ -5,8 +5,7 @@ import * as yup from "yup";
 import { Input, FormGroup, Label, Alert, Modal } from "reactstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { login } from "../../actions/auth";
-import { Redirect, useLocation, Link } from "react-router-dom";
-import qs from "qs";
+import { Redirect, Link } from "react-router-dom";
 
 // Tạo schame validation
 const schema = yup.object().shape({
@@ -25,13 +24,10 @@ const schema = yup.object().shape({
 export default function LoginPage() {
   const dispatch = useDispatch();
   const { userInfo, isLoading, error } = useSelector((state) => state.auth);
-  const location = useLocation();
 
   const {
-    // register,
     formState: { errors },
     handleSubmit,
-    // sử dụng khi UI component không hỗ register
     control,
   } = useForm({
     resolver: yupResolver(schema),
@@ -41,18 +37,13 @@ export default function LoginPage() {
     dispatch(login(values));
   };
 
-  // Chưa hiểu lắm
   if (userInfo) {
-    // const { redirectTo } = qs.parse(location.search, {
-    //   ignoreQueryPrefix: true,
-    // });
     if (userInfo.maLoaiNguoiDung === "QuanTri") {
       return <Redirect to="/admin" />;
     }
     return <Redirect to="/" />;
-    // console.log(userInfo)
   }
-  //
+  
   return (
     <div
       id="login"

@@ -1,71 +1,104 @@
 import React, { useState } from "react";
-import { Redirect, Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { logout } from "src/actions/auth";
+import Aside from "./Aside";
 import {
-  ButtonDropdown,
+  Dropdown,
   DropdownItem,
   DropdownMenu,
   DropdownToggle,
 } from "reactstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { Redirect, Link } from "react-router-dom";
+import { logout } from "src/actions/auth";
+import { FaUserCircle } from "react-icons/fa";
+import { IoNotificationsOutline, IoSettingsOutline } from "react-icons/io5";
+import Switch from "react-switch";
+import Main from "./Main";
 
-export default function AdminLayout({ children }) {
+function Layout({ children }) {
   const dispatch = useDispatch();
 
-  const { userInfo, isLoading, error } = useSelector((state) => state.auth);
+  const [collapsed, setCollapsed] = useState(false);
+  const { userInfo } = useSelector((state) => state.auth);
+
   const [dropdownOpen, setOpen] = useState(false);
   const toggleLogout = () => setOpen(!dropdownOpen);
 
-  const handleLogout = () => {    
+  const handleCollapsedChange = (checked) => {
+    setCollapsed(checked);
+  };
+
+  const handleLogout = () => {
     dispatch(logout());
   };
 
   if (!userInfo) {
     return <Redirect to="/login" />;
   }
-
   const nameAdmin = userInfo.hoTen;
+  // const emailAdmin = userInfo.email;
   return (
-    <div id="admin">
-      <div className="d-flex title__admin">
-        {/* <h2>Cybersoft</h2> */}
-        <img style={{width:"50px"}} src="/img/logoAdc.png" alt="logo" />
-        {/* <h1>Chào Mừng Đến Trang ADMIN</h1> */}
-        <ButtonDropdown
-          className="account"
-          isOpen={dropdownOpen}
-          toggle={toggleLogout}
+    <div id="admin" className="admin">
+      <Aside
+        // email={emailAdmin}
+        collapsed={collapsed}
+        handleCollapsedChange={handleCollapsedChange}
+      />
+      <div className="admin__content__right">
+        <div
+          className="d-flex"
+          style={{
+            height: "60px",
+            padding: "0",
+            margin: "0",
+          }}
         >
-          <DropdownToggle caret>
-            {nameAdmin}
-            {/* <img src="/img/dropdown-icon.png" alt="dropdown" /> */}
-          </DropdownToggle>
-          <DropdownMenu>
-            <DropdownItem onClick={() => handleLogout()}>
-              Đăng Xuất
-            </DropdownItem>
-          </DropdownMenu>
-        </ButtonDropdown>
-      </div>
-      <div className="row admin__content">
-        <div className="col-md-2 content__left">
-          <ul>
-            <li>
-              <Link to="/admin/home">Thông Tin Tài Khoản</Link>
-            </li>
-            <li>
-              <Link to="/admin/movies">Quản Lý Phim</Link>
-            </li>
-            <li>
-              <Link to="/admin/users">Quản lý Người Dùng</Link>
-            </li>
-            <li>
-              <Link to="/admin/cinemas">Quản Lý Lịch Chiếu</Link>
-            </li>
-          </ul>
+          <div className="block button__collapse">
+            <Switch
+              height={20}
+              width={40}
+              checkedIcon={false}
+              uncheckedIcon={false}
+              onChange={handleCollapsedChange}
+              checked={collapsed}
+              onColor="#00C6DC"
+              offColor="#bbbbbb"
+              boxShadow="none"
+            />
+            <p style={{ marginLeft: "10px" }}>Collapsed</p>
+          </div>
+          <div className="info__admin__detail d-flex">
+            <div className="nameAdmin">
+              <Link to="/admin/info" className="d-flex">
+                <FaUserCircle />
+                {nameAdmin}
+              </Link>
+            </div>
+            <div className="notiAmin">
+            <Link to="/admin/home" className="d-flex">
+            <IoNotificationsOutline />
+            </Link>
+            </div>
+            <Dropdown
+              className="settingAdmin"
+              isOpen={dropdownOpen}
+              toggle={toggleLogout}
+            >
+              <DropdownToggle color="none">
+                <IoSettingsOutline />
+              </DropdownToggle>
+              <DropdownMenu right>
+                <DropdownItem onClick={() => handleLogout()}>
+                  Đăng Xuất
+                </DropdownItem>
+                <DropdownItem>Example more...</DropdownItem>
+              </DropdownMenu>
+            </Dropdown>
+          </div>
         </div>
-        <div className="col-md-9 content__right">{children}</div>
+        <Main content={children}/>
       </div>
     </div>
   );
 }
+
+export default Layout;

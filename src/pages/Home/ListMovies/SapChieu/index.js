@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { BoxLoading } from "react-loadingg";
+import { SemipolarLoading } from "react-loadingg";
 import { getMovie } from "src/actions/movie";
 import MovieCardList from "../movieCardList";
 
@@ -14,7 +14,7 @@ export default function SapChieu() {
   if (isLoading) {
     return (
       <div>
-        <BoxLoading />;
+        <SemipolarLoading color="#6B439B"/>
       </div>
     );
   }
