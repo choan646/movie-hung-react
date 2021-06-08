@@ -12,7 +12,20 @@ export function getMovie () {
       const { data } = await moviesAPI.getMovie();
       dispatch({ type: GET_MOVIE_SUCCESS, payload: { data } });
     } catch (error) {
-      console.log(error)
+      dispatch({
+        type: GET_MOVIE_FAILURE,
+        payload: { error: error.response.data},
+      });
+    }
+  };
+}
+export function getMoviePagination (currentPage) {
+  return async (dispatch) => {
+    dispatch({ type: GET_MOVIE_REQUEST });
+    try {
+      const { data } = await moviesAPI.getMoviePagination(currentPage);
+      dispatch({ type: GET_MOVIE_SUCCESS, payload: { data } });
+    } catch (error) {
       dispatch({
         type: GET_MOVIE_FAILURE,
         payload: { error: error.response.data},

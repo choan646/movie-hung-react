@@ -1,21 +1,26 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Button, Table } from "reactstrap";
-import { getMovie } from "src/actions/movie";
+import { Button, Pagination, PaginationItem } from "reactstrap";
+import { getMoviePagination } from "src/actions/movie";
 import { SemipolarLoading } from "react-loadingg";
+import { AiFillFolderAdd } from "react-icons/ai";
+import { Link, useParams } from "react-router-dom";
+import AdminMovieCardList from "./AdminMovieCardList";
+
 
 export default function AdminMovies() {
   const dispatch = useDispatch();
+  const { currentPage } = useParams();
   const { data, isLoading, error } = useSelector((state) => state.movie);
 
   useEffect(() => {
-    dispatch(getMovie());
-  }, []);
+    dispatch(getMoviePagination(currentPage));
+  }, [currentPage]);
 
   if (isLoading) {
     return (
       <div>
-        <SemipolarLoading  color="#6B439B"/>
+        <SemipolarLoading color="#6B439B" />
       </div>
     );
   }
@@ -24,71 +29,38 @@ export default function AdminMovies() {
   }
   return (
     <div className="movieAdmin">
-      <h1>Quản Lý Phim</h1>
+      <div className="movieAdmin__linkTo">
+        <p>Quản Lý Phim</p>
+      </div>
       <Button
         color="primary"
-        style={{ marginLeft: "80%", marginBottom: "30px" }}
+        className="movieAdmin__buttonAdd"
+        style={{ marginLeft: "83%", marginBottom: "30px", marginTop: "-55px" }}
       >
-        Thêm Phim{" "}
+        Thêm Phim <AiFillFolderAdd style={{ marginLeft: "10px" }} />
       </Button>
-      <Table hover>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Hình Ảnh</th>
-            <th>Thông Tin</th>
-            <th></th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.map((item) => (
-            <tr>
-              <td>{item.maPhim}</td>
-              <td>
-                <img
-                  width="170px"
-                  height="250px"
-                  src={item.hinhAnh}
-                  alt="hinhanh"
-                />
-              </td>
-              <td style={{ marginRight: "30px" }}>
-                <p>
-                  <b>Tên Phim : </b>
-                  {item.tenPhim}
-                </p>
-                <p>
-                  <b>Nội Dung : </b>
-                  {item.moTa}
-                </p>
-                <p>
-                  <b>Nhóm Phim : </b>
-                  {item.maNhom}
-                </p>
-                <p>
-                  <b>Ngày Khởi Chiếu : </b>
-                  {item.ngayKhoiChieu.substring(8, 10) +
-                    "/" +
-                    item.ngayKhoiChieu.substring(5, 7) +
-                    "/" +
-                    item.ngayKhoiChieu.substring(0, 4)}
-                </p>
-                <p>
-                  <b>Đánh Giá : </b>
-                  {item.danhGia} điểm
-                </p>
-              </td>
-              <td>
-                <Button color="secondary">Sửa</Button>
-              </td>
-              <td>
-                <Button color="danger">Xóa</Button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
+      <div className="movieAdmin__content">
+        <AdminMovieCardList data={data}/>
+        <div className="movieAdmin__pagination">
+          <Pagination>
+            <PaginationItem>
+              <Link to="/admin/movies/soTrang=1">1</Link>
+            </PaginationItem>
+            <PaginationItem>
+              <Link to="/admin/movies/soTrang=2">2</Link>
+            </PaginationItem>
+            <PaginationItem>
+              <Link to="/admin/movies/soTrang=3">3</Link>
+            </PaginationItem>
+            <PaginationItem>
+              <Link to="/admin/movies/soTrang=4">4</Link>
+            </PaginationItem>
+            <PaginationItem>
+              <Link to="/admin/movies/soTrang=5">5</Link>
+            </PaginationItem>
+          </Pagination>
+        </div>
+      </div>
     </div>
   );
 }

@@ -2,7 +2,7 @@
 
 			    .thanh lọc ngay dưới slider bự của trang
 
-			    .nút đăng nhập, đăng ký : đổi thông tin
+			    .nút đổi thông tin ở navbar
 
 			    .làm mượt các nút ở thanh navbar lúc trượt xuống, làm thêm nút back-to-top nếu scroll xuống
 
@@ -20,7 +20,7 @@
 				--Phần Đặt vé tham khảo trong videologin
 
 
--trang rạp chiếu : (được click vào ở nút chi tiết trong phần filter rạp của trang home)
+-trang rạp chiếu : (được click vào ở nút chi tiết trong phần filter rạp của trang home ==> phần này tham khảo của bạn hậu)
 
 		dùng tab phân ra 2 cái(lịch chiếu, thông tin rạp) là ok
 
@@ -34,8 +34,13 @@
 		Thanh toán...
 
 -Trang admin: Phân trang tất cả dữ liệu (duoc user, ở user còn thêm máy cái modal nữa,sau mỗi lần xóa )
-		ở phần info sau mỗi lần sửa
-		sửa tiếp cái phân trang
+		.ở phần info sau mỗi lần sửa
+		.sửa tiếp cái phân trang
+		.Phần Sửa cái movie xem thêm video upLoad hình
+		.AdminInfo sửa lại hết, k cần nút sửa thông tin nữa, rắc rối, thay vào đó chỉ cho sửa ở trang user, và thay đổi thông tin ở trang adminInfo khi mà đăng nhập lại,
+			tại vì userInfo là thông tin của admin đang đăng nhập được lưu trên localStorage, muốn sửa mà ảnh hưởng đến local thì xem lại sau
+		.xem thêm phần register cân nhắc thoát ra từ Angular
+		.Vấn đề về form submit ở user, bị chuyển lên link chứ k submit như bth
 
 ==Còn nhiều thứ về logic và cả ux-ui
 tách nhỏ các item đã làm /// sửa được listItem nhưng cái slider bự vẫn bị

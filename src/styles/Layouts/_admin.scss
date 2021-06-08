@@ -106,14 +106,14 @@
       }
     }
     .content__main {
-      .card {
+      #cardMain {
         width: 100%;
         background-image: linear-gradient(to left, #ffffff, #1d1d1d);
         border: none;
         border-radius: 0;
         position: relative;
 
-        .card-body {
+        #cardBodyMain {
           margin: 20px auto;
           width: 97%;
           height: 630px;
@@ -213,10 +213,24 @@
                 left: 40%;
                 .pagination {
                   .page-item {
+                    padding: 5px;
+                    border-radius:5px;
+                    margin-right: 5px;
+                    border: 1px solid #000;
+                    transition: all 0.2s;
                     a {
+                      width: 100%;
+                      padding: 7px;
                       color: #000;
-                      &:hover {
-                        background-color: #007bff;
+                      font-size: 13px;
+                      transition: all 0.2s;
+                      text-decoration: none;
+                    }
+                    &:hover {
+                      background-color: #007bff;
+                      border-color: #007bff;
+                      a{
+                        font-size: 16px;
                       }
                     }
                   }
@@ -234,6 +248,80 @@
               height: 30px;
               background-color: #fff;
               border-radius: 20px;
+            }
+            .movieAdmin__linkTo{
+              margin-left: 20px;
+              margin-top: 10px;
+              p {
+                font-size: 16px;
+              }
+            }
+            .movieAdmin__content{
+              width: 100%;
+              margin-top: 15px;
+              .movieAdmin__cardList{
+                width: 85%;
+                margin: auto;
+                .movieAdmin__cardItem{
+                  margin: 0 10px;
+                  border-radius: 5px;
+                  box-shadow: 5px 3px 10px grey;
+                  padding: 10px 0;
+                  .card-header,.card-footer{
+                    background-color: #fff;
+                    border:none;
+                  }
+                  .card-header{
+                    text-align: center;
+                    padding:0;
+                    img{
+                      width: 80%;
+                    }
+                  }
+                  .card-footer{
+                    text-align: center;
+                    padding: 10px 0;
+                    button {
+                      margin: 0 10px;
+                    }
+                  }
+                  .card-body{
+                    text-align: center;
+                    padding: 0;
+                    width: 80%;
+                    margin:10px auto;
+                  }
+                }
+              }
+              .movieAdmin__pagination{
+                position: absolute;
+                  bottom: 30px;
+                  left: 40%;
+                  .pagination {
+                    .page-item {
+                      padding: 5px;
+                      border-radius:5px;
+                      margin-right: 5px;
+                      border: 1px solid #000;
+                      transition: all 0.2s;
+                      a {
+                        width: 100%;
+                        padding: 7px;
+                        color: #000;
+                        font-size: 13px;
+                        transition: all 0.2s;
+                        text-decoration: none;
+                      }
+                      &:hover {
+                        background-color: #007bff;
+                        border-color: #007bff;
+                        a{
+                          font-size: 16px;
+                        }
+                      }
+                    }
+                  }
+              }
             }
           }
           .cinemaAdmin {

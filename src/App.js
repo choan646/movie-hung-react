@@ -44,10 +44,10 @@ function App() {
                 <AdminRoute path="/admin/info">
                   <AdminInfomation />
                 </AdminRoute>
-                <AdminRoute path="/admin/movies">
+                <AdminRoute path="/admin/movies/:currentPage">
                   <AdminMovies />
                 </AdminRoute>
-                <AdminRoute path="/admin/users/:currentPageId">
+                <AdminRoute path="/admin/users/:currentPage">
                   <AdminUsers />
                 </AdminRoute>
                 <AdminRoute path="/admin/cinemas">

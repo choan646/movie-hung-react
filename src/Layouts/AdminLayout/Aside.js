@@ -58,7 +58,7 @@ const Aside = ({ collapsed, email }) => {
             <Link to="/admin/users/soTrang=1">Quản lý Người Dùng</Link>
           </MenuItem>
           <MenuItem icon={<FaGooglePlay />}>
-            <Link to="/admin/movies">Quản Lý Phim</Link>
+            <Link to="/admin/movies/soTrang=1">Quản Lý Phim</Link>
           </MenuItem>
           <MenuItem icon={<BiCameraMovie />}>
             <Link to="/admin/cinemas">Quản Lý Lịch Chiếu</Link>

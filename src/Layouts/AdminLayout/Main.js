@@ -5,9 +5,9 @@ import { Card ,CardTitle,CardBody} from 'reactstrap'
 export default function Main({content}) {
     return (
         <div className="content__main">
-          <Card>
+          <Card id="cardMain">
             {/* <CardTitle>abc</CardTitle> */}
-            <CardBody>{content}</CardBody>
+            <CardBody id="cardBodyMain">{content}</CardBody>
           </Card>
         </div>
     )

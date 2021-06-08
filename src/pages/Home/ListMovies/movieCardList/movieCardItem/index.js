@@ -3,12 +3,11 @@ import { CardText, CardBody, CardTitle, Modal } from "reactstrap";
 import { Link } from "react-router-dom";
 
 export default function MovieCardItem({ data, isOpen, toggle }) {
-  console.log(data);
   return (
     <div>
       <CardBody>
         <CardTitle tag="h6">
-          {data.tenPhim.length > 17
+          {data?.tenPhim.length > 17
             ? data?.tenPhim.substring(0, 16) + "..."
             : data?.tenPhim}
         </CardTitle>

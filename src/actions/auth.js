@@ -2,6 +2,7 @@ import { LOGIN_REQUEST, LOGIN_SUCCESS, LOGIN_FAILURE } from "../constants/auth";
 import { REGISTER_REQUEST, REGISTER_SUCCESS, REGISTER_FAILURE } from "../constants/auth";
 import { LOGOUT_REQUEST, LOGOUT_SUCCESS, LOGOUT_FAILURE } from "../constants/auth";
 import Swal from 'sweetalert2'
+
 import authAPI from "../services/authAPI";
 
 

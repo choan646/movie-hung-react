@@ -11,38 +11,14 @@ import {
   DELETE_USER_REQUEST,
   DELETE_USER_SUCCESS,
   DELETE_USER_FAILURE,
+  ADD_USER_REQUEST,
+  ADD_USER_SUCCESS,
+  ADD_USER_FAILURE,
 } from "../constants/users";
-import Swal from "sweetalert2";
 import userAPI from "../services/userAPI";
-import * as yup from "yup";
+import Swal from "sweetalert2";
 
-
-export const updateInfoAdminSchema = yup.object().shape({
-  matKhau: yup
-    .string()
-    .required("Mật khẩu không được để trống")
-    .min(3, "Mật khẩu phải từ 3 ký tự trở lên")
-    .max(20, "Mật khẩu tối đa 20 ký tự"),
-  email: yup
-    .string()
-    .required("Email không được để trống")
-    .min(3, "Email phải từ 3 ký tự trở lên")
-    .max(40, "Email tối đa 40 ký tự")
-    .email("Email không đúng cú pháp"),
-  soDt: yup
-    .string()
-    .matches(/^[0-9]+$/)
-    .required("Số điện thoại không được để trống")
-    .min(3, "Số điện thoại 3 ký tự trở lên")
-    .max(20, "Số điện thoại tối đa 20 ký tự"),
-  hoTen: yup
-    .string()
-    .required("Họ Tên không được để trống")
-    .min(3, "Họ Tên phải từ 3 ký tự trở lên")
-    .max(30, "Họ Tên tối đa 30 ký tự"),
-});
-
-export function getUser (currentPageId) {
+export function getUser(currentPageId) {
   return async (dispatch) => {
     dispatch({ type: GET_USER_REQUEST });
     try {
@@ -55,7 +31,7 @@ export function getUser (currentPageId) {
       });
     }
   };
-};
+}
 
 export function getUserByTuKhoa(tuKhoa) {
   return async (dispatch) => {
@@ -76,9 +52,8 @@ export function updateUser(values) {
     dispatch({ type: UPDATE_USER_REQUEST });
     try {
       const { data } = await userAPI.updateUser(values);
-      localStorage.clear();
-      // setItem("userInfo", JSON.stringify(data))
-      Swal.fire("Chỉnh Sửa Thành Công!");
+      localStorage.setItem("userInfo", JSON.stringify(data));
+      //
       dispatch({ type: UPDATE_USER_SUCCESS, payload: { data } });
     } catch (error) {
       dispatch({
@@ -93,11 +68,29 @@ export function deleteUser(taiKhoan) {
     dispatch({ type: DELETE_USER_REQUEST });
     try {
       const { data } = await userAPI.deleteUser(taiKhoan);
-      dispatch({ type: DELETE_USER_SUCCESS, payload: { data }});
+      dispatch({ type: DELETE_USER_SUCCESS, payload: { data } });
     } catch (error) {
       dispatch({
         type: DELETE_USER_FAILURE,
         payload: { error: null },
+      });
+    }
+  };
+}
+
+export function addUser(values) {
+  return async (dispatch) => {
+    dispatch({ type: ADD_USER_REQUEST });
+    try {
+      const { data } = await userAPI.addUser(values);
+      Swal.fire("Thêm Thành Công!");
+
+      dispatch({ type: ADD_USER_SUCCESS, payload: { data } });
+    } catch (error) {
+      Swal.fire("Thêm Thất Bại!");
+      dispatch({
+        type: ADD_USER_FAILURE,
+        payload: { error: error.response.data },
       });
     }
   };

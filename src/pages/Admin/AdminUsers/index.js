@@ -1,30 +1,30 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  Button,
-  Table,
-  Pagination,
-  PaginationItem,
-  PaginationLink,
-} from "reactstrap";
+import { Button, Table, Pagination, PaginationItem } from "reactstrap";
 import { SemipolarLoading } from "react-loadingg";
 import Swal from "sweetalert2";
 import { Link, useParams } from "react-router-dom";
 import { getUser, deleteUser } from "src/actions/users";
 import { IoPersonAdd } from "react-icons/io5";
+import AdminUsersModalAdd from "./AdminUsersModalAdd";
+import { addUser } from "src/actions/users";
 
 export default function AdminUsers() {
   const dispatch = useDispatch();
-  const { currentPageId } = useParams();
-  console.log(currentPageId);
+  const { currentPage } = useParams();
+  const [modalAddUser, setModalAddUser] = useState(false);
+  const toggleAddUser = () => setModalAddUser(!modalAddUser);
 
   const { user, isLoading, error } = useSelector((state) => state.user);
-  console.log();
+  
   useEffect(() => {
-    dispatch(getUser(currentPageId));
-  }, [currentPageId]);
-  // console.log(user);
-
+    dispatch(getUser(currentPage));
+  }, [currentPage]);
+  
+  const handleAddUser = (values) => {
+    toggleAddUser();
+    dispatch(addUser(values));
+  };
   const handleDeleteUser = (taiKhoan) => {
     Swal.fire({
       title: "Bạn Có Muốn Xóa?",
@@ -39,6 +39,8 @@ export default function AdminUsers() {
       }
     });
   };
+
+  
 
   if (isLoading) {
     return (
@@ -59,9 +61,16 @@ export default function AdminUsers() {
         color="primary"
         className="userAdmin__buttonAdd"
         style={{ marginLeft: "82%", marginBottom: "30px", marginTop: "-55px" }}
+        onClick={toggleAddUser}
       >
         Thêm Người Dùng <IoPersonAdd style={{ marginLeft: "10px" }} />
+        <AdminUsersModalAdd
+          handleAddUser={handleAddUser}
+          modalAddUser={modalAddUser}
+          toggleAddUser={toggleAddUser}
+        />
       </Button>
+
       <div className="userAdmin__content">
         <Table hover className="userAdmin__table">
           <thead>
@@ -101,13 +110,7 @@ export default function AdminUsers() {
           </tbody>
         </Table>
         <div className="userAdmin__pagination">
-          <Pagination aria-label="Page navigation example">
-            {/* <PaginationItem>
-        <PaginationLink first href="#" />
-      </PaginationItem>
-      <PaginationItem>
-        <PaginationLink previous href="#" />
-      </PaginationItem> */}
+          <Pagination>
             <PaginationItem>
               <Link to="/admin/users/soTrang=1">1</Link>
             </PaginationItem>
@@ -115,24 +118,14 @@ export default function AdminUsers() {
               <Link to="/admin/users/soTrang=2">2</Link>
             </PaginationItem>
             <PaginationItem>
-            <Link to="/admin/users/soTrang=3">3</Link>
+              <Link to="/admin/users/soTrang=3">3</Link>
             </PaginationItem>
             <PaginationItem>
-            <Link to="/admin/users/soTrang=4">4</Link>
+              <Link to="/admin/users/soTrang=4">4</Link>
             </PaginationItem>
             <PaginationItem>
-            <Link to="/admin/users/soTrang=5">5</Link>
+              <Link to="/admin/users/soTrang=5">5</Link>
             </PaginationItem>
-            {/* <PaginationItem>
-         <Link to="/admin/users/soTrang=6">6</Link>
-
-          </PaginationItem> */}
-            {/* <PaginationItem>
-        <PaginationLink next href="#" />
-      </PaginationItem>
-      <PaginationItem>
-        <PaginationLink last href="#" />
-      </PaginationItem> */}
           </Pagination>
         </div>
       </div>

@@ -1,25 +1,12 @@
 import React from "react";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
 import { Input, FormGroup, Label, Alert, Modal } from "reactstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { login } from "../../actions/auth";
 import { Redirect, Link } from "react-router-dom";
+import {loginSchema} from 'src/services/schema'
 
-// Tạo schame validation
-const schema = yup.object().shape({
-  taiKhoan: yup
-    .string()
-    .required("Tài khoản không được để trống")
-    .min(3, "Tài khoản phải từ 3 ký tự trở lên")
-    .max(20, "Tài khoản tối đa 20 ký tự"),
-  matKhau: yup
-    .string()
-    .required("Mật khẩu không được để trống")
-    .min(3, "Mật khẩu phải từ 3 ký tự trở lên")
-    .max(20, "Mật khẩu tối đa 20 ký tự"),
-});
 
 export default function LoginPage() {
   const dispatch = useDispatch();
@@ -30,7 +17,7 @@ export default function LoginPage() {
     handleSubmit,
     control,
   } = useForm({
-    resolver: yupResolver(schema),
+    resolver: yupResolver(loginSchema),
   });
 
   const handleLogin = (values) => {
