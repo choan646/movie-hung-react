@@ -18,11 +18,11 @@ import {
 import userAPI from "../services/userAPI";
 import Swal from "sweetalert2";
 
-export function getUser(currentPageId) {
+export function getUser(currentPage) {
   return async (dispatch) => {
     dispatch({ type: GET_USER_REQUEST });
     try {
-      const { data } = await userAPI.getUserPagination(currentPageId);
+      const { data } = await userAPI.getUserPagination(currentPage);
       dispatch({ type: GET_USER_SUCCESS, payload: { data } });
     } catch (error) {
       dispatch({
@@ -52,8 +52,7 @@ export function updateUser(values) {
     dispatch({ type: UPDATE_USER_REQUEST });
     try {
       const { data } = await userAPI.updateUser(values);
-      localStorage.setItem("userInfo", JSON.stringify(data));
-      //
+      Swal.fire("Sửa Thành Công!");
       dispatch({ type: UPDATE_USER_SUCCESS, payload: { data } });
     } catch (error) {
       dispatch({
@@ -67,12 +66,15 @@ export function deleteUser(taiKhoan) {
   return async (dispatch) => {
     dispatch({ type: DELETE_USER_REQUEST });
     try {
-      const { data } = await userAPI.deleteUser(taiKhoan);
-      dispatch({ type: DELETE_USER_SUCCESS, payload: { data } });
+      Swal.fire("Xóa Thành Công!");
+      await userAPI.deleteUser(taiKhoan);
+  
+      dispatch({ type: DELETE_USER_SUCCESS});
     } catch (error) {
+      Swal.fire("Xóa Thất Bại!");
       dispatch({
         type: DELETE_USER_FAILURE,
-        payload: { error: null },
+        payload: { error: error.response },
       });
     }
   };

@@ -6,41 +6,48 @@ import Swal from "sweetalert2";
 import { Link, useParams } from "react-router-dom";
 import { getUser, deleteUser } from "src/actions/users";
 import { IoPersonAdd } from "react-icons/io5";
-import AdminUsersModalAdd from "./AdminUsersModalAdd";
-import { addUser } from "src/actions/users";
+import AdminUsersAdd from "./AdminUsersAdd";
+import { addUser, updateUser } from "src/actions/users";
+import ListUser from "./ListUser";
 
 export default function AdminUsers() {
   const dispatch = useDispatch();
   const { currentPage } = useParams();
-  const [modalAddUser, setModalAddUser] = useState(false);
-  const toggleAddUser = () => setModalAddUser(!modalAddUser);
+  //AddUserModal setup
+  const [modalUser, setModalUser] = useState(false);
+  const toggleModalUser = () => setModalUser(!modalUser);
 
   const { user, isLoading, error } = useSelector((state) => state.user);
-  
+  console.log(user)
+
   useEffect(() => {
     dispatch(getUser(currentPage));
+    console.log("def")
+
   }, [currentPage]);
-  
+
   const handleAddUser = (values) => {
-    toggleAddUser();
     dispatch(addUser(values));
+    toggleModalUser();
+  };
+  const handleUpdateUser = (values) => {
+    dispatch(updateUser(values));
+    console.log(values);
   };
   const handleDeleteUser = (taiKhoan) => {
-    Swal.fire({
-      title: "Bạn Có Muốn Xóa?",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonText: "Đồng Ý Xóa",
-      cancelButtonText: "Hủy Bỏ",
-    }).then((result) => {
-      if (result.isConfirmed) {
+    // Swal.fire({
+    //   title: "Bạn Có Muốn Xóa?",
+    //   icon: "warning",
+    //   showCancelButton: true,
+    //   confirmButtonText: "Đồng Ý Xóa",
+    //   cancelButtonText: "Hủy Bỏ",
+    // }).then((result) => {
+    //   if (result.isConfirmed) {
+    //     Swal.fire("Xóa Thành Công!", "", "success");
         dispatch(deleteUser(taiKhoan));
-        Swal.fire("Xóa Thành Công!", "", "success");
-      }
-    });
+    //   }
+    // });
   };
-
-  
 
   if (isLoading) {
     return (
@@ -61,15 +68,15 @@ export default function AdminUsers() {
         color="primary"
         className="userAdmin__buttonAdd"
         style={{ marginLeft: "82%", marginBottom: "30px", marginTop: "-55px" }}
-        onClick={toggleAddUser}
+        onClick={toggleModalUser}
       >
         Thêm Người Dùng <IoPersonAdd style={{ marginLeft: "10px" }} />
-        <AdminUsersModalAdd
-          handleAddUser={handleAddUser}
-          modalAddUser={modalAddUser}
-          toggleAddUser={toggleAddUser}
-        />
       </Button>
+      <AdminUsersAdd
+        handleAddUser={handleAddUser}
+        modalUser={modalUser}
+        toggleModalUser={toggleModalUser}
+      />
 
       <div className="userAdmin__content">
         <Table hover className="userAdmin__table">
@@ -86,27 +93,13 @@ export default function AdminUsers() {
             </tr>
           </thead>
           <tbody>
-            {user.items?.map((item, index) => (
-              <tr key={index}>
-                <td>{index + 1}</td>
-                <td>{item.taiKhoan}</td>
-                <td>{item.hoTen}</td>
-                <td>{item.email}</td>
-                <td>{item.soDt}</td>
-                <td>{item.maLoaiNguoiDung}</td>
-                <td>
-                  <Button color="secondary">Sửa</Button>
-                </td>
-                <td>
-                  <Button
-                    color="danger"
-                    onClick={() => handleDeleteUser(item.taiKhoan)}
-                  >
-                    Xóa
-                  </Button>
-                </td>
-              </tr>
-            ))}
+            <ListUser
+              data={user}
+              toggleModalUser={toggleModalUser}
+              modalUser={modalUser}
+              handleUpdateUser={handleUpdateUser}
+              handleDeleteUser={handleDeleteUser}
+            />
           </tbody>
         </Table>
         <div className="userAdmin__pagination">

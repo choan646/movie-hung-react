@@ -8,13 +8,12 @@ import CumRap from "./CumRap";
 export default function Home() {
   return (
     <div>
-      <Slider></Slider>
+      <Slider />
       <Link to="/checkout/:movieId">Test Check out</Link>
-      <ListMovies></ListMovies>
-      <CumRap></CumRap>
-
+      <ListMovies />
+      <CumRap />
+      <UngDung />
       {/* <div id="tinTuc" style={{height:"300px", backgroundColor:"green"}}>tintuc</div> */}
-      <UngDung></UngDung>
     </div>
   );
 }

@@ -45,7 +45,7 @@ export const registerUserSchema = yup.object().shape({
     .max(30, "Họ Tên tối đa 30 ký tự"),
 });
 //Update 
-export const updateInfoAdminSchema = yup.object().shape({
+export const updateSchema = yup.object().shape({
     matKhau: yup
       .string()
       .required("Mật khẩu không được để trống")

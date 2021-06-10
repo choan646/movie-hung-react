@@ -2,24 +2,39 @@ import React, { useEffect, useState } from "react";
 import BackNews from "../BackNews";
 import { SemipolarLoading } from "react-loadingg";
 import { useDispatch, useSelector } from "react-redux";
-import { getCinemas,getCumRapByCinemas } from "src/actions/cinemas";
+import {
+  getCinemas,
+  getCumRapByCinemas,
+  getShowTimesByCinemas,
+} from "src/actions/cinemas";
 import { Nav, NavItem, NavLink, TabContent, TabPane } from "reactstrap";
 import classnames from "classnames";
 
 export default function CumRap() {
   const dispatch = useDispatch();
-  const { data, isLoading, error } = useSelector((state) => state.cinema);
+  const {
+    dataCinemas,
+    dataCumRapByCinemas,
+    dataShowTimesByCinemas,
+    isLoading,
+    error,
+  } = useSelector((state) => state.cinema);
 
   const [activeTab, setActiveTab] = useState("bhd-star-cineplex");
 
   const toggle = (tab) => {
     if (activeTab !== tab) setActiveTab(tab);
   };
+  const defaultValue = "LotteCinima";
   useEffect(() => {
     dispatch(getCinemas());
+    dispatch(getCumRapByCinemas(defaultValue));
+    dispatch(getShowTimesByCinemas(defaultValue));
   }, []);
-  
-
+//   console.log("dataCinemas ", dataCinemas);
+//   console.log("dataCumRapByCinemas", dataCumRapByCinemas);
+//  console.log("dataShowTimesByCinemas",dataShowTimesByCinemas)
+ 
   if (isLoading) {
     return (
       <div>
@@ -33,7 +48,7 @@ export default function CumRap() {
   return (
     <div id="cumRap" className="container">
       <Nav tabs>
-        {data.map((item, index) => (
+        {dataCinemas.map((item, index) => (
           <NavItem key={index} className="item__rap__phim">
             <NavLink
               className={classnames({ active: activeTab === item.biDanh })}
@@ -45,7 +60,7 @@ export default function CumRap() {
         ))}
       </Nav>
       <TabContent activeTab={activeTab}>
-        {data.map((item, index) => (
+        {dataCinemas.map((item, index) => (
           <TabPane tabId={item.biDanh}>
             <p>{item.tenHeThongRap}</p>
           </TabPane>

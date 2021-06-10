@@ -2,7 +2,8 @@
 
 			    .thanh lọc ngay dưới slider bự của trang
 
-			    .nút đổi thông tin ở navbar
+			    .nút đổi thông tin ở navbar, làm được cái check có lịch đặt không nhưng cụ thể chưa làm, 
+			show ra các thông tin của vé đã đặt, nếu cần thiết nữa thì tìm kiếm bằng tên phim cho đẹp vì nếu tìm như thế có hình ảnh của phim, nhớ tách nhỏ các item
 
 			    .làm mượt các nút ở thanh navbar lúc trượt xuống, làm thêm nút back-to-top nếu scroll xuống
 
@@ -33,14 +34,12 @@
 -trang checkout: hiện tại chưa có lịch nên không có ý tưởng, nhưng mà trang này để chọn ghế, sau khi đã chọn được phim-> rạp phim->lịch chiếu(ngày và buổi)
 		Thanh toán...
 
--Trang admin: Phân trang tất cả dữ liệu (duoc user, ở user còn thêm máy cái modal nữa,sau mỗi lần xóa )
-		.ở phần info sau mỗi lần sửa
-		.sửa tiếp cái phân trang
+-Trang admin:   .sau mỗi lần xóa và sau mỗi lần thêm , sửa
 		.Phần Sửa cái movie xem thêm video upLoad hình
-		.AdminInfo sửa lại hết, k cần nút sửa thông tin nữa, rắc rối, thay vào đó chỉ cho sửa ở trang user, và thay đổi thông tin ở trang adminInfo khi mà đăng nhập lại,
-			tại vì userInfo là thông tin của admin đang đăng nhập được lưu trên localStorage, muốn sửa mà ảnh hưởng đến local thì xem lại sau
+		.thay đổi thông tin ở trang adminInfo khi mà đăng nhập lại,tại vì userInfo là thông tin của admin đang đăng nhập được lưu trên localStorage, muốn sửa mà ảnh hưởng đến local thì xem lại sau
 		.xem thêm phần register cân nhắc thoát ra từ Angular
-		.Vấn đề về form submit ở user, bị chuyển lên link chứ k submit như bth
+		.Vấn đề về modal Sửa khi bật lên màn hình ngoài màu đen do nó đang nằm trong <tr>==> xem lại css
+			NHIỀU VẤN ĐỀ XẢY RA Ở TRANG ADMIN LÀM TÔI ĐAU ĐẦU, NÊN TẠM GÁC LẠI HẾT TẤT CẢ Ở ADMIN
 
 ==Còn nhiều thứ về logic và cả ux-ui
 tách nhỏ các item đã làm /// sửa được listItem nhưng cái slider bự vẫn bị

@@ -7,6 +7,9 @@ const authAPI = {
   register: (values) => {
     return axiosClient.post("/QuanLyNguoiDung/DangKy", values);
   },
+  getUserInfoHistoryBooking: (values) => {
+    return axiosClient.post("/QuanLyNguoiDung/ThongTinTaiKhoan", values)
+  }
 };
 export default authAPI;
 

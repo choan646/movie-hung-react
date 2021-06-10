@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Row, Col, Modal, ModalBody, ModalFooter, Button } from "reactstrap";
+import { Row, Col } from "reactstrap";
 import {
   Collapse,
   Navbar,
@@ -16,28 +16,41 @@ import {
 } from "reactstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { BoxArrowRight } from "react-bootstrap-icons";
-import { logout } from "src/actions/auth";
+import { logout, getUserInfoHistoryBooking } from "src/actions/auth";
+import ModalInfoHeader from "./ModalInfoHeader";
+import ModalHistoryHeader from "./ModalHistoryHeader";
 
 export default function Header() {
   const dispatch = useDispatch();
-  const [modal, setModal] = useState(false);
+  //ModalInfoHeader
+  const [modalInfo, setModalInfo] = useState(false);
+  const toggleModalInfo = () => setModalInfo(!modalInfo);
+
+  //ModalHistoryHeader
+  const [modalHistory, setModalHistory] = useState(false);
+  const toggleModalHistory = () => setModalHistory(!modalHistory);
+
   const [isOpen, setIsOpen] = useState(false);
-  const { userInfo, isLoading, error } = useSelector((state) => state.auth);
+  const { userInfo, userInfoHistoryBooking, isLoading, error } = useSelector(
+    (state) => state.auth
+  );
 
   const toggleNav = () => setIsOpen(!isOpen);
 
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const toggleDropdown = () => setDropdownOpen((prevState) => !prevState);
 
-  // const resetLocalStorage = () => {
-  //   localStorage.clear();
-  //   // window.location.reload(); //Tạm thời để như thế này, sau này k được reload
-  // };
-  const handleLogout = () => {    
+  const handleLogout = () => {
     dispatch(logout());
   };
-
-  const toggleModal = () => setModal(!modal);
+  // console.log({taiKhoan : userInfo.taiKhoan});
+  const handleButtonHistoryBooking = () => {
+    dispatch(getUserInfoHistoryBooking({taiKhoan : "string"}));
+    toggleModalHistory();
+  }
+  // console.log("day",userInfoHistoryBooking);
+  // userInfo.taiKhoan
+  // "string"
 
   return (
     <div id="header">
@@ -85,29 +98,23 @@ export default function Header() {
                             {userInfo.hoTen}
                           </DropdownToggle>
                           <DropdownMenu>
-                            <DropdownItem onClick={toggleModal}>
-                              Chỉnh Sửa Thông Tin
-                              <Modal
-                                id="modalInfo"
-                                isOpen={modal}
-                                toggle={toggleModal}
-                              >
-                                <ModalBody>
-                                  {/* FORM */}
-                                  abc
-                                </ModalBody>
-                                <ModalFooter>
-                                  <Button color="primary" onClick={toggleModal}>
-                                    Xác Nhận
-                                  </Button>
-                                  <Button color="danger" onClick={toggleModal}>
-                                    Thoát
-                                  </Button>
-                                </ModalFooter>
-                              </Modal>
+                            <DropdownItem onClick={toggleModalInfo}>
+                              Thông Tin Tài Khoản
+                              <ModalInfoHeader
+                                modalInfo={modalInfo}
+                                toggleModalInfo={toggleModalInfo}
+                              />
+                            </DropdownItem>
+                            <DropdownItem onClick={handleButtonHistoryBooking}>
+                              Lịch Sử Đặt Vé
+                              <ModalHistoryHeader
+                              data={userInfoHistoryBooking}
+                                modalHistory={modalHistory}
+                                toggleModalHistory={toggleModalHistory}
+                              />
                             </DropdownItem>
                             <DropdownItem divider />
-                            <DropdownItem onClick={() => handleLogout()}>
+                            <DropdownItem onClick={handleLogout}>
                               Đăng Xuất
                               <BoxArrowRight style={{ marginLeft: "30px" }} />
                             </DropdownItem>

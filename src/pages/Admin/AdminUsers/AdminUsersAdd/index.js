@@ -4,11 +4,11 @@ import { Alert, Button, FormGroup, Label, Modal } from "reactstrap";
 import { addUserSchema } from "src/services/schema";
 export default function AdminUsersModalAdd({
   handleAddUser,
-  modalAddUser,
-  toggleAddUser,
+  modalUser,
+  toggleModalUser,
 }) {
   return (
-    <Modal isOpen={modalAddUser} toggle={toggleAddUser}>
+    <Modal isOpen={modalUser} toggle={toggleModalUser}>
       <Formik
         initialValues={{
           taiKhoan: "",
@@ -72,7 +72,7 @@ export default function AdminUsersModalAdd({
                 {(msg) => <Alert color="danger">{msg}</Alert>}
               </ErrorMessage>
             </FormGroup>
-            <FormGroup className="col-6">
+            <FormGroup className="col-12">
               <Label>Email </Label>
               <Field
                 type="email"
@@ -85,15 +85,7 @@ export default function AdminUsersModalAdd({
               </ErrorMessage>
             </FormGroup>
 
-            <FormGroup className="col-6">
-              <Label>Mã Nhóm </Label>
-              <Field
-                className="form-control"
-                disabled
-                value="GP11"
-                name="maNhom"
-              />
-            </FormGroup>
+            
             <FormGroup className="col-6">
               <Label>Mã Loại Người Dùng</Label>
               <Field
@@ -106,6 +98,15 @@ export default function AdminUsersModalAdd({
                 <option value="QuanTri">Quản Trị</option>
               </Field>
             </FormGroup>
+            <FormGroup className="col-6">
+              <Label>Mã Nhóm </Label>
+              <Field
+                className="form-control"
+                disabled
+                value="GP11"
+                name="maNhom"
+              />
+            </FormGroup>
 
             <div
               className="col-12"
@@ -114,7 +115,7 @@ export default function AdminUsersModalAdd({
               <Button style={{ marginRight: "20px" }} color="primary">
                 Thêm
               </Button>
-              <Button color="danger" onClick={toggleAddUser}>
+              <Button color="danger" onClick={toggleModalUser}>
                 Hủy Bỏ
               </Button>
             </div>
