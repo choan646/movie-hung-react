@@ -6,7 +6,7 @@ export default function ListUser({
   data,
   toggleUpdateUser,
   modalUpdateUser,
-  handleUpdateUser,
+  // handleUpdateUser,
   handleDeleteUser,
 }) {
   return (
@@ -39,7 +39,7 @@ export default function ListUser({
         data={data}
         toggleUpdateUser={toggleUpdateUser}
         modalUpdateUser={modalUpdateUser}
-        handleUpdateUser={handleUpdateUser}
+        // handleUpdateUser={handleUpdateUser}
       />
     </>
   );

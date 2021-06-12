@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getMovie } from "src/actions/movie";
 import { SemipolarLoading } from "react-loadingg";
-import { useParams } from "react-router-dom";
+import { useParams , Redirect} from "react-router-dom";
 import { PlayCircle } from "react-bootstrap-icons";
 import { Modal } from "reactstrap";
+import DetailMovieInfo from "./DetailMovieInfo";
 
 export default function Movie() {
   const dispatch = useDispatch();
@@ -17,10 +18,15 @@ export default function Movie() {
 
   const toggleTrailer = () => setModalTrailer(!modalTrailer);
   const [modalTrailer, setModalTrailer] = useState(false);
+  
 
-  useEffect(() => {
-    dispatch(getMovie());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(getMovie());
+  // }, []);
+  const userCheck = localStorage.getItem("userInfo")
+  if(userCheck== null) {
+    return <Redirect to="/login"/>
+  }
   if (isLoading) {
     return (
       <div>
@@ -48,33 +54,8 @@ export default function Movie() {
               </div>
               <div className="col-8 detailMovie__item__right">
                 <h3>{itemTrue.tenPhim}</h3>
-                <p>{itemTrue.ngayKhoiChieu.substring(8, 10)+"/"+itemTrue.ngayKhoiChieu.substring(5, 7)+"/"+itemTrue.ngayKhoiChieu.substring(0, 4)}</p>
-                {/* <p>Thời Gian Bắt Đầu Khởi Chiếu : {itemTrue.ngayKhoiChieu.substring(11)}</p> */}
               </div>
-              <div className=".col-12 detailMovie__info">
-                <h3>THÔNG TIN</h3>
-                <div className="row">
-                  <div className="col-6 pl-5 mt-2">
-                    <p>
-                      <b>Ngày Công Chiếu : </b>
-                      {itemTrue.ngayKhoiChieu.substring(8, 10)+"/"+itemTrue.ngayKhoiChieu.substring(5, 7)+"/"+itemTrue.ngayKhoiChieu.substring(0, 4)}
-                    </p>
-                    <p>
-                      <b>Thời Gian Bắt Đầu Khởi Chiếu : </b> {itemTrue.ngayKhoiChieu.substring(11)}
-                    </p>
-                    <p>
-                      <b>Định Dạng : </b> 2D/Digital
-                    </p>
-                    <p>
-                      <b>Đánh Giá : </b> {itemTrue.danhGia} điểm
-                    </p>
-                  </div>
-                  <div className="col-6">
-                    <h4>Nội dung</h4>
-                    <p>{itemTrue.moTa}</p>
-                  </div>
-                </div>
-              </div>
+              <DetailMovieInfo data={itemTrue}/>
               <Modal
                 className="modalTrailler"
                 isOpen={modalTrailer}

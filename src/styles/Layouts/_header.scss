@@ -4,7 +4,7 @@
   width: 100%;
   transition: all 0.2s;
   z-index: 10;
-  box-shadow: 1px 3px 5px rgba(0, 0, 0, .5);
+  // box-shadow: 1px 3px 5px rgb(125, 125, 125,0.5);
   .navbar {
     background-color: rgba(255, 255, 255, 0.95);
     .row {
@@ -58,6 +58,11 @@
         }
         .dropdown-menu {
           font-size: 13px;
+          .dropdown-item{
+            &:first-child {
+              margin-bottom: 5px;
+            }
+          }
         }
       }
     }
@@ -69,5 +74,35 @@
 #modalInfo{
   .modal-content {
     background-color: #fff!important;
+  }
+}
+#modalBooking{
+  max-width: 900px;
+  .modal-content{
+    .modal-body{
+      h1{
+        text-align: center;
+        font-size: 38px;
+        letter-spacing: 5px;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+      .allInfo__booking{
+        p{
+          margin-top: 30px;
+          margin-bottom: 30px;
+          padding: 0 100px;
+        }
+        .allInfo__booking__content{
+          .allInfo__booking__null{
+            margin: 50px 0;
+            h3{
+              text-align: center;
+              
+            }
+          }
+        }
+      }
+    }
   }
 }

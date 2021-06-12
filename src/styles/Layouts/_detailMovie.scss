@@ -1,6 +1,6 @@
 #detailMovie {
   padding: 100px 0;
-  background: linear-gradient(to top, rgb(10, 32, 41), transparent 100%);
+  background: linear-gradient(to top, rgb(10, 32, 41), transparent 150%);
   .detailMovie__content {
     .detailMovie__item__left {
       .detailMovie__item__content {
@@ -31,36 +31,105 @@
         }
       }
     }
-    .detailMovie__item__right{
-        padding-top: 70px;
-        h3{
-            font-size: 70px;
-            color: rgb(17, 47, 59);
-        }
-        p{
-            margin-top: 10px;
-            margin-left: 5px;
-            color: #fff;
-        }
+    .detailMovie__item__right {
+      padding-top: 70px;
+      h3 {
+        font-size: 70px;
+        color: rgb(17, 47, 59);
+      }
+      p {
+        margin-top: 10px;
+        margin-left: 5px;
+        color: #fff;
+      }
     }
-    .detailMovie__info{
+    .detailMovie__info {
+      margin: auto;
+      padding-top: 70px;
+      width: 900px;
+      .nav-tabs {
+        border: none;
+        margin-bottom: 30px;
+        justify-content: center;
+        .nav-item {
+          .nav-link {
+            border: none;
+            font-size: 18px;
+            color: #000;
+            margin-right: 10px;
+            transition: all 0.2s;
+            font-weight: bold;
+            &:hover {
+              cursor: pointer;
+              font-size: 22px;
+              font-weight: normal;
+            }
+          }
+          .active {
+            color: #fa5238 !important;
+            font-size: 22px;
+            text-shadow: 5px 2px 10px #d84a34;
+            background-color: transparent;
+            font-weight: normal;
+          }
+        }
+      }
+      .tab-content {
         margin-top: 50px;
         color: #fff;
-        padding-left: 50px;
-        h3{
-            font-size: 24px;
-            font-weight: 500;
-            text-align: center;
-            margin-bottom: 50px;
-            color: #fa5238;
-            text-shadow: 5px 2px 15px #cc0000;
-        }
-        h4{
+        .tab__ThongTinPhim {
+          padding-left: 50px;
+          h4 {
             margin-bottom: 30px;
-        }
-        p{
+          }
+          p {
             font-size: 14px;
+          }
         }
+        .tab__lichChieuPhim {
+          .tab__lichChieuPhim__listItem{
+            .tab__lichChieuPhim__title{
+              margin-top: 30px;
+              margin-left: -50px;
+              img{
+                margin-right:30px;
+              }
+              h3{
+                text-transform: uppercase;
+                font-size: 36px;
+              }
+            }
+            .tab__lichChieuPhim__placeItem{
+              padding-bottom: 30px;
+              border-top: 1px solid rgb(125, 125, 125);
+              h5{
+                width: 100%;
+                margin: 30px 0;
+                text-align: center;
+              }
+              .tab__lichChieuPhim__timeItem{
+                button{
+                  background-color: #fa5238;
+                  margin-bottom: 20px;
+                  padding: 5px!important;
+                  box-shadow: 2px 5px 10px rgb(125, 125, 125);
+                  a{
+                    text-decoration: none;
+                    p{
+                      color: #fff;
+                      margin: 0!important;
+                    }
+                  }
+                  &:hover {
+                    box-shadow: 2px 5px 10px rgb(42, 42, 42);
+                    background-color: #d84a34;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

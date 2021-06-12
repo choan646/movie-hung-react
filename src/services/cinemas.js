@@ -10,6 +10,10 @@ const cinemasAPI = {
   getShowTimesByCinemas:(maHeThongRap)=>{
     return axiosClient.get(`/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${maHeThongRap}&maNhom=GP11`)
   
+  },
+  getShowTimesByIdMovie: (maPhim) => {
+    return axiosClient.get(`/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${maPhim}
+    `)
   }
 
   }

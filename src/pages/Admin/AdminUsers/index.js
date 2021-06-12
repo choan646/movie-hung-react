@@ -30,10 +30,10 @@ export default function AdminUsers() {
     dispatch(addUser(values));
     toggleModalUser();
   };
-  const handleUpdateUser = (values) => {
-    dispatch(updateUser(values));
-    console.log(values);
-  };
+  // const handleUpdateUser = (values) => {
+  //   dispatch(updateUser(values));
+  //   console.log(values);
+  // };
   const handleDeleteUser = (taiKhoan) => {
     // Swal.fire({
     //   title: "Bạn Có Muốn Xóa?",
@@ -97,7 +97,7 @@ export default function AdminUsers() {
               data={user}
               toggleModalUser={toggleModalUser}
               modalUser={modalUser}
-              handleUpdateUser={handleUpdateUser}
+              // handleUpdateUser={handleUpdateUser}
               handleDeleteUser={handleDeleteUser}
             />
           </tbody>

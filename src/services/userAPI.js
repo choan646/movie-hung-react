@@ -15,7 +15,7 @@ const userAPI = {
     );
   },
 
-  updateUser: (values) => {
+  updateAtUser: (values) => {
     return axiosClient.put("/QuanLyNguoiDung/CapNhatThongTinNguoiDung", values);
   },
   deleteUser: (taiKhoan) => {

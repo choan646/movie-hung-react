@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link ,Redirect } from "react-router-dom";
 import { Row, Col } from "reactstrap";
 import {
   Collapse,
@@ -17,6 +17,8 @@ import {
 import { useSelector, useDispatch } from "react-redux";
 import { BoxArrowRight } from "react-bootstrap-icons";
 import { logout, getUserInfoHistoryBooking } from "src/actions/auth";
+import { updateAtUser } from "src/actions/users";
+
 import ModalInfoHeader from "./ModalInfoHeader";
 import ModalHistoryHeader from "./ModalHistoryHeader";
 
@@ -43,15 +45,15 @@ export default function Header() {
   const handleLogout = () => {
     dispatch(logout());
   };
-  // console.log({taiKhoan : userInfo.taiKhoan});
   const handleButtonHistoryBooking = () => {
-    dispatch(getUserInfoHistoryBooking({taiKhoan : "string"}));
+    dispatch(getUserInfoHistoryBooking({taiKhoan : userInfo.taiKhoan}));
     toggleModalHistory();
   }
-  // console.log("day",userInfoHistoryBooking);
-  // userInfo.taiKhoan
-  // "string"
-
+  const handleChangeInfoHome = (values) => {
+    toggleModalInfo();
+    dispatch(updateAtUser(values));
+  };
+console.log(userInfo)
   return (
     <div id="header">
       <Navbar expand="md">
@@ -101,6 +103,8 @@ export default function Header() {
                             <DropdownItem onClick={toggleModalInfo}>
                               Thông Tin Tài Khoản
                               <ModalInfoHeader
+                              data={userInfo}
+                              handleChangeInfoHome={handleChangeInfoHome}
                                 modalInfo={modalInfo}
                                 toggleModalInfo={toggleModalInfo}
                               />

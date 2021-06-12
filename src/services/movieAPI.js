@@ -10,6 +10,7 @@ const movieAPI = {
       
     );
   },
+
  
 };
 export default movieAPI;

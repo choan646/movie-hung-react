@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom";
 import { register } from "src/actions/auth";
 import  RegisterModal from "./RegisterModal";
 
+
 export default function Register() {
   const dispatch = useDispatch();
   const { userInfo, isLoading, error } = useSelector((state) => state.auth);
@@ -15,6 +16,8 @@ export default function Register() {
   if (userInfo) {
     return <Redirect to="/" />;
   }
+
+
 
   return (
     <div

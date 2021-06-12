@@ -17,6 +17,7 @@ import {
 } from "../constants/users";
 import userAPI from "../services/userAPI";
 import Swal from "sweetalert2";
+import {Redirect} from 'react-router-dom'
 
 export function getUser(currentPage) {
   return async (dispatch) => {
@@ -47,12 +48,13 @@ export function getUserByTuKhoa(tuKhoa) {
     }
   };
 }
-export function updateUser(values) {
+export function updateAtUser(values) {
   return async (dispatch) => {
     dispatch({ type: UPDATE_USER_REQUEST });
     try {
-      const { data } = await userAPI.updateUser(values);
-      Swal.fire("Sửa Thành Công!");
+      const { data } = await userAPI.updateAtUser(values);
+      localStorage.clear();
+      Swal.fire("Sửa Thành Công!</br> Bạn Nên Đăng Xuất Và Đăng Nhập Lại!");
       dispatch({ type: UPDATE_USER_SUCCESS, payload: { data } });
     } catch (error) {
       dispatch({

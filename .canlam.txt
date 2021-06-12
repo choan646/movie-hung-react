@@ -1,13 +1,10 @@
 -danh sách việc làm ở home: .slider bự chạy video nhưng bị cái vòng lặp sinh ra 3 cái video chồng lên nhau, cái video cuối nằm trên cùng nên luôn luôn có nó
 
-			    .thanh lọc ngay dưới slider bự của trang
-
-			    .nút đổi thông tin ở navbar, làm được cái check có lịch đặt không nhưng cụ thể chưa làm, 
-			show ra các thông tin của vé đã đặt, nếu cần thiết nữa thì tìm kiếm bằng tên phim cho đẹp vì nếu tìm như thế có hình ảnh của phim, nhớ tách nhỏ các item
+			    .nút đổi thông tin ở navbar đã sửa được thông tin nhưng khi thay đổi thì nó chưa load lại, hiện tại chỉ yêu cầu người dùng đăng xuất và đăng nhập lại
 
 			    .làm mượt các nút ở thanh navbar lúc trượt xuống, làm thêm nút back-to-top nếu scroll xuống
 
-			    .Phần filter theo rạp: ...chưa nghĩ ra
+			    .Phần filter theo rạp: ...chưa nghĩ ra, hiện tại trang home chỉ còn mỗi này là quan trọng
 
 			    ===\                              SUY NGHĨ THÊM NẾU CÒN THỜI GIAN :
 			    ====\  có các nút bấm like tăng số like, bấm thêm lần nữa giảm like và màu sẽ thay đổi dựa theo đó (nút bình luận bỏ k cần làm)
@@ -21,13 +18,14 @@
 				--Phần Đặt vé tham khảo trong videologin
 
 
--trang rạp chiếu : (được click vào ở nút chi tiết trong phần filter rạp của trang home ==> phần này tham khảo của bạn hậu)
+-trang rạp chiếu : (được click vào ở nút chi tiết trong phần filter rạp của trang home ==> phần này tham khảo của bạn hậu, bạn hậu làm bằng tsx nên chưa tham khảo đc nhiều)
 
-		dùng tab phân ra 2 cái(lịch chiếu, thông tin rạp) là ok
+		dùng tab phân ra 2 cái(lịch chiếu, thông tin rạp) là ok   			CHưa làm gì 
 
 		phần lịch chiếu cũng làm như filter
 
--trang chi tiết phim: Lúc nhấp trên thanh NAV của header thì cũng phải về lại được các component của trang home
+
+-trang chi tiết phim: Lúc nhấp trên thanh NAV của header thì cũng phải về lại được các component của trang home, còn lại xong hết rồi
 
 -trang login: làm thêm về phần vallidation 
 		 ...
@@ -41,7 +39,7 @@
 		.Vấn đề về modal Sửa khi bật lên màn hình ngoài màu đen do nó đang nằm trong <tr>==> xem lại css
 			NHIỀU VẤN ĐỀ XẢY RA Ở TRANG ADMIN LÀM TÔI ĐAU ĐẦU, NÊN TẠM GÁC LẠI HẾT TẤT CẢ Ở ADMIN
 
-==Còn nhiều thứ về logic và cả ux-ui
-tách nhỏ các item đã làm /// sửa được listItem nhưng cái slider bự vẫn bị
+						==Còn nhiều thứ về logic và cả ux-ui
+						tách nhỏ các item đã làm ///
 
 
