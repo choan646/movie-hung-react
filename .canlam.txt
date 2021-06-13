@@ -40,6 +40,6 @@
 			NHIỀU VẤN ĐỀ XẢY RA Ở TRANG ADMIN LÀM TÔI ĐAU ĐẦU, NÊN TẠM GÁC LẠI HẾT TẤT CẢ Ở ADMIN
 
 						==Còn nhiều thứ về logic và cả ux-ui
-						tách nhỏ các item đã làm ///
+						tách nhỏ các item đã làm /// đọc thêm doc của swal, router-dom, useParam
 
 

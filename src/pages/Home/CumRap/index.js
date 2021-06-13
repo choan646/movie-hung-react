@@ -9,6 +9,8 @@ import {
 } from "src/actions/cinemas";
 import { Nav, NavItem, NavLink, TabContent, TabPane } from "reactstrap";
 import classnames from "classnames";
+import ItemColSecond from "./ItemColSecond";
+import ItemColThird from "./ItemColThird";
 
 export default function CumRap() {
   const dispatch = useDispatch();
@@ -25,16 +27,23 @@ export default function CumRap() {
   const toggle = (tab) => {
     if (activeTab !== tab) setActiveTab(tab);
   };
-  const defaultValue = "LotteCinima";
+
+  const handleGetTest = (maHeThongRap, biDanh) => {
+    dispatch(getCumRapByCinemas(maHeThongRap));
+    dispatch(getShowTimesByCinemas(maHeThongRap));
+    toggle(biDanh);
+  };
+
+  const defaultValue = "BHDStar";
   useEffect(() => {
     dispatch(getCinemas());
     dispatch(getCumRapByCinemas(defaultValue));
     dispatch(getShowTimesByCinemas(defaultValue));
   }, []);
-//   console.log("dataCinemas ", dataCinemas);
-//   console.log("dataCumRapByCinemas", dataCumRapByCinemas);
-//  console.log("dataShowTimesByCinemas",dataShowTimesByCinemas)
- 
+  // console.log("dataCinemas ", dataCinemas);
+  // console.log("dataCumRapByCinemas", dataCumRapByCinemas);
+  //  console.log("dataShowTimesByCinemas",dataShowTimesByCinemas)
+
   if (isLoading) {
     return (
       <div>
@@ -47,25 +56,36 @@ export default function CumRap() {
   }
   return (
     <div id="cumRap" className="container">
-      <Nav tabs>
-        {dataCinemas.map((item, index) => (
-          <NavItem key={index} className="item__rap__phim">
-            <NavLink
-              className={classnames({ active: activeTab === item.biDanh })}
-              onClick={() => toggle(item.biDanh)}
-            >
-              <img width="100" height="" src={item.logo} alt="logoRap" />
-            </NavLink>
-          </NavItem>
-        ))}
-      </Nav>
-      <TabContent activeTab={activeTab}>
-        {dataCinemas.map((item, index) => (
-          <TabPane tabId={item.biDanh}>
-            <p>{item.tenHeThongRap}</p>
-          </TabPane>
-        ))}
-      </TabContent>
+      <div className="row">
+        <div className="col-2">
+          <Nav id="navBig" tabs className="row">
+            {dataCinemas.map((item, index) => (
+              <NavItem key={index} className="item__rap__phim col-12">
+                <NavLink
+                  className={classnames({ active: activeTab === item.biDanh })}
+                  onClick={() => handleGetTest(item.maHeThongRap, item.biDanh)}
+                >
+                  <img width="100" height="" src={item.logo} alt="logoRap" />
+                </NavLink>
+              </NavItem>
+            ))}
+          </Nav>
+        </div>
+        <div className="col-10">
+          <TabContent id="tabBig" activeTab={activeTab}>
+            {dataCinemas.map((item) => (
+              <TabPane tabId={item.biDanh}>
+                <div className="row">
+                  <ItemColSecond data={dataCumRapByCinemas} />
+
+                  <ItemColThird data={dataShowTimesByCinemas} />
+                </div>
+              </TabPane>
+            ))}
+          </TabContent>
+        </div>
+      </div>
+
       <BackNews></BackNews>
     </div>
   );
