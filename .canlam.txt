@@ -4,7 +4,8 @@
 
 			    .làm mượt các nút ở thanh navbar lúc trượt xuống, làm thêm nút back-to-top nếu scroll xuống
 
-			    .Phần filter theo rạp: ...chưa nghĩ ra, hiện tại trang home chỉ còn mỗi này là quan trọng
+			    .Phần filter theo rạp: hiện tại trang home chỉ còn mỗi này là quan trọng, đã làm được, bây giờ làm tiếp cái nút chi tiết thì nhảy qua trang chi tiết rạp phim
+				nút chọn vào từng thời gian phim thì nhảy sang checkout bộ phim đó và giờ đó, tạm thế này
 
 			    ===\                              SUY NGHĨ THÊM NẾU CÒN THỜI GIAN :
 			    ====\  có các nút bấm like tăng số like, bấm thêm lần nữa giảm like và màu sẽ thay đổi dựa theo đó (nút bình luận bỏ k cần làm)
@@ -18,19 +19,15 @@
 				--Phần Đặt vé tham khảo trong videologin
 
 
--trang rạp chiếu : (được click vào ở nút chi tiết trong phần filter rạp của trang home ==> phần này tham khảo của bạn hậu, bạn hậu làm bằng tsx nên chưa tham khảo đc nhiều)
-
-		dùng tab phân ra 2 cái(lịch chiếu, thông tin rạp) là ok   			CHưa làm gì 
-
-		phần lịch chiếu cũng làm như filter
-
+-trang rạp chiếu : (được click vào ở nút chi tiết trong phần filter rạp của trang home)
+		dùng tab phân ra 2 cái(lịch chiếu, thông tin rạp) là ok  
 
 -trang chi tiết phim: Lúc nhấp trên thanh NAV của header thì cũng phải về lại được các component của trang home, còn lại xong hết rồi
 
 -trang login: làm thêm về phần vallidation 
 		 ...
 -trang checkout: hiện tại chưa có lịch nên không có ý tưởng, nhưng mà trang này để chọn ghế, sau khi đã chọn được phim-> rạp phim->lịch chiếu(ngày và buổi)
-		Thanh toán...
+		Thanh toán...(ở đây có nghĩa là bấm đặt vé)
 
 -Trang admin:   .sau mỗi lần xóa và sau mỗi lần thêm , sửa
 		.Phần Sửa cái movie xem thêm video upLoad hình

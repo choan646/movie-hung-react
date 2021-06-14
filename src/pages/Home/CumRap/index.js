@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import BackNews from "../BackNews";
 import { SemipolarLoading } from "react-loadingg";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -40,9 +39,6 @@ export default function CumRap() {
     dispatch(getCumRapByCinemas(defaultValue));
     dispatch(getShowTimesByCinemas(defaultValue));
   }, []);
-  // console.log("dataCinemas ", dataCinemas);
-  // console.log("dataCumRapByCinemas", dataCumRapByCinemas);
-  //  console.log("dataShowTimesByCinemas",dataShowTimesByCinemas)
 
   if (isLoading) {
     return (
@@ -65,7 +61,7 @@ export default function CumRap() {
                   className={classnames({ active: activeTab === item.biDanh })}
                   onClick={() => handleGetTest(item.maHeThongRap, item.biDanh)}
                 >
-                  <img width="100" height="" src={item.logo} alt="logoRap" />
+                  <img src={item.logo} alt="logoRap" />
                 </NavLink>
               </NavItem>
             ))}
@@ -86,7 +82,7 @@ export default function CumRap() {
         </div>
       </div>
 
-      <BackNews></BackNews>
+      
     </div>
   );
 }

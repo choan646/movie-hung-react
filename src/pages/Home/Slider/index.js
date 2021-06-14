@@ -47,33 +47,7 @@ export default function Slider() {
   const toggleTrailer = () => setModalTrailer(!modalTrailer);
   const [modalTrailer, setModalTrailer] = useState(false);
 
-  const slides = items.map((item, index) => {
-    return (
-      <CarouselItem
-        onExiting={() => setAnimating(true)}
-        onExited={() => setAnimating(false)}
-        key={index}
-      >
-        <img src={item.src} />
-        <div className="slider__iconPlayTrailer">
-          <Icon.PlayCircle size={60} onClick={toggleTrailer} />
-          <Modal
-            className="modalTrailler"
-            isOpen={modalTrailer}
-            toggle={toggleTrailer}
-          >
-            <iframe
-              src={item.trailer}
-              width="900px"
-              height="468px"
-              frameborder="1"
-              autoplay
-            ></iframe>
-          </Modal>
-        </div>
-      </CarouselItem>
-    );
-  });
+  // const slides = 
 
   return (
     <Carousel activeIndex={activeIndex} next={next} previous={previous}>
@@ -82,7 +56,31 @@ export default function Slider() {
         activeIndex={activeIndex}
         onClickHandler={goToIndex}
       />
-      {slides}
+      {items.map((item, index)=>(
+        <CarouselItem
+      onExiting={() => setAnimating(true)}
+      onExited={() => setAnimating(false)}
+      key={index}
+    >
+      <img src={item.src} />
+      <div className="slider__iconPlayTrailer">
+        <Icon.PlayCircle size={60} onClick={toggleTrailer} />
+        <Modal
+          className="modalTrailler"
+          isOpen={modalTrailer}
+          toggle={toggleTrailer}
+        >
+          <iframe
+            src={item.trailer}
+            width="900px"
+            height="468px"
+            frameborder="1"
+            autoplay
+          />
+        </Modal>
+      </div>
+    </CarouselItem>
+      ))}
       <CarouselControl
         direction="prev"
         directionText="Previous"

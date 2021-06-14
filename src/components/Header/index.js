@@ -53,7 +53,6 @@ export default function Header() {
     toggleModalInfo();
     dispatch(updateAtUser(values));
   };
-console.log(userInfo)
   return (
     <div id="header">
       <Navbar expand="md">
@@ -82,7 +81,7 @@ console.log(userInfo)
                       <NavLink href="#cumRapBackNews">Cụm Rạp</NavLink>
                     </NavItem>
                     <NavItem>
-                      <NavLink href="#tintucBackNewNext">Tin Tức</NavLink>
+                      <NavLink href="#">Tin Tức</NavLink>
                     </NavItem>
                     <NavItem>
                       <NavLink href="#ungDung">Ứng Dụng</NavLink>

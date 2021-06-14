@@ -1,6 +1,5 @@
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import { lazy, Suspense } from "react";
-import { BoxLoading } from "react-loadingg";
 import { SemipolarLoading } from 'react-loadingg';
 import { IntlProvider } from 'react-intl';
 
@@ -15,7 +14,6 @@ import AdminRoute from "./auth/AdminRoute";
 //Pages
 const Home = lazy(() => import("./pages/Home"));
 const Movie = lazy(() => import("./pages/Movie"));
-const News = lazy(() => import("./pages/News"));
 const Cinemas = lazy(() => import("./pages/Cinemas"));
 const Checkout = lazy(() => import("./pages/Checkout"));
 const AdminInfomation = lazy(() => import("./pages/Admin/AdminInfomation"));
@@ -82,10 +80,6 @@ function App() {
                 {/* Route chi tiet phim */}
                 <Route path="/movie/:movieId">
                   <Movie />
-                </Route>
-                {/* Route tin-tuc */}
-                <Route path="/tin-tuc/:newId">
-                  <News />
                 </Route>
                 {/* Route rap-chieu-phim */}
                 <Route path="/rap-chieu-phim/:cinemasId">

@@ -1,19 +1,16 @@
-import React from 'react'
+import React from "react";
+import {Link} from "react-router-dom";
 
-export default function ItemColSecond({data}) {
-    return (
-        <div className="col-6">
-                    {data?.slice(0, 6).map((itemSecond) => (
-                      <button
-                        style={{
-                          border: "1px solid black",
-                          padding: " 20px 10px",
-                        }}
-                        className="itemZero btn btn-success w-100"
-                      >
-                        {itemSecond.tenCumRap} - {itemSecond.diaChi}
-                      </button>
-                    ))}
-                  </div>
-    )
+export default function ItemColSecond({ data }) {
+  return (
+    <div className="col-6">
+      {data?.slice(0, 6).map((item) => (
+        <div className="item__colSecond__detail">
+          <p>{item.tenCumRap}</p>
+          <p>Địa Chỉ : {item.diaChi}</p>
+          <Link to={`/rap-chieu-phim/${item.maCumRap}`}><i>[ Chi Tiết ]</i></Link>
+        </div>
+      ))}
+    </div>
+  );
 }
