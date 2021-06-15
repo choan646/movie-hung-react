@@ -1,6 +1,6 @@
 import * as yup from "yup";
 // Tạo schame validation
-//Login
+// Login
 export const loginSchema = yup.object().shape({
     taiKhoan: yup
       .string()

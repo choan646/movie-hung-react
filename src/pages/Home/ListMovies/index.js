@@ -24,7 +24,7 @@ export default function ListMovies() {
     textAlign: "center",
   };
   return (
-    <div id="lichChieu" style={styleCenter}>
+    <div id="listMovies" className="container" style={styleCenter}>
       <Nav tabs>
         <NavItem>
           <NavLink

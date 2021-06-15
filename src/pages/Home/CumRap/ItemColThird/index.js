@@ -1,6 +1,5 @@
 import React from "react";
-import {Link} from "react-router-dom";
-
+import { Link } from "react-router-dom";
 export default function ItemColThird({ data }) {
   return (
     <div className="col-6">
@@ -19,50 +18,61 @@ export default function ItemColThird({ data }) {
                 .map((itemDanhSachPhim) => (
                   <div className="item__danhSachPhim row">
                     <div className="item__danhSachPhim__img col-4">
-                      <img
-                        src={itemDanhSachPhim.hinhAnh}
-                        alt="hinhAnh"
-                      />
+                      <img src={itemDanhSachPhim.hinhAnh} alt="hinhAnh" />
                     </div>
                     <div className="item__lichChieu col-8">
-                      <p style={{textTransform:"uppercase", textAlign:"center"}}>
+                      <p
+                        style={{
+                          textTransform: "uppercase",
+                          textAlign: "center",
+                        }}
+                      >
                         {itemDanhSachPhim.tenPhim}
                       </p>
                       <div className="row d-flex">
                         {itemDanhSachPhim?.lstLichChieuTheoPhim
                           ?.slice(0, 4)
                           .map((itemLichChieu) => (
-                            <div className="container col-6" style={{paddingLeft:"35px", paddingTop:"15px"}}>
+                            <div
+                              className="container col-6"
+                              style={{
+                                paddingLeft: "20px",
+                                paddingTop: "15px",
+                                marginRight: "-25px",
+                              }}
+                            >
                               <button className="btn">
-                                <Link to={`/checkout/${itemDanhSachPhim.maPhim}`}>
-                                <p>
-                                  {itemLichChieu?.ngayChieuGioChieu.substring(
-                                    11,
-                                    13
-                                  ) +
-                                    "h" +
-                                    itemLichChieu?.ngayChieuGioChieu.substring(
-                                      14,
-                                      16
+                                <Link
+                                  to={`/checkout/${itemLichChieu.maLichChieu}`}
+                                >
+                                  <p>
+                                    {itemLichChieu?.ngayChieuGioChieu.substring(
+                                      11,
+                                      13
                                     ) +
-                                    "p"}
-                                </p>
-                                <p>
-                                  {itemLichChieu?.ngayChieuGioChieu.substring(
-                                    8,
-                                    10
-                                  ) +
-                                    "/" +
-                                    itemLichChieu?.ngayChieuGioChieu.substring(
-                                      5,
-                                      7
+                                      "h" +
+                                      itemLichChieu?.ngayChieuGioChieu.substring(
+                                        14,
+                                        16
+                                      ) +
+                                      "p"}
+                                  </p>
+                                  <p>
+                                    {itemLichChieu?.ngayChieuGioChieu.substring(
+                                      8,
+                                      10
                                     ) +
-                                    "/" +
-                                    itemLichChieu?.ngayChieuGioChieu.substring(
-                                      0,
-                                      4
-                                    )}
-                                </p>
+                                      "/" +
+                                      itemLichChieu?.ngayChieuGioChieu.substring(
+                                        5,
+                                        7
+                                      ) +
+                                      "/" +
+                                      itemLichChieu?.ngayChieuGioChieu.substring(
+                                        0,
+                                        4
+                                      )}
+                                  </p>
                                 </Link>
                               </button>
                             </div>

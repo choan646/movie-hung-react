@@ -1,0 +1,88 @@
+#chiTietCumRapPhim {
+  .cinema__content {
+    .img__RapPhim {
+      img {
+        box-shadow: 5px 12px 25px rgb(12, 12, 12);
+      }
+    }
+    .info__RapPhim {
+      margin-left: -50px;
+      h1 {
+        font-size: 38px;
+        text-transform: uppercase;
+        margin: 30px 0;
+        color: rgb(17, 47, 59);
+      }
+      p {
+        color: rgb(222, 222, 222);
+      }
+    }
+    .detail_RapPhim {
+      margin: auto;
+      padding-top: 70px;
+      width: 800px;
+      .nav-tabs {
+        border: none;
+        margin-bottom: 10px;
+        justify-content: center;
+        .nav-item {
+          .nav-link {
+            border: none;
+            font-size: 18px;
+            color: #000;
+            margin-right: 10px;
+            transition: all 0.2s;
+            font-weight: bold;
+            &:hover {
+              cursor: pointer;
+              font-size: 22px;
+              font-weight: normal;
+            }
+          }
+          .active {
+            color: #fa5238 !important;
+            font-size: 22px;
+            text-shadow: 5px 2px 10px #d84a34;
+            background-color: transparent;
+            font-weight: normal;
+          }
+        }
+      }
+      .tab-content {
+        margin-top: 50px;
+        color: rgb(222, 222, 222);
+        font-size: 14px;
+        .lichChieuAtCinema__content {
+          margin-bottom: 30px;
+          padding-top: 30px;
+          border-top: 1px solid rgb(125, 125, 125);
+          .lichChieuAtCinema__img {
+            padding-left: 0;
+            img {
+              box-shadow: 0px 0px 25px rgb(125, 125, 125);
+            }
+          }
+          .lichChieuAtCinema__detail {
+            button {
+              background-color: #fa5238;
+              margin-bottom: 20px;
+              padding: 5px !important;
+              box-shadow: 2px 5px 10px rgb(125, 125, 125);
+              a {
+                text-decoration: none;
+                p {
+                  color: rgb(222, 222, 222);
+                  margin: 0 !important;
+                }
+              }
+              &:hover {
+                box-shadow: 2px 5px 10px rgb(42, 42, 42);
+                background-color: #d84a34;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

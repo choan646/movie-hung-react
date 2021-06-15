@@ -66,7 +66,7 @@ function App() {
           </Route>
 
           {/* Route Checkout */}
-          <Route path="/checkout/:movieId">
+          <Route path="/checkout/:maLichChieu">
             <Checkout />
           </Route>
 

@@ -34,7 +34,7 @@ export default function ShowTimeMovie({ data }) {
                   {placeItem?.lichChieuPhim?.map((timeItem) => (
                     <div className="col">
                       <button className="btn">
-                      <Link to={`/checkout/${dataShowTimesByMovie.maPhim}`}>
+                      <Link to={`/checkout/${timeItem.maLichChieu}`}>
                       <p>
                         {timeItem?.ngayChieuGioChieu.substring(11, 13) +
                           "h" +
