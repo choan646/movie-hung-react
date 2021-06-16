@@ -9,7 +9,6 @@ export default function Home() {
   return (
     <div>
       <Slider />
-      <Link to="/checkout/:movieId">Test Check out</Link>
       <ListMovies />
       <CumRap />
       <UngDung />

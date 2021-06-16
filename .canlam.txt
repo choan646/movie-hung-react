@@ -5,12 +5,28 @@
 			    .làm mượt các nút ở thanh navbar lúc trượt xuống, làm thêm nút back-to-top nếu scroll xuống,
 				Lúc nhấp trên thanh NAV của header thì cũng phải về lại được các component của trang home
 				Responsive
+			    .Tìm kiếm phim ngay dưới slide bự
 
 			    --Phần Đặt vé tham khảo trong videologin
 
 		 ...
+
+
 -trang checkout: hiện tại chưa có lịch nên không có ý tưởng, nhưng mà trang này để chọn ghế, sau khi đã chọn được phim-> rạp phim->lịch chiếu(ngày và buổi)
 		Thanh toán...(ở đây có nghĩa là bấm đặt vé)
+
+
+
+			    ===\                              SUY NGHĨ THÊM NẾU CÒN THỜI GIAN :
+			    ====\  có các nút bấm like tăng số like, bấm thêm lần nữa giảm like và màu sẽ thay đổi dựa theo đó (nút bình luận bỏ k cần làm)
+			    =====*  các item thì chia thành 2 hàng: hàng 1 6-6 hàng 2 4-4-4, ở hàng 2 có item cuối 12-12-12-12
+			    ====/	 tạm thời bây giờ ý tưởng của nút xem thêm là: tăng height(tự xử lý thêm nếu gặp vấn đề)
+			    ===/ 	Phần tin tức: thanh nav sẽ sử dụng tab
+						-trang chi tiết tin tức, thì không cần làm cũng được nếu k đủ thời gian
+
+
+
+
 
 -Trang admin:   .sau mỗi lần xóa và sau mỗi lần thêm , sửa
 		.Phần Sửa cái movie xem thêm video upLoad hình
@@ -23,12 +39,4 @@
 						tách nhỏ các item đã làm /// đọc thêm doc của swal, router-dom, useParam
 
 
-			    ===\                              SUY NGHĨ THÊM NẾU CÒN THỜI GIAN :
-			    ====\  có các nút bấm like tăng số like, bấm thêm lần nữa giảm like và màu sẽ thay đổi dựa theo đó (nút bình luận bỏ k cần làm)
-			    =====*  các item thì chia thành 2 hàng: hàng 1 6-6 hàng 2 4-4-4, ở hàng 2 có item cuối 12-12-12-12
-			    ====/	 tạm thời bây giờ ý tưởng của nút xem thêm là: tăng height(tự xử lý thêm nếu gặp vấn đề)
-			    ===/ 	Phần tin tức: thanh nav sẽ sử dụng tab
-						-trang chi tiết tin tức, thì không cần làm cũng được nếu k đủ thời gian
-
-
-
+			   

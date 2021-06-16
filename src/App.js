@@ -1,8 +1,7 @@
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import { lazy, Suspense } from "react";
-import { SemipolarLoading } from 'react-loadingg';
-import { IntlProvider } from 'react-intl';
-
+import { SemipolarLoading } from "react-loadingg";
+import { IntlProvider } from "react-intl";
 
 //Layout
 import AppLayout from "./Layouts/AppLayout";
@@ -34,27 +33,26 @@ function App() {
           <Route path="/admin">
             <IntlProvider>
               <AdminLayout>
-              <Switch>
-                <Redirect exact from="/admin" to="/admin/home" />
-                <AdminRoute path="/admin/home">
-                  <AdminHome />
-                </AdminRoute>
-                <AdminRoute path="/admin/info">
-                  <AdminInfomation />
-                </AdminRoute>
-                <AdminRoute path="/admin/movies/:currentPage">
-                  <AdminMovies />
-                </AdminRoute>
-                <AdminRoute path="/admin/users/:currentPage">
-                  <AdminUsers />
-                </AdminRoute>
-                <AdminRoute path="/admin/cinemas">
-                  <AdminCinemas />
-                </AdminRoute>
-              </Switch>
-            </AdminLayout>
+                <Switch>
+                  <Redirect exact from="/admin" to="/admin/home" />
+                  <AdminRoute path="/admin/home">
+                    <AdminHome />
+                  </AdminRoute>
+                  <AdminRoute path="/admin/info">
+                    <AdminInfomation />
+                  </AdminRoute>
+                  <AdminRoute path="/admin/movies/:currentPage">
+                    <AdminMovies />
+                  </AdminRoute>
+                  <AdminRoute path="/admin/users/:currentPage">
+                    <AdminUsers />
+                  </AdminRoute>
+                  <AdminRoute path="/admin/cinemas">
+                    <AdminCinemas />
+                  </AdminRoute>
+                </Switch>
+              </AdminLayout>
             </IntlProvider>
-            
           </Route>
 
           {/* Route Login */}
@@ -65,15 +63,11 @@ function App() {
             <Register />
           </Route>
 
-          {/* Route Checkout */}
-          <Route path="/checkout/:maLichChieu">
-            <Checkout />
-          </Route>
-
           {/* Route Main */}
           <Route path="/">
             <AppLayout>
               <Switch>
+                {/* Route Trang Home */}
                 <Route path="/" exact>
                   <Home />
                 </Route>
@@ -84,6 +78,10 @@ function App() {
                 {/* Route rap-chieu-phim */}
                 <Route path="/rap-chieu-phim/:cinemasId">
                   <Cinemas />
+                </Route>
+                {/* Route Checkout */}
+                <Route path="/checkout/:maLichChieu">
+                  <Checkout />
                 </Route>
               </Switch>
             </AppLayout>
