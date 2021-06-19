@@ -2,7 +2,7 @@ import React from "react";
 import { FormGroup, Label, Alert, Modal } from "reactstrap";
 import { Link } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { registerUserSchema } from "src/services/schema";
+import { registerUserSchema } from "src/redux/services/schema";
 import { Prompt } from "react-router-dom";
 import Swal from "sweetalert2";
 

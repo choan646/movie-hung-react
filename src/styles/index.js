@@ -16,6 +16,7 @@ import './Layouts/_listMovies.scss';
 import './Layouts/_cumRap.scss';
 import './Layouts/_ungDung.scss';
 import './Layouts/_login.scss';
+import './Layouts/_checkout.scss';
 import './Layouts/_register.scss';
 import './Layouts/_detailMovie.scss';
 import './Layouts/_detailCumRap.scss';

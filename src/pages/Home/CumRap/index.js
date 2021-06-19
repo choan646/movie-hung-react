@@ -5,7 +5,7 @@ import {
   getCinemas,
   getCumRapByCinemas,
   getShowTimesByCinemas,
-} from "src/actions/cinemas";
+} from "src/redux/actions/cinemas";
 import { Nav, NavItem, NavLink, TabContent, TabPane } from "reactstrap";
 import classnames from "classnames";
 import ItemColSecond from "./ItemColSecond";

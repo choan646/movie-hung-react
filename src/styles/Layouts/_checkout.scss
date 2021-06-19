@@ -1,0 +1,131 @@
+#checkout {
+  button:focus {
+    box-shadow: none;
+  }
+  padding-top: 70px;
+  background: linear-gradient(to top, #f27b13, #f2ec94);
+  .checkout__title {
+    h1 {
+      font-size: 52px;
+      color: #242424;
+      text-align: center;
+      text-transform: uppercase;
+      font-family: "Courier New", Courier, monospace;
+    }
+  }
+  .checkout__content {
+    padding-top: 30px;
+    width: 80%;
+    margin: auto;
+    .checkout__content__left {
+      margin-bottom: 30px;
+      background-color: #fdfcf0;
+      padding: 0 90px;
+      padding-left: 60px;
+      border-radius: 15px;
+      .img__manHinh {
+        margin: 30px 0 40px 30px;
+        img {
+          width: 100%;
+        }
+      }
+      .checkout__gheThuong,
+      .checkout__gheVip {
+        button{
+            margin-bottom: 10px;
+        }
+        
+      }
+      .checkout__gheVip {
+        margin-top: 10px;
+      }
+      .checkout__comment {
+        margin-top: 35px;
+        margin-left: 100px;
+        button {
+          margin-bottom: 20px;
+        }
+        p {
+          margin-left: 10px;
+          margin-top: 10px;
+        }
+      }
+    }
+    .checkout__content__right {
+      padding-left: 20px;
+      padding-right: -20px;
+      h3 {
+        text-align: center;
+        font-family: "Courier New", Courier, monospace;
+        color: #242424;
+        font-weight: 600;
+      }
+      .banner__infoMovie {
+        background-color: #242424;
+        color: #fff;
+        position: relative;
+        .banner__infoMovie__img {
+          img {
+            width: 100%;
+            height: 200px;
+            margin: 30px 10px;
+          }
+        }
+        .banner__infoMovie__detail {
+          font-size: 14px;
+          margin-top: 30px;
+          padding-right: 20px;
+          p {
+            margin-bottom: 10px;
+            b {
+              color: #f27b13;
+              // color: rgb(213, 3, 3);
+            }
+          }
+        }
+      }
+      .form__booking {
+        margin-top: 50px;
+        .table {
+          background-color: #fdfcf0;
+        }
+      }
+    }
+  }
+
+  //Thiết kế style cho các loại nút
+  .styleButtonDangChon {
+    border: 1px solid rgb(246, 82, 82)!important;
+    background-color: rgb(246, 82, 82);
+    width: 45px;
+    height: 40px;
+    color: black;
+    text-align: center;
+    font-size: 13px;
+  }
+  .styleButtonDaDat {
+    background-color: gray;
+    width: 45px;
+    height: 40px;
+    color: black;
+    text-align: center;
+    font-size: 13px;
+
+  }
+  .styleButtonGheThuong {
+    border: 1px solid #01c73c;
+    width: 45px;
+    height: 40px;
+    text-align: center;
+    font-size: 13px;
+
+  }
+  .styleButtonGheVip {
+    border: 1px solid #f71708;
+    width: 45px;
+    height: 40px;
+    text-align: center;
+    font-size: 13px;
+
+  }
+}

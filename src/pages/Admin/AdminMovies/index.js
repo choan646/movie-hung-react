@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Button, Pagination, PaginationItem } from "reactstrap";
-import { getMoviePagination } from "src/actions/movie";
+import { getMoviePagination } from "src/redux/actions/movie";
 import { SemipolarLoading } from "react-loadingg";
 import { AiFillFolderAdd } from "react-icons/ai";
 import { Link, useParams } from "react-router-dom";

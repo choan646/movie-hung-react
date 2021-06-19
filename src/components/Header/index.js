@@ -16,9 +16,9 @@ import {
 } from "reactstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { BoxArrowRight } from "react-bootstrap-icons";
-import { logout, getUserInfoHistoryBooking } from "src/actions/auth";
-import { updateAtUser } from "src/actions/users";
-
+import { logout, getUserInfoHistoryBooking } from "src/redux/actions/auth";
+import { updateAtUser } from "src/redux/actions/users";
+import { SemipolarLoading } from "react-loadingg";
 import ModalInfoHeader from "./ModalInfoHeader";
 import ModalHistoryHeader from "./ModalHistoryHeader";
 
@@ -53,6 +53,16 @@ export default function Header() {
     toggleModalInfo();
     dispatch(updateAtUser(values));
   };
+  if (isLoading) {
+    return (
+      <div>
+        <SemipolarLoading color="#6B439B" />
+      </div>
+    );
+  }
+  if (error) {
+    return <div>{error}</div>;
+  }
   return (
     <div id="header">
       <Navbar expand="md">

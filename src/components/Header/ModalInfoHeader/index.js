@@ -1,7 +1,7 @@
 import { ErrorMessage, Form, Field, Formik } from "formik";
 import React from "react";
 import { Alert, Button, FormGroup, Label, Modal, ModalBody } from "reactstrap";
-import { updateSchema } from "src/services/schema";
+import { updateSchema } from "src/redux/services/schema";
 
 export default function ModalInfoHeader({ data,handleChangeInfoHome, modalInfo, toggleModalInfo }) {
   return (

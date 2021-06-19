@@ -1,42 +1,34 @@
 -danh sách việc làm ở home: .slider bự chạy video nhưng bị cái vòng lặp sinh ra 3 cái video chồng lên nhau, cái video cuối nằm trên cùng nên luôn luôn có nó
 
 			    .nút đổi thông tin ở navbar đã sửa được thông tin nhưng khi thay đổi thì nó chưa load lại, hiện tại chỉ yêu cầu người dùng đăng xuất và đăng nhập lại
+				dùng cái isLogin bằng setState như đã làm ở trang CheckOut để nó load lại
 
 			    .làm mượt các nút ở thanh navbar lúc trượt xuống, làm thêm nút back-to-top nếu scroll xuống,
-				Lúc nhấp trên thanh NAV của header thì cũng phải về lại được các component của trang home
-				Responsive
-			    .Tìm kiếm phim ngay dưới slide bự
 
-			    --Phần Đặt vé tham khảo trong videologin
+			    .Lúc nhấp trên thanh NAV của header thì cũng phải về lại được các component của trang home
 
-		 ...
+			    //(Responsive)//
 
-
--trang checkout: hiện tại chưa có lịch nên không có ý tưởng, nhưng mà trang này để chọn ghế, sau khi đã chọn được phim-> rạp phim->lịch chiếu(ngày và buổi)
-		Thanh toán...(ở đây có nghĩa là bấm đặt vé)
-
-
-
-			    ===\                              SUY NGHĨ THÊM NẾU CÒN THỜI GIAN :
-			    ====\  có các nút bấm like tăng số like, bấm thêm lần nữa giảm like và màu sẽ thay đổi dựa theo đó (nút bình luận bỏ k cần làm)
-			    =====*  các item thì chia thành 2 hàng: hàng 1 6-6 hàng 2 4-4-4, ở hàng 2 có item cuối 12-12-12-12
-			    ====/	 tạm thời bây giờ ý tưởng của nút xem thêm là: tăng height(tự xử lý thêm nếu gặp vấn đề)
-			    ===/ 	Phần tin tức: thanh nav sẽ sử dụng tab
-						-trang chi tiết tin tức, thì không cần làm cũng được nếu k đủ thời gian
+			    .Tìm kiếm phim ngay dưới slide bự, chưa nghĩ ra...
 
 
 
 
+		===\            -Trang admin:       .sau mỗi lần xóa và sau mỗi lần thêm , sửa                  
+		====\  				.Phần Sửa cái movie xem thêm video upLoad hình
+		=====*  				.thay đổi thông tin ở trang adminInfo khi mà đăng nhập lại,
+		====/					tại vì userInfo là thông tin của admin đang đăng nhập được lưu trên localStorage, 
+		===/ 					muốn sửa mà ảnh hưởng đến local thì xem lại sau
+								.xem thêm phần register cân nhắc thoát ra từ Angular
+								.Vấn đề về modal Sửa khi bật lên màn hình ngoài màu đen do nó đang nằm trong <tr>==> xem lại css
 
--Trang admin:   .sau mỗi lần xóa và sau mỗi lần thêm , sửa
-		.Phần Sửa cái movie xem thêm video upLoad hình
-		.thay đổi thông tin ở trang adminInfo khi mà đăng nhập lại,tại vì userInfo là thông tin của admin đang đăng nhập được lưu trên localStorage, muốn sửa mà ảnh hưởng đến local thì xem lại sau
-		.xem thêm phần register cân nhắc thoát ra từ Angular
-		.Vấn đề về modal Sửa khi bật lên màn hình ngoài màu đen do nó đang nằm trong <tr>==> xem lại css
-			NHIỀU VẤN ĐỀ XẢY RA Ở TRANG ADMIN LÀM TÔI ĐAU ĐẦU, NÊN TẠM GÁC LẠI HẾT TẤT CẢ Ở ADMIN
 
-						==Còn nhiều thứ về logic và cả ux-ui
-						tách nhỏ các item đã làm /// đọc thêm doc của swal, router-dom, useParam
+					NHIỀU VẤN ĐỀ XẢY RA Ở TRANG ADMIN LÀM TÔI ĐAU ĐẦU, NÊN TẠM GÁC LẠI HẾT TẤT CẢ Ở ADMIN
+
+
+
+								=====  Còn nhiều thứ về logic và cả ux-ui ======
+							tách nhỏ các item đã làm /// đọc thêm doc của swal, router-dom, useParam
 
 
 			   

@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { SemipolarLoading } from "react-loadingg";
-import { getMovie } from "src/actions/movie";
+import { getMovie } from "src/redux/actions/movie";
 import MovieCardList from "../movieCardList";
 
 export default function SapChieu() {

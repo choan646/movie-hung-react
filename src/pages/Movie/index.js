@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getMovie } from "src/actions/movie";
+import { getMovie } from "src/redux/actions/movie";
 import { SemipolarLoading } from "react-loadingg";
 import { useParams , Redirect} from "react-router-dom";
 import { PlayCircle } from "react-bootstrap-icons";

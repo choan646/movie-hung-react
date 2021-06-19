@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import "./styles";
-import rootReducer from "./reducers/rootReducer";
+import rootReducer from "./redux/reducers/rootReducer";
 import reportWebVitals from './reportWebVitals';
 
 // Setup redux

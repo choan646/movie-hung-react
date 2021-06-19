@@ -1,7 +1,7 @@
 import { ErrorMessage, Form, Field, Formik } from "formik";
 import React from "react";
 import { Alert, Button, FormGroup, Label, Modal } from "reactstrap";
-import { addUserSchema } from "src/services/schema";
+import { addUserSchema } from "src/redux/services/schema";
 export default function AdminUsersModalAdd({
   handleAddUser,
   modalUser,

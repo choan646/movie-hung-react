@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Redirect } from "react-router-dom";
-import { register } from "src/actions/auth";
+import { register } from "src/redux/actions/auth";
 import  RegisterModal from "./RegisterModal";
 
 

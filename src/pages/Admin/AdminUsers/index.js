@@ -4,10 +4,10 @@ import { Button, Table, Pagination, PaginationItem } from "reactstrap";
 import { SemipolarLoading } from "react-loadingg";
 import Swal from "sweetalert2";
 import { Link, useParams } from "react-router-dom";
-import { getUser, deleteUser } from "src/actions/users";
+import { getUser, deleteUser } from "src/redux/actions/users";
 import { IoPersonAdd } from "react-icons/io5";
 import AdminUsersAdd from "./AdminUsersAdd";
-import { addUser, updateUser } from "src/actions/users";
+import { addUser, updateUser } from "src/redux/actions/users";
 import ListUser from "./ListUser";
 
 export default function AdminUsers() {

@@ -1,16 +1,21 @@
-import { getChiTietPhongVe } from "src/actions/booking";
-import React, { useEffect } from "react";
+import { datVe, datGhe, getChiTietPhongVe } from "src/redux/actions/booking";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams, Redirect } from "react-router-dom";
 import { SemipolarLoading } from "react-loadingg";
 import AllActionDatVe from "./AllActionDatVe";
+import ComponentChonGhe from "./ComponentChonGhe";
 
 export default function Checkout() {
+  const [isDone, setIsDone] = useState(false);
+  const toggleDone = () => setIsDone(!isDone);
+
   const dispatch = useDispatch();
   const { maLichChieu } = useParams();
-  const { dataChiTietPhongVe, isLoading, error } = useSelector(
+  const { dataChiTietPhongVe, listGheDangChon, isLoading, error } = useSelector(
     (state) => state.booking
   );
+  const { userInfo } = useSelector((state) => state.auth);
 
   const gheVip = dataChiTietPhongVe?.danhSachGhe?.filter(
     (item) => item.loaiGhe == "Vip"
@@ -19,11 +24,18 @@ export default function Checkout() {
     (item) => item.loaiGhe == "Thuong"
   );
 
-  console.log(dataChiTietPhongVe);
+  const handleDatGhe = (valueGhe) => {
+    dispatch(datGhe(valueGhe));
+  };
+
+  const handlePay = (maLichChieu, danhSachVe, taiKhoanNguoiDung) => {
+    dispatch(datVe(maLichChieu, danhSachVe, taiKhoanNguoiDung));
+    toggleDone();
+  };
 
   useEffect(() => {
     dispatch(getChiTietPhongVe(maLichChieu));
-  }, [maLichChieu]);
+  }, [isDone]);
 
   const userCheck = localStorage.getItem("userInfo");
   if (userCheck == null) {
@@ -49,52 +61,22 @@ export default function Checkout() {
           <div className="img__manHinh">
             <img src="/img/bg-screen.png" alt="manHinh" />
           </div>
-          <div className="row checkout__gheThuong">
-            {gheThuong?.map((item) => {
-              //
-              // Về vấn đề đã đặ thì disable,lúc nào hoàn thành xong action đặt vé hãy check lại, bây giờ tạm vậy đã
-              //
-              let styleGheDaDat = "styleButtonGheThuong";
-              let disabled = false;
-              if (item.daDat) {
-                styleGheDaDat = "styleButtonDaDat";
-                disabled = true;
-              }
-              return (
-                <div className="col-1">
-                  <button
-                    disabled={disabled}
-                    className={`btn ${styleGheDaDat}`}
-                  >
-                    {item.daDat == false ? item.tenGhe : "X"}
-                  </button>
-                </div>
-              );
-            })}
-          </div>
-          <div className="row checkout__gheVip">
-            {gheVip?.map((item) => {
-              let styleGheDaDat = "styleButtonGheVip";
-              let disabled = false;
-              if (item.daDat) {
-                styleGheDaDat = "styleButtonDaDat";
-                disabled = true;
-              }
-              return (
-                <div className="col-1">
-                  <button
-                    disabled={disabled}
-                    className={`btn ${styleGheDaDat}`}
-                  >
-                    {item.daDat == false ? item.tenGhe : "X"}
-                  </button>
-                </div>
-              );
-            })}
-          </div>
+          <ComponentChonGhe
+            data={gheThuong}
+            listGheDangChon={listGheDangChon}
+            handleDatGhe={handleDatGhe}
+            styleButton={"styleButtonGheThuong"}
+          />
+          {/* Ở đây 2 cách xét cho styleButton đều được */}
+          <ComponentChonGhe
+            data={gheVip}
+            listGheDangChon={listGheDangChon}
+            handleDatGhe={handleDatGhe}
+            styleButton="styleButtonGheVip"
+          />
           <div className="row checkout__comment">
             <div className="col-6 d-flex">
-              <button disabled className="btn styleButtonDangChon">
+              <button disabled className="btn styleButtonDangChon" style={{backgroundColor:"rgb(213, 3, 3)"}}>
                 STT
               </button>
               <p>Đang Chọn</p>
@@ -181,7 +163,13 @@ export default function Checkout() {
               }}
             ></div>
           </div>
-          <AllActionDatVe />
+          <AllActionDatVe
+            listGheDangChon={listGheDangChon}
+            handleDatGhe={handleDatGhe}
+            handlePay={handlePay}
+            maLichChieu={maLichChieu}
+            userInfo={userInfo}
+          />
         </div>
       </div>
     </div>

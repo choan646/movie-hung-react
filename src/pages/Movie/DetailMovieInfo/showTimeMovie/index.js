@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {Link} from 'react-router-dom'
-import { getShowTimesByIdMovie } from "src/actions/cinemas";
+import { getShowTimesByIdMovie } from "src/redux/actions/cinemas";
 
 export default function ShowTimeMovie({ data }) {
   const dispatch = useDispatch();
@@ -13,7 +13,7 @@ export default function ShowTimeMovie({ data }) {
   }, [data.maPhim]);
   return (
     <div className="tab__lichChieuPhim">
-      {console.log(dataShowTimesByMovie)}
+      {/* {console.log(dataShowTimesByMovie)} */}
 
       {dataShowTimesByMovie?.heThongRapChieu?.map((item) => (
         <div className="tab__lichChieuPhim__listItem" key={item?.maHeThongRap}>

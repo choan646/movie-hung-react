@@ -232,18 +232,18 @@ export default function Footer() {
             <img src="/img/zion-logo.jpg" alt="hinhanh" />
             </div>
             <div className="col-sm-8 footer__bottom__detail">
-            <p>TIX – SẢN PHẨM CỦA CÔNG TY CỔ PHẦN ZION</p>
-            <span>Địa chỉ: Z06 Đường số 13, Phường Tân Thuận Đông, Quận 7, Tp. Hồ Chí Minh, Việt Nam.</span>
+            <p>TIX – SẢN PHẨM CỦA CÔNG TY CỔ PHẦN</p>
+            <span>Địa chỉ: 145/6 Đường Trần Bá Giao, Phường 05, Quận Gò Vấp, Tp. Hồ Chí Minh, Việt Nam.</span>
             <span>
-            Giấy chứng nhận đăng ký kinh doanh số: 0101659783,
+            Giấy chứng nhận đăng ký kinh doanh số: 123456789,
             <br/>
-            đăng ký thay đổi lần thứ 30, ngày 22 tháng 01 năm 2020  do Sở kế hoạch và đầu tư Thành phố Hồ Chí Minh cấp.
+            đăng ký thay đổi lần thứ 24, ngày 12 tháng 05 năm 2021  do Sở kế hoạch và đầu tư Thành phố Hồ Chí Minh cấp.
             </span>
             <span>
-            Số Điện Thoại (Hotline): 1900 545 436
+            Số Điện Thoại (Hotline): 0915280646
             <br />
             Email : 
-            <a href="mailto:support@tix.vn"> support@tix.vn</a>
+            <a href="mailto:gogogo0646@gmail.com"> gogogo0646@gmail.com</a>
             </span>
             </div>
            <div className="col-sm-2">

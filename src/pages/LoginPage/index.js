@@ -3,9 +3,9 @@ import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Input, FormGroup, Label, Alert, Modal } from "reactstrap";
 import { useSelector, useDispatch } from "react-redux";
-import { login } from "../../actions/auth";
+import { login } from "../../redux/actions/auth";
 import { Redirect, Link } from "react-router-dom";
-import {loginSchema} from 'src/services/schema'
+import {loginSchema} from 'src/redux/services/schema'
 
 
 export default function LoginPage() {

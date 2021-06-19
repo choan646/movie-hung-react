@@ -9,7 +9,6 @@ export default function ModalHistoryHeader({
   const check = data?.thongTinDatVe.every(function (condition) {
     return condition > 0;
   });
-  // console.log(data?.thongTinDatVe);
   return (
     <div>
       <Modal
