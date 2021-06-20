@@ -5,9 +5,6 @@ import {
   GET_USERBY_REQUEST,
   GET_USERBY_SUCCESS,
   GET_USERBY_FAILURE,
-  UPDATE_USER_REQUEST,
-  UPDATE_USER_SUCCESS,
-  UPDATE_USER_FAILURE,
   DELETE_USER_REQUEST,
   DELETE_USER_SUCCESS,
   DELETE_USER_FAILURE,
@@ -48,22 +45,7 @@ export function getUserByTuKhoa(tuKhoa) {
     }
   };
 }
-export function updateAtUser(values) {
-  return async (dispatch) => {
-    dispatch({ type: UPDATE_USER_REQUEST });
-    try {
-      const { data } = await userAPI.updateAtUser(values);
-      localStorage.clear();
-      Swal.fire("Sửa Thành Công!</br> Bạn Nên Đăng Xuất Và Đăng Nhập Lại!");
-      dispatch({ type: UPDATE_USER_SUCCESS, payload: { data } });
-    } catch (error) {
-      dispatch({
-        type: UPDATE_USER_FAILURE,
-        payload: { error: error.response.data },
-      });
-    }
-  };
-}
+
 export function deleteUser(taiKhoan) {
   return async (dispatch) => {
     dispatch({ type: DELETE_USER_REQUEST });

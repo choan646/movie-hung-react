@@ -15,7 +15,7 @@ export default function DangChieu() {
   if (isLoading) {
     return (
       <div>
-        <SemipolarLoading color="#6B439B" />;
+        <SemipolarLoading color="#6B439B" />
       </div>
     );
   }

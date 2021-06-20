@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Link ,Redirect } from "react-router-dom";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { Row, Col } from "reactstrap";
 import {
   Collapse,
@@ -16,8 +16,11 @@ import {
 } from "reactstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { BoxArrowRight } from "react-bootstrap-icons";
-import { logout, getUserInfoHistoryBooking } from "src/redux/actions/auth";
-import { updateAtUser } from "src/redux/actions/users";
+import {
+  logout,
+  getUserInfoHistoryBooking,
+  updateAtUser,
+} from "src/redux/actions/auth";
 import { SemipolarLoading } from "react-loadingg";
 import ModalInfoHeader from "./ModalInfoHeader";
 import ModalHistoryHeader from "./ModalHistoryHeader";
@@ -33,11 +36,11 @@ export default function Header() {
   const toggleModalHistory = () => setModalHistory(!modalHistory);
 
   const [isOpen, setIsOpen] = useState(false);
+  const toggleNav = () => setIsOpen(!isOpen);
+
   const { userInfo, userInfoHistoryBooking, isLoading, error } = useSelector(
     (state) => state.auth
   );
-
-  const toggleNav = () => setIsOpen(!isOpen);
 
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const toggleDropdown = () => setDropdownOpen((prevState) => !prevState);
@@ -46,13 +49,14 @@ export default function Header() {
     dispatch(logout());
   };
   const handleButtonHistoryBooking = () => {
-    dispatch(getUserInfoHistoryBooking({taiKhoan : userInfo.taiKhoan}));
+    dispatch(getUserInfoHistoryBooking({ taiKhoan: userInfo.taiKhoan }));
     toggleModalHistory();
-  }
+  };
   const handleChangeInfoHome = (values) => {
     toggleModalInfo();
     dispatch(updateAtUser(values));
   };
+
   if (isLoading) {
     return (
       <div>
@@ -112,8 +116,8 @@ export default function Header() {
                             <DropdownItem onClick={toggleModalInfo}>
                               Thông Tin Tài Khoản
                               <ModalInfoHeader
-                              data={userInfo}
-                              handleChangeInfoHome={handleChangeInfoHome}
+                                data={userInfo}
+                                handleChangeInfoHome={handleChangeInfoHome}
                                 modalInfo={modalInfo}
                                 toggleModalInfo={toggleModalInfo}
                               />
@@ -121,7 +125,7 @@ export default function Header() {
                             <DropdownItem onClick={handleButtonHistoryBooking}>
                               Lịch Sử Đặt Vé
                               <ModalHistoryHeader
-                              data={userInfoHistoryBooking}
+                                data={userInfoHistoryBooking}
                                 modalHistory={modalHistory}
                                 toggleModalHistory={toggleModalHistory}
                               />

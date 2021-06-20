@@ -9,7 +9,10 @@ const authAPI = {
   },
   getUserInfoHistoryBooking: (values) => {
     return axiosClient.post("/QuanLyNguoiDung/ThongTinTaiKhoan", values)
-  }
+  },
+  updateAtUser: (values) => {
+    return axiosClient.put("/QuanLyNguoiDung/CapNhatThongTinNguoiDung", values);
+  },
 };
 export default authAPI;
 

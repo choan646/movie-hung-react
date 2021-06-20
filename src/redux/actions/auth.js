@@ -11,10 +11,14 @@ import {
   LOGOUT_REQUEST,
   LOGOUT_SUCCESS,
   LOGOUT_FAILURE,
+  UPDATE_AT_USER_REQUEST,
+  UPDATE_AT_USER_SUCCESS,
+  UPDATE_AT_USER_FAILURE,
 } from "../constants/auth";
 import Swal from "sweetalert2";
 
 import authAPI from "../services/authAPI";
+import { Redirect } from "react-router-dom";
 
 export function getUserInfoHistoryBooking(values) {
   return async (dispatch) => {
@@ -25,6 +29,22 @@ export function getUserInfoHistoryBooking(values) {
     } catch (error) {
       dispatch({
         type: GET_USER_HISTORY_FAILURE,
+        payload: { error: error.response.data },
+      });
+    }
+  };
+}
+export function updateAtUser(values) {
+  return async (dispatch) => {
+    dispatch({ type: UPDATE_AT_USER_REQUEST });
+    try {
+      const { data } = await authAPI.updateAtUser(values);
+      localStorage.clear();
+      Swal.fire("Sửa Thành Công!<br> Yêu Cầu Đăng Nhập Lại!");
+      dispatch({ type: UPDATE_AT_USER_SUCCESS, payload: { data } });
+    } catch (error) {
+      dispatch({
+        type: UPDATE_AT_USER_FAILURE,
         payload: { error: error.response.data },
       });
     }

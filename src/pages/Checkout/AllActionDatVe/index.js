@@ -1,5 +1,6 @@
 import React from "react";
 import { Table } from "reactstrap";
+import Button from "@material-ui/core/Button";
 
 export default function AllActionDatVe({
   listGheDangChon,
@@ -10,9 +11,6 @@ export default function AllActionDatVe({
 }) {
   let tongTien = 0;
   let disabled = true;
-  // if(tongTien == 0) {
-  //   disabled = false;
-  // }
 
   return (
     <div className="form__booking">
@@ -37,12 +35,13 @@ export default function AllActionDatVe({
               <td>{item.tenGhe}</td>
               <td>{item.giaVe.toLocaleString()}</td>
               <td>
-                <button
-                  className="btn btn-danger"
+                <Button
+                  variant="outlined"
+                  color="secondary"
                   onClick={() => handleDatGhe(item)}
                 >
                   Xóa Ghế
-                </button>
+                </Button>
               </td>
             </tr>
           ))}
@@ -56,7 +55,9 @@ export default function AllActionDatVe({
             <td>{tongTien}</td>
             <td>
               {tongTien == 0 ? (disabled = true) : (disabled = false)}
-              <button
+              <Button
+                variant="contained"
+                color="primary"
                 disabled={disabled}
                 className="btn btn-success"
                 onClick={() =>
@@ -64,7 +65,7 @@ export default function AllActionDatVe({
                 }
               >
                 Thanh Toán
-              </button>
+              </Button>
             </td>
           </tr>
         </tfoot>

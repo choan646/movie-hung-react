@@ -34,7 +34,6 @@ axiosClient.interceptors.response.use(
   //Xử lý nếu kết quả trả về bị lỗi
   (error) => {
     if(error.status === 401){
-      //Xu ly logout: clear localStorage, day nguoi dung ve trang login
       console.log("Lỗi 401")
     }
     if(error.status === 500){

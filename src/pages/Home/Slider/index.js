@@ -10,14 +10,17 @@ import * as Icon from "react-bootstrap-icons";
 
 const items = [
   {
+    id:"slide01",
     src: "../img/trang-ti-16194117174325.jpg",
     trailer: "https://www.youtube.com/embed/l2XBzUZidig",
   },
   {
+    id:"slide02",
     src: "../img/lat-mat-48h-16177782153424.png",
     trailer: "https://www.youtube.com/embed/kBY2k3G6LsM",
   },
   {
+    id:"slide03",
     src: "../img/ban-tay-diet-quy-evil-expeller-16177781815781.png",
     trailer: "https://www.youtube.com/embed/uqJ9u7GSaYM",
   },
@@ -26,6 +29,8 @@ const items = [
 export default function Slider() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
+  const [modalTrailer, setModalTrailer] = useState(false);
+  const toggleTrailer = () => setModalTrailer(!modalTrailer);
 
   const next = () => {
     if (animating) return;
@@ -43,11 +48,6 @@ export default function Slider() {
     if (animating) return;
     setActiveIndex(newIndex);
   };
-
-  const toggleTrailer = () => setModalTrailer(!modalTrailer);
-  const [modalTrailer, setModalTrailer] = useState(false);
-
-  // const slides = 
 
   return (
     <Carousel activeIndex={activeIndex} next={next} previous={previous}>
@@ -69,6 +69,7 @@ export default function Slider() {
           className="modalTrailler"
           isOpen={modalTrailer}
           toggle={toggleTrailer}
+          id={item.id}
         >
           <iframe
             src={item.trailer}

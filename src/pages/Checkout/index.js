@@ -38,6 +38,7 @@ export default function Checkout() {
   }, [isDone]);
 
   const userCheck = localStorage.getItem("userInfo");
+  
   if (userCheck == null) {
     return <Redirect to="/login" />;
   }

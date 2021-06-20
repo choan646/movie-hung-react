@@ -14,10 +14,6 @@ const userAPI = {
       `/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP11&tuKhoa=${tuKhoa}`
     );
   },
-
-  updateAtUser: (values) => {
-    return axiosClient.put("/QuanLyNguoiDung/CapNhatThongTinNguoiDung", values);
-  },
   deleteUser: (taiKhoan) => {
     return axiosClient.delete(
       `/QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${taiKhoan}`

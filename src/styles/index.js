@@ -11,6 +11,7 @@ import './Base/_reset.scss';
 //LAYOUTS
 import './Layouts/_header.scss';
 import './Layouts/_footer.scss';
+import './Layouts/_scroll.scss';
 import './Layouts/_slider.scss';
 import './Layouts/_listMovies.scss';
 import './Layouts/_cumRap.scss';
@@ -21,6 +22,7 @@ import './Layouts/_register.scss';
 import './Layouts/_detailMovie.scss';
 import './Layouts/_detailCumRap.scss';
 import './Layouts/_sideBar.scss';
+
 
 
 //ADMIN

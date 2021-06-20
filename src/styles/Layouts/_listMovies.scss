@@ -86,6 +86,9 @@
           }
           .card__button {
             display: block;
+            &:hover{
+              cursor: pointer;
+            }
           }
         }
       }
