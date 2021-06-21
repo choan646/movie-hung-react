@@ -60,7 +60,6 @@ function bookingReducer(state = initialState, action) {
     case DAT_VE_SUCCESS:
       return {
         ...state,
-        // dataChiTietPhongVe: action.payload.data,
         listGheDangChon:[],
         isLoading: false,
       };

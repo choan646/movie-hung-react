@@ -1,5 +1,12 @@
 import React from "react";
-import { Table } from "reactstrap";
+import { makeStyles } from "@material-ui/core/styles";
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableContainer from "@material-ui/core/TableContainer";
+import TableHead from "@material-ui/core/TableHead";
+import TableRow from "@material-ui/core/TableRow";
+import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
 
 export default function AllActionDatVe({
@@ -13,28 +20,30 @@ export default function AllActionDatVe({
   let disabled = true;
 
   return (
-    <div className="form__booking">
-      <Table>
-        <thead>
-          <tr>
-            <th>STT</th>
-            <th>Mã Ghế</th>
-            <th>Giá Vé</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
+    <TableContainer component={Paper} className="form__booking">
+      <Table aria-label="simple table">
+        <TableHead>
+          <TableRow>
+            <TableCell>STT</TableCell>
+            <TableCell align="center">Mã Ghế</TableCell>
+            <TableCell align="center">Giá Vé</TableCell>
+            <TableCell align="center"></TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
           {listGheDangChon?.map((item, index) => (
-            <tr key={item.maGhe}>
+            <TableRow key={item.maGhe}>
               {/* Làm theo cách này và không làm theo reduce tính tổng vì có thể control được nút thanh toán nếu tongTien == 0 */}
-              <td style={{ display: "none" }}>
+              <TableCell style={{ display: "none" }}>
                 {(tongTien = Number(tongTien) + Number(item.giaVe))}
-              </td>
+              </TableCell>
 
-              <td>{index + 1}</td>
-              <td>{item.tenGhe}</td>
-              <td>{item.giaVe.toLocaleString()}</td>
-              <td>
+              <TableCell>{index + 1}</TableCell>
+              <TableCell align="center">{item.tenGhe}</TableCell>
+              <TableCell align="center">
+                {item.giaVe.toLocaleString()}
+              </TableCell>
+              <TableCell align="center">
                 <Button
                   variant="outlined"
                   color="secondary"
@@ -42,18 +51,34 @@ export default function AllActionDatVe({
                 >
                   Xóa Ghế
                 </Button>
-              </td>
-            </tr>
+              </TableCell>
+            </TableRow>
           ))}
-        </tbody>
-        <tfoot>
-          <tr>
-            <th colspan="2" style={{ textAlign: "center" }}>
+          <TableRow>
+            {/* <TableCell rowSpan={2} /> */}
+            <TableCell
+              colSpan={2}
+              style={{
+                textAlign: "center",
+                fontWeight: "bold",
+                fontSize: "18px",
+                letterSpacing: "2px",
+                border: "none",
+                paddingTop: "30px",
+              }}
+            >
               Tổng Tiền
-            </th>
-
-            <td>{tongTien}</td>
-            <td>
+            </TableCell>
+            <TableCell
+              align="center"
+              style={{ border: "none", paddingTop: "30px" }}
+            >
+              {tongTien.toLocaleString()}
+            </TableCell>
+            <TableCell
+              align="center"
+              style={{ border: "none", paddingTop: "30px" }}
+            >
               {tongTien == 0 ? (disabled = true) : (disabled = false)}
               <Button
                 variant="contained"
@@ -66,10 +91,10 @@ export default function AllActionDatVe({
               >
                 Thanh Toán
               </Button>
-            </td>
-          </tr>
-        </tfoot>
+            </TableCell>
+          </TableRow>
+        </TableBody>
       </Table>
-    </div>
+    </TableContainer>
   );
 }

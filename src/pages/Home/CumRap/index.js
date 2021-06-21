@@ -10,6 +10,7 @@ import { Nav, NavItem, NavLink, TabContent, TabPane } from "reactstrap";
 import classnames from "classnames";
 import ItemColSecond from "./ItemColSecond";
 import ItemColThird from "./ItemColThird";
+import TopSide from "src/pages/Home/TopSideThis";
 
 export default function CumRap() {
   const dispatch = useDispatch();
@@ -52,6 +53,7 @@ export default function CumRap() {
   }
   return (
     <div id="cumRap" className="container">
+      <TopSide/>
       <div className="row">
         <div className="col-2">
           <Nav id="navBig" tabs className="row">

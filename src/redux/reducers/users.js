@@ -53,7 +53,11 @@ function userReducer(state = initialState, action) {
     case DELETE_USER_REQUEST:
       return { ...state, isLoading: true, error: null };
     case DELETE_USER_SUCCESS:
-      return { ...state, user: action.payload.data, isLoading: false };
+      let userHelp = [...state.user] 
+      let index = userHelp.findIndex((user) => user.taiKhoan === action.payload.taiKhoan);
+      if(index !== -1)
+      userHelp.splice(index, 1);
+      return { ...state,user: userHelp, isLoading: false };
     case DELETE_USER_FAILURE:
       return { ...state, isLoading: false, error: action.payload.error };
 

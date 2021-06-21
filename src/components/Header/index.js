@@ -57,6 +57,20 @@ export default function Header() {
     dispatch(updateAtUser(values));
   };
 
+  //Scroll
+  const scrollToLichChieu = () =>
+    window.scrollTo({ top: 707, behavior:"smooth" });
+  const scrollToCumRap = () =>
+    window.scrollTo({ top: 2323, behavior: "smooth" });
+  const scrollToUngDung = () =>
+    window.scrollTo({ top: 3838, behavior: "smooth" });
+  //Style Link
+  const styleLink = {
+    paddingTop: "8px",
+    marginRight: "30px",
+    textAlign: "center",
+  };
+
   if (isLoading) {
     return (
       <div>
@@ -83,22 +97,28 @@ export default function Header() {
               </Link>
             </NavbarBrand>
           </Col>
-          <Col lg={7}>
+          <Col lg={7} style={{ marginLeft: "-80px" }}>
             <Row lg={1}>
               <Collapse isOpen={isOpen} navbar>
                 <Nav navbar>
                   <Col lg={7} className="d-flex">
-                    <NavItem>
-                      <NavLink href="#listMovies">Lịch Chiếu</NavLink>
+                    <NavItem style={styleLink}>
+                      <Link to="/" onClick={scrollToLichChieu}>
+                        Lịch Chiếu
+                      </Link>
                     </NavItem>
-                    <NavItem>
-                      <NavLink href="#cumRapBackNews">Cụm Rạp</NavLink>
+                    <NavItem style={styleLink}>
+                      <Link to="/" onClick={scrollToCumRap}>
+                        Cụm Rạp
+                      </Link>
                     </NavItem>
-                    <NavItem>
-                      <NavLink href="#">Tin Tức</NavLink>
+                    <NavItem style={styleLink}>
+                      <Link to="/">Tin Tức</Link>
                     </NavItem>
-                    <NavItem>
-                      <NavLink href="#ungDung">Ứng Dụng</NavLink>
+                    <NavItem style={styleLink}>
+                      <Link to="/" onClick={scrollToUngDung}>
+                        Ứng Dụng
+                      </Link>
                     </NavItem>
                   </Col>
                   <Col lg={5}>

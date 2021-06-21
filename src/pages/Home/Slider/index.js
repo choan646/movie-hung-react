@@ -93,5 +93,6 @@ export default function Slider() {
         onClickHandler={next}
       />
     </Carousel>
+    
   );
 }

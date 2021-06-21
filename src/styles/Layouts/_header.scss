@@ -4,7 +4,6 @@
   width: 100%;
   transition: all 0.2s;
   z-index: 10;
-  // box-shadow: 1px 3px 5px rgb(125, 125, 125,0.5);
   .navbar {
     background-color: rgba(255, 255, 255);
     .row {
@@ -20,10 +19,11 @@
           a {
             color: #000;
             text-decoration: none;
-            font-size: 15px;
+            font-size: 14px;
             transition: all 0.2s;
             &:hover {
               color: #fb4226 !important;
+              font-size: 16px;
             }
             margin-left: 0;
             text-align: center;
@@ -32,35 +32,48 @@
       }
       .navRight {
         margin-left: 30px;
-          .btnLogin,.btnRegister{
-            margin-left: 20px;
-            color: #9b9b9b;
-            font-size:14px;
-            display: inline-block;
-            &:hover {
-                color: #000!important;
-            }
+        .btnLogin,
+        .btnRegister {
+          margin-left: 20px;
+          color: #9b9b9b;
+          font-size: 14px;
+          display: inline-block;
+          &:hover {
+            color: #000 !important;
+            font-size: 16px;
           }
-          .btnLogin{
-              border-right: 1px solid #9b9b9b;
-              padding-right: 30px;
-              
-          }
+        }
+        .btnLogin {
+          border-right: 1px solid #9b9b9b;
+          padding-right: 30px;
+        }
       }
-      .dropOptions{
-        margin-left: 150px!important;
+      .dropOptions {
+        margin-left: 240px !important;
         .dropdown-toggle {
           background-color: #fff;
           color: #9b9b9b;
-          &::after{
-            margin-left: 20px
+          box-shadow:none;
+          &:focus{
+            box-shadow: none;
+          }
+          &::after {
+            margin-left: 20px;
           }
         }
         .dropdown-menu {
           font-size: 13px;
-          .dropdown-item{
+          .dropdown-item {
             &:first-child {
               margin-bottom: 5px;
+            }
+            &:last-child{
+              &:hover{
+                background-color: #fd6d57;
+              }
+            }
+            &:focus{
+              background-color: #e9ecef;
             }
           }
         }
@@ -68,40 +81,39 @@
     }
   }
 }
-#header .navbar .row ul li a{
-  text-align: right!important;
+#header .navbar .row ul li a {
+  text-align: right !important;
 }
-#modalInfo{
+#modalInfo {
   max-width: 700px;
   .modal-content {
     margin-top: 50px;
     padding: 50px;
-    background-color: #fff!important;
+    background-color: #fff !important;
   }
 }
-#modalBooking{
+#modalBooking {
   max-width: 900px;
-  .modal-content{
-    .modal-body{
-      h1{
+  .modal-content {
+    .modal-body {
+      h1 {
         text-align: center;
         font-size: 38px;
         letter-spacing: 5px;
         font-weight: bold;
         text-transform: uppercase;
       }
-      .allInfo__booking{
-        p{
+      .allInfo__booking {
+        p {
           margin-top: 30px;
           margin-bottom: 30px;
           padding: 0 100px;
         }
-        .allInfo__booking__content{
-          .allInfo__booking__null{
+        .allInfo__booking__content {
+          .allInfo__booking__null {
             margin: 50px 0;
-            h3{
+            h3 {
               text-align: center;
-              
             }
           }
         }

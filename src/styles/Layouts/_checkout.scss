@@ -85,9 +85,17 @@
         }
       }
       .form__booking {
-        margin-top: 50px;
-        .table {
-          background-color: #fdfcf0;
+        margin: 50px 0;
+        padding:20px;
+        background-color: #fdfcf0;
+        border-radius: 15px;
+        table {
+          
+          thead{
+            th{
+              font-weight:bold;
+            }
+          }
         }
       }
     }

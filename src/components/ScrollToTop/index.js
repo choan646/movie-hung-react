@@ -26,11 +26,9 @@ export default function ScrollToTop() {
       onClick={scrollToTop}
     >
       <BiArrowToTop
-        size={25}
+        size={24}
         style={{
           marginTop: "7px",
-          marginLeft: "1px",
-          opacity: "0.8",
           animation: "scrollTop 0.5s alternate ease infinite",
           cursor: "pointer",
         }}

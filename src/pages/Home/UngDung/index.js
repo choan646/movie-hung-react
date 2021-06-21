@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
-import BackNews from "../BackNews";
+import BackNews from "../TopSideThis";
 
 export default function UngDung() {
   const settings = {

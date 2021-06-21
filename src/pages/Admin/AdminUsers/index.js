@@ -18,35 +18,34 @@ export default function AdminUsers() {
   const toggleModalUser = () => setModalUser(!modalUser);
 
   const { user, isLoading, error } = useSelector((state) => state.user);
-  console.log(user)
 
   useEffect(() => {
     dispatch(getUser(currentPage));
-    console.log("def")
-
   }, [currentPage]);
 
   const handleAddUser = (values) => {
     dispatch(addUser(values));
     toggleModalUser();
+    dispatch(getUser(currentPage));
   };
-  // const handleUpdateUser = (values) => {
-  //   dispatch(updateUser(values));
-  //   console.log(values);
-  // };
+
   const handleDeleteUser = (taiKhoan) => {
-    // Swal.fire({
-    //   title: "Bạn Có Muốn Xóa?",
-    //   icon: "warning",
-    //   showCancelButton: true,
-    //   confirmButtonText: "Đồng Ý Xóa",
-    //   cancelButtonText: "Hủy Bỏ",
-    // }).then((result) => {
-    //   if (result.isConfirmed) {
-    //     Swal.fire("Xóa Thành Công!", "", "success");
+    Swal.fire({
+      title: "Bạn Có Muốn Xóa?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      confirmButtonText: "Đồng Ý Xóa",
+      cancelButtonColor: "#d33",
+      cancelButtonText: "Hủy Bỏ",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire("Xóa Thành Công!", "", "success");
         dispatch(deleteUser(taiKhoan));
-    //   }
-    // });
+        dispatch(getUser(currentPage));
+      }
+    });
+ 
   };
 
   if (isLoading) {
@@ -93,13 +92,7 @@ export default function AdminUsers() {
             </tr>
           </thead>
           <tbody>
-            <ListUser
-              data={user}
-              toggleModalUser={toggleModalUser}
-              modalUser={modalUser}
-              // handleUpdateUser={handleUpdateUser}
-              handleDeleteUser={handleDeleteUser}
-            />
+            <ListUser data={user} handleDeleteUser={handleDeleteUser} />
           </tbody>
         </Table>
         <div className="userAdmin__pagination">

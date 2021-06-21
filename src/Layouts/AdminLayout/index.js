@@ -13,6 +13,7 @@ import { FaUserCircle } from "react-icons/fa";
 import { IoNotificationsOutline, IoSettingsOutline } from "react-icons/io5";
 import Switch from "react-switch";
 import Main from "./Main";
+import Badge from "@material-ui/core/Badge";
 
 function Layout({ children }) {
   const dispatch = useDispatch();
@@ -74,9 +75,11 @@ function Layout({ children }) {
               </Link>
             </div>
             <div className="notiAmin">
-            <Link to="/admin/home" className="d-flex">
-            <IoNotificationsOutline />
-            </Link>
+              <Link to="/admin/home" className="d-flex">
+                <Badge color="secondary" variant="dot">
+                  <IoNotificationsOutline />
+                </Badge>
+              </Link>
             </div>
             <Dropdown
               className="settingAdmin"
@@ -95,7 +98,7 @@ function Layout({ children }) {
             </Dropdown>
           </div>
         </div>
-        <Main content={children}/>
+        <Main content={children} />
       </div>
     </div>
   );
