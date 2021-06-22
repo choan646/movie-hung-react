@@ -14,7 +14,6 @@ import {
 } from "../constants/users";
 import userAPI from "../services/userAPI";
 import Swal from "sweetalert2";
-import { Redirect } from "react-router-dom";
 
 export function getUser(currentPage) {
   return async (dispatch) => {
@@ -50,13 +49,12 @@ export function deleteUser(taiKhoan) {
   return async (dispatch) => {
     dispatch({ type: DELETE_USER_REQUEST });
     try {
-      await userAPI.deleteUser(taiKhoan);
-      dispatch({ type: DELETE_USER_SUCCESS, payload: taiKhoan });
+      const { data } = await userAPI.deleteUser(taiKhoan);
+      dispatch({ type: DELETE_USER_SUCCESS, payload: taiKhoan, data });
     } catch (error) {
-      Swal.fire("Xóa Thất Bại!");
       dispatch({
         type: DELETE_USER_FAILURE,
-        payload: { error: error.response },
+        error: error.response,
       });
     }
   };

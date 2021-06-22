@@ -13,7 +13,7 @@ import ListUser from "./ListUser";
 export default function AdminUsers() {
   const dispatch = useDispatch();
   const { currentPage } = useParams();
-  //AddUserModal setup
+  //UserModal setup
   const [modalUser, setModalUser] = useState(false);
   const toggleModalUser = () => setModalUser(!modalUser);
 
@@ -31,21 +31,23 @@ export default function AdminUsers() {
 
   const handleDeleteUser = (taiKhoan) => {
     Swal.fire({
-      title: "Bạn Có Muốn Xóa?",
+      title: `Bạn có muốn xóa ${taiKhoan}?`,
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
-      confirmButtonText: "Đồng Ý Xóa",
+      confirmButtonText: "Đồng ý",
       cancelButtonColor: "#d33",
-      cancelButtonText: "Hủy Bỏ",
+      cancelButtonText: "Hủy bỏ",
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire("Xóa Thành Công!", "", "success");
         dispatch(deleteUser(taiKhoan));
+        Swal.fire("Xóa Thành Công!", "", "success");
         dispatch(getUser(currentPage));
       }
     });
- 
+  };
+  const handleUpdateUser = (values) => {
+    console.log(values);
   };
 
   if (isLoading) {
@@ -92,7 +94,13 @@ export default function AdminUsers() {
             </tr>
           </thead>
           <tbody>
-            <ListUser data={user} handleDeleteUser={handleDeleteUser} />
+            <ListUser
+              data={user}
+              handleDeleteUser={handleDeleteUser}
+              handleUpdateUser={handleUpdateUser}
+              modalUser={modalUser}
+              toggleModalUser={toggleModalUser}
+            />
           </tbody>
         </Table>
         <div className="userAdmin__pagination">

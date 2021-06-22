@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import { Button } from "reactstrap";
+import AdminUserUpdate from "./AdminUserUpdate";
 
-export default function ListUser({ data, handleDeleteUser }) {
+export default function ListUser({ data, handleDeleteUser ,handleUpdateUser,modalUser,toggleModalUser}) {
+
+  const handleTest = (item) => {
+    toggleModalUser();
+    console.log(item)
+  }
   return (
     <>
       {data.items?.map((item, index) => (
@@ -13,9 +19,13 @@ export default function ListUser({ data, handleDeleteUser }) {
           <td>{item.soDt}</td>
           <td>{item.maLoaiNguoiDung}</td>
           <td>
-            <Button color="secondary">
+            <Button color="secondary" onClick={()=>handleTest(item)}>
+            {/* toggleModalUser */}
+            {/* ()=>handleUpdateUser(item) */}
               Sửa
             </Button>
+            <AdminUserUpdate data={item} handleUpdateUser={handleUpdateUser} modalUser={modalUser} toggleModalUser={toggleModalUser}/>
+
           </td>
           <td>
             <Button

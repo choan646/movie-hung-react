@@ -1,43 +1,41 @@
 import { ErrorMessage, Form, Field, Formik } from "formik";
 import React from "react";
 import { Alert, Button, FormGroup, Label, Modal } from "reactstrap";
-import { addUserSchema } from "src/redux/services/schema";
+import { updateSchema } from "src/redux/services/schema";
 
-export default function AdminUsersModalAdd({
-  handleAddUser,
+export default function AdminUserUpdate({
+  data,
+  handleUpdateUser,
   modalUser,
   toggleModalUser,
 }) {
   return (
-    <Modal isOpen={modalUser} toggle={toggleModalUser}>
+    <Modal toggle={toggleModalUser}>
       <Formik
         initialValues={{
-          taiKhoan: "",
-          matKhau: "",
-          email: "",
-          soDt: "",
+          taiKhoan: data.taiKhoan,
+          matKhau: data.matKhau,
+          email: data.email,
+          soDt: data.soDt,
           maNhom: "GP11",
-          maLoaiNguoiDung: "KhachHang",
-          hoTen: "",
+          maLoaiNguoiDung: data.maLoaiNguoiDung,
+          hoTen: data.hoTen,
         }}
-        validationSchema={addUserSchema}
-        onSubmit={handleAddUser}
+        validationSchema={updateSchema}
+        onSubmit={handleUpdateUser}
         render={(formikProps) => (
-          <Form className="form__addUser row">
+          <Form className="form__updateUser row">
             <FormGroup className="col-6">
-              <Label>Tài Khoản </Label>
+              <Label>Tài Khoản</Label>
               <Field
                 type="text"
                 className="form-control"
                 name="taiKhoan"
-                onChange={formikProps.handleChange}
+                disabled
               />
-              <ErrorMessage name="taiKhoan">
-                {(msg) => <Alert color="danger">{msg}</Alert>}
-              </ErrorMessage>
             </FormGroup>
             <FormGroup className="col-6">
-              <Label>Mật Khẩu </Label>
+              <Label>Mật Khẩu</Label>
               <Field
                 type="password"
                 className="form-control"
@@ -49,7 +47,7 @@ export default function AdminUsersModalAdd({
               </ErrorMessage>
             </FormGroup>
             <FormGroup className="col-6">
-              <Label>Họ Tên </Label>
+              <Label>Họ Tên</Label>
               <Field
                 type="text"
                 className="form-control"
@@ -62,7 +60,7 @@ export default function AdminUsersModalAdd({
             </FormGroup>
 
             <FormGroup className="col-6">
-              <Label>Số Điện Thoại </Label>
+              <Label>Số Điện Thoại</Label>
               <Field
                 type="text"
                 className="form-control"
@@ -74,7 +72,7 @@ export default function AdminUsersModalAdd({
               </ErrorMessage>
             </FormGroup>
             <FormGroup className="col-12">
-              <Label>Email </Label>
+              <Label>Email</Label>
               <Field
                 type="email"
                 className="form-control"
@@ -86,7 +84,6 @@ export default function AdminUsersModalAdd({
               </ErrorMessage>
             </FormGroup>
 
-            
             <FormGroup className="col-6">
               <Label>Mã Loại Người Dùng</Label>
               <Field

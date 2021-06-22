@@ -53,13 +53,9 @@ function userReducer(state = initialState, action) {
     case DELETE_USER_REQUEST:
       return { ...state, isLoading: true, error: null };
     case DELETE_USER_SUCCESS:
-      let userHelp = [...state.user] 
-      let index = userHelp.findIndex((user) => user.taiKhoan === action.payload.taiKhoan);
-      if(index !== -1)
-      userHelp.splice(index, 1);
-      return { ...state,user: userHelp, isLoading: false };
+      return { ...state,user: state.user.filter((userDel)=>userDel.taiKhoan !== action.payload), isLoading: false };
     case DELETE_USER_FAILURE:
-      return { ...state, isLoading: false, error: action.payload.error };
+      return { ...state, isLoading: false};
 
     //ADD_USER
     case ADD_USER_REQUEST:
@@ -69,6 +65,8 @@ function userReducer(state = initialState, action) {
       return { ...state, user: action.payload.data, isLoading: false };
     case ADD_USER_FAILURE:
       return { ...state, isLoading: false, error: action.payload.error };
+
+
     default:
       return state;
   }

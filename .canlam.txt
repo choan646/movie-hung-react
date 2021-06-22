@@ -12,12 +12,11 @@
 
 
 
-		===\        -Trang admin:       .sau mỗi lần xóa và sau mỗi lần thêm , sửa                  
-		====\  				.Phần Sửa cái movie xem thêm video upLoad hình
-		=====*  			.thay đổi thông tin ở trang adminInfo khi mà đăng nhập lại,
-		====/					tại vì userInfo là thông tin của admin đang đăng nhập được lưu trên localStorage, 
-		===/ 					muốn sửa mà ảnh hưởng đến local thì xem lại sau
-						.xem thêm phần register cân nhắc thoát ra từ Angular
+		===\        -Trang admin:       .Sửa ở user chưa làm được...                 
+		====\  				
+		=====*  			.Phần Sửa cái movie xem thêm video upLoad hình
+		====/					
+		===/ 				.3p50 facebook , chỉ mới dựng xong modal chưa css
 						.Vấn đề về modal Sửa khi bật lên màn hình ngoài màu đen do nó đang nằm trong <tr>==> xem lại css
 
 

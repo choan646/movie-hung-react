@@ -2,17 +2,17 @@ import * as yup from "yup";
 // Tạo schame validation
 // Login
 export const loginSchema = yup.object().shape({
-    taiKhoan: yup
-      .string()
-      .required("Tài khoản không được để trống")
-      .min(3, "Tài khoản phải từ 3 ký tự trở lên")
-      .max(20, "Tài khoản tối đa 20 ký tự"),
-    matKhau: yup
-      .string()
-      .required("Mật khẩu không được để trống")
-      .min(3, "Mật khẩu phải từ 3 ký tự trở lên")
-      .max(20, "Mật khẩu tối đa 20 ký tự"),
-  });
+  taiKhoan: yup
+    .string()
+    .required("Tài khoản không được để trống")
+    .min(3, "Tài khoản phải từ 3 ký tự trở lên")
+    .max(20, "Tài khoản tối đa 20 ký tự"),
+  matKhau: yup
+    .string()
+    .required("Mật khẩu không được để trống")
+    .min(3, "Mật khẩu phải từ 3 ký tự trở lên")
+    .max(20, "Mật khẩu tối đa 20 ký tự"),
+});
 
 //Register
 export const registerUserSchema = yup.object().shape({
@@ -44,35 +44,35 @@ export const registerUserSchema = yup.object().shape({
     .min(3, "Họ Tên phải từ 3 ký tự trở lên")
     .max(30, "Họ Tên tối đa 30 ký tự"),
 });
-//Update 
+//Update
 export const updateSchema = yup.object().shape({
-    matKhau: yup
-      .string()
-      .required("Mật khẩu không được để trống")
-      .min(3, "Mật khẩu phải từ 3 ký tự trở lên")
-      .max(20, "Mật khẩu tối đa 20 ký tự"),
-    email: yup
-      .string()
-      .required("Email không được để trống")
-      .min(3, "Email phải từ 3 ký tự trở lên")
-      .max(40, "Email tối đa 40 ký tự")
-      .email("Email không đúng cú pháp"),
-    soDt: yup
-      .string()
-      .matches(/^[0-9]+$/)
-      .required("Số điện thoại không được để trống")
-      .min(3, "Số điện thoại 3 ký tự trở lên")
-      .max(20, "Số điện thoại tối đa 20 ký tự"),
-    hoTen: yup
-      .string()
-      .required("Họ Tên không được để trống")
-      .min(3, "Họ Tên phải từ 3 ký tự trở lên")
-      .max(30, "Họ Tên tối đa 30 ký tự"),
-  });
+  matKhau: yup
+    .string()
+    .required("Mật khẩu không được để trống")
+    .min(3, "Mật khẩu phải từ 3 ký tự trở lên")
+    .max(20, "Mật khẩu tối đa 20 ký tự"),
+  email: yup
+    .string()
+    .required("Email không được để trống")
+    .min(3, "Email phải từ 3 ký tự trở lên")
+    .max(40, "Email tối đa 40 ký tự")
+    .email("Email không đúng cú pháp"),
+  soDt: yup
+    .string()
+    .matches(/^[0-9]+$/)
+    .required("Số điện thoại không được để trống")
+    .min(3, "Số điện thoại 3 ký tự trở lên")
+    .max(20, "Số điện thoại tối đa 20 ký tự"),
+  hoTen: yup
+    .string()
+    .required("Họ Tên không được để trống")
+    .min(3, "Họ Tên phải từ 3 ký tự trở lên")
+    .max(30, "Họ Tên tối đa 30 ký tự"),
+});
 
-  //Add-user
-  export const addUserSchema =yup.object().shape({
-    taiKhoan: yup
+//Add-user
+export const addUserSchema = yup.object().shape({
+  taiKhoan: yup
     .string()
     .required("Tài khoản không được để trống")
     .min(3, "Tài khoản phải từ 3 ký tự trở lên")
@@ -99,5 +99,36 @@ export const updateSchema = yup.object().shape({
     .required("Họ Tên không được để trống")
     .min(3, "Họ Tên phải từ 3 ký tự trở lên")
     .max(30, "Họ Tên tối đa 30 ký tự"),
+});
 
-  })
+//Add movie
+const yesterday = new Date(Date.now() - 86400000);
+export const addMovieSchema = yup.object().shape({
+  maPhim: yup
+    .string()
+    .required("Mã Phim không được bỏ trống")
+    .matches(/^[0-9]+$/)
+    .min(2, "Mã Phim phải từ 2 số trở lên")
+    .max(4, "Mã Phim chỉ tối đa 4 số"),
+  tenPhim: yup
+    .string()
+    .required("Tên Phim không được bỏ trống")
+    .min(2, "Tên Phim phải từ 2 ký tự trở lên")
+    .max(50, "Tên Phim tối đa 50 ký tự"),
+  biDanh: yup.string().required("Bí Danh không được bỏ trống").min(2, "Bí Danh phải từ 2 ký tự trở lên"),
+  trailer: yup.string().required("Trailer không được bỏ trống"),
+  moTa: yup
+    .string()
+    .required("Mô Tả không được bỏ trống")
+    .min(5, "Mô Tả phải từ 5 ký tự trở lên")
+    .max(200, "Mô Tả tối đa 200 ký tự"),
+  // ngayKhoiChieu: yup
+  //   .date()
+  //   .min(yesterday, "Ngày Khởi Chiếu không hợp lệ")
+  //   .max(30 / 12 / 2222, "Ngày Khởi Chiếu không hợp lệ"),
+  danhGia: yup
+    .number()
+    .required("Đánh Giá không được để trống")
+    .min(0, "Đánh Giá có điểm bắt đầu từ 0")
+    .max(10, "Đánh Giá có điểm tối đa là 10"),
+});
