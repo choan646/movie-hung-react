@@ -9,9 +9,6 @@ export default function ComponentChonGhe({
   return (
     <div className="row checkout__gheThuong">
       {data?.map((item, index) => {
-        //
-        // Về vấn đề đã đặ thì disable,lúc nào hoàn thành xong action đặt vé hãy check lại, bây giờ tạm vậy đã
-        //
         let styleGheDaDat = styleButton;
         let disabled = false;
         //Trang thai ghe da dat

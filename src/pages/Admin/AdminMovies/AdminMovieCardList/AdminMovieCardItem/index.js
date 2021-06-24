@@ -1,15 +1,15 @@
 import React from "react";
 import { Button, Card, CardBody, CardFooter, CardHeader } from "reactstrap";
 
-export default function AdminMovieCardItem({ data }) {
+export default function AdminMovieCardItem({ data,handleDeleteMovie }) {
   return (
-    <Card className="movieAdmin__cardItem col">
+    <Card className="movieAdmin__cardItem col-2">
       <CardHeader>
         <img width="150px" height="230px" src={data?.hinhAnh} alt="hinhAnh" />
       </CardHeader>
       <CardBody>
         <p>
-          <b>ID :</b> {data.maPhim}
+          <b>ID :</b> {data?.maPhim}
         </p>
         <h5>
           {data?.tenPhim.length > 15
@@ -19,7 +19,7 @@ export default function AdminMovieCardItem({ data }) {
       </CardBody>
       <CardFooter>
         <Button color="secondary">Sửa</Button>
-        <Button color="danger">Xóa</Button>
+        <Button color="danger" onClick={()=>handleDeleteMovie(data?.maPhim,data?.tenPhim)}>Xóa</Button>
       </CardFooter>
     </Card>
   );

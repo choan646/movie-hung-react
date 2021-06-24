@@ -1,5 +1,6 @@
 import axios from "axios";
 import qs from "qs";
+import Swal from "sweetalert2";
 
 const axiosClient = axios.create({
   baseURL: "https://movie0706.cybersoft.edu.vn/api",
@@ -12,9 +13,9 @@ axiosClient.interceptors.request.use(
   (config) => {
     //Xử lý trước khi request được gửi lên server
     //Thêm authorization vào header
-    const userInfo = localStorage.getItem('userInfo');
+    const userInfo = localStorage.getItem("userInfo");
     if (userInfo) {
-      const {accessToken} = JSON.parse(userInfo)
+      const { accessToken } = JSON.parse(userInfo);
       config.headers.Authorization = `Bearer ${accessToken}`;
     }
 
@@ -24,7 +25,7 @@ axiosClient.interceptors.request.use(
     //Xử ly' khi request bị lỗi
     return Promise.reject(error);
   }
-)
+);
 
 axiosClient.interceptors.response.use(
   (response) => {
@@ -33,14 +34,28 @@ axiosClient.interceptors.response.use(
   },
   //Xử lý nếu kết quả trả về bị lỗi
   (error) => {
-    if(error.status === 401){
-      console.log("Lỗi 401")
+    if (error.status === 401) {
+      console.log("Lỗi 401");
     }
-    if(error.status === 500){
+    if (error.status === 500) {
       //Xu ly thong bao cho nguoi dung dang co loi~ tu server
+      Swal.fire({
+        icon: "warning",
+        title: "Lỗi server! Hãy thử lại sau",
+        confirmButtonColor: "#3085d6",
+        confirmButtonText: "Đồng ý",
+      });
+    }
+    if(error.status === 404){
+      Swal.fire({
+        icon: "warning",
+        title: "Không thể thực hiện hành động này!",
+        confirmButtonColor: "#3085d6",
+        confirmButtonText: "Đồng ý",
+      });
     }
     return Promise.reject(error);
-  },
-)
+  }
+);
 
 export default axiosClient;

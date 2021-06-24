@@ -69,7 +69,7 @@ export function addUser(values) {
 
       dispatch({ type: ADD_USER_SUCCESS, payload: { data } });
     } catch (error) {
-      Swal.fire("Thêm Thất Bại!");
+      Swal.fire(error.response?.data);
       dispatch({
         type: ADD_USER_FAILURE,
         payload: { error: error.response.data },

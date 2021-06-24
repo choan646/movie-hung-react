@@ -14,5 +14,11 @@ const movieAPI = {
       `/QuanLyPhim/LayDanhSachPhim?maNhom=GP11&tenPhim=${tuKhoa}`
     );
   },
+  addMovie: (values) => {
+    return axiosClient.post("/QuanLyPhim/ThemPhimUploadHinh", values);
+  },
+  deleteMovie: (values) => {
+    return axiosClient.delete(`QuanLyPhim/XoaPhim?MaPhim=${values}`);
+  }
 };
 export default movieAPI;

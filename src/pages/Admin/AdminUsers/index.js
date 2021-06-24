@@ -57,9 +57,6 @@ export default function AdminUsers() {
       </div>
     );
   }
-  if (error) {
-    return <div>{error}</div>;
-  }
   return (
     <div className="userAdmin">
       <div className="userAdmin__linkTo">
@@ -71,7 +68,7 @@ export default function AdminUsers() {
         style={{ marginLeft: "82%", marginBottom: "30px", marginTop: "-55px" }}
         onClick={toggleModalUser}
       >
-        Thêm Người Dùng <IoPersonAdd style={{ marginLeft: "10px" }} />
+        Thêm Người Dùng <IoPersonAdd style={{ marginLeft: "10px", marginTop:"-5px"  }} />
       </Button>
       <AdminUsersAdd
         handleAddUser={handleAddUser}

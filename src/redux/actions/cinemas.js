@@ -13,6 +13,7 @@ import {
   GET_SHOWTIMESBY_MOVIE_FAILURE,
 } from "../constants/cinema";
 import cinemasAPI from "../services/cinemas";
+import Swal from "sweetalert2";
 
 export function getCinemas() {
   return async (dispatch) => {
@@ -64,6 +65,7 @@ export function getShowTimesByIdMovie(maPhim) {
       const { data } = await cinemasAPI.getShowTimesByIdMovie(maPhim);
       dispatch({ type: GET_SHOWTIMESBY_MOVIE_SUCCESS, payload: { data } });
     } catch (error) {
+      Swal.fire(error.response?.data);
       dispatch({
         type: GET_SHOWTIMESBY_MOVIE_FAILURE,
         payload: { error: error.response.data },

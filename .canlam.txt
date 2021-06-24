@@ -7,43 +7,13 @@
 									  //(Responsive)//
 
 
-
-
-
-
-
-		===\        -Trang admin:       .Sửa ở user chưa làm được...                 
-		====\  				
-		=====*  			.Phần Sửa cái movie xem thêm video upLoad hình
+		===\        -Trang admin:       .Sửa ở user, sửa movie ,tìm kiếm user theo tên, quản lí lịch chiếu => chưa làm được...                 
+		====\  				.Vấn đề về modal Sửa user lúc trước, khi bật lên màn hình ngoài màu đen do nó đang nằm trong <tr>==> xem lại css
+		=====*  			
 		====/					
-		===/ 				.3p50 facebook , chỉ mới dựng xong modal chưa css
-						.Vấn đề về modal Sửa khi bật lên màn hình ngoài màu đen do nó đang nằm trong <tr>==> xem lại css
+		===/ 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+						
 
 								=====  Còn nhiều thứ về logic và cả ux-ui ======
 						tách nhỏ các item đã làm /// đọc thêm doc của swal, router-dom, useParam, useRef()

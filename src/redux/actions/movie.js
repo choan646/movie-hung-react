@@ -7,9 +7,16 @@ import {
   GET_MOVIE_PAG_FAILURE,
   GET_MOVIE_SEARCH_REQUEST,
   GET_MOVIE_SEARCH_SUCCESS,
-  GET_MOVIE_SEARCH_FAILURE
+  GET_MOVIE_SEARCH_FAILURE,
+  ADD_MOVIE_FAILURE,
+  ADD_MOVIE_SUCCESS,
+  ADD_MOVIE_REQUEST,
+  DELETE_MOVIE_REQUEST,
+  DELETE_MOVIE_SUCCESS,
+  DELETE_MOVIE_FAILURE,
 } from "../constants/movie";
 import moviesAPI from "../services/movieAPI";
+import Swal from "sweetalert2";
 
 export function getMovie() {
   return async (dispatch) => {
@@ -39,7 +46,7 @@ export function getMoviePagination(currentPage) {
     }
   };
 }
-export function getMovieSearch(tuKhoa){
+export function getMovieSearch(tuKhoa) {
   return async (dispatch) => {
     dispatch({ type: GET_MOVIE_SEARCH_REQUEST });
     try {
@@ -51,5 +58,39 @@ export function getMovieSearch(tuKhoa){
         payload: { error: error.response.data },
       });
     }
-  }
+  };
+}
+export function addMovie(values, currentPage) {
+  return async (dispatch) => {
+    dispatch({ type: ADD_MOVIE_REQUEST });
+    try {
+      const { data } = await moviesAPI.addMovie(values);
+      Swal.fire("Thêm Thành Công!");
+      dispatch({ type: ADD_MOVIE_SUCCESS, payload: { data } });
+      dispatch(getMoviePagination(currentPage));
+    } catch (error) {
+      Swal.fire(error.response?.data);
+      dispatch({
+        type: ADD_MOVIE_FAILURE,
+        payload: { error: error.response?.data },
+      });
+    }
+  };
+}
+export function deleteMovie(values) {
+  return async (dispatch) => {
+    dispatch({ type: DELETE_MOVIE_REQUEST });
+    try {
+      const { data } = await moviesAPI.deleteMovie(values);
+      if(data=== "Xóa thành công"){
+        dispatch({ type: DELETE_MOVIE_SUCCESS, payload: values });
+      }
+    } catch (error) {
+      Swal.fire(error.response?.data)
+      dispatch({
+        type: DELETE_MOVIE_FAILURE,
+        payload: { error: error.response },
+      });
+    }
+  };
 }

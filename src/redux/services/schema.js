@@ -102,33 +102,33 @@ export const addUserSchema = yup.object().shape({
 });
 
 //Add movie
-const yesterday = new Date(Date.now() - 86400000);
 export const addMovieSchema = yup.object().shape({
-  maPhim: yup
-    .string()
-    .required("Mã Phim không được bỏ trống")
-    .matches(/^[0-9]+$/)
-    .min(2, "Mã Phim phải từ 2 số trở lên")
-    .max(4, "Mã Phim chỉ tối đa 4 số"),
+  // maPhim: yup
+  //   .string()
+  //   .required("Mã Phim không được bỏ trống")
+  //   .matches(/^[0-9]+$/)
+  //   .min(3, "Mã Phim phải từ 3 số trở lên")
+  //   .max(4, "Mã Phim chỉ tối đa 4 số"),
   tenPhim: yup
     .string()
     .required("Tên Phim không được bỏ trống")
     .min(2, "Tên Phim phải từ 2 ký tự trở lên")
     .max(50, "Tên Phim tối đa 50 ký tự"),
-  biDanh: yup.string().required("Bí Danh không được bỏ trống").min(2, "Bí Danh phải từ 2 ký tự trở lên"),
-  trailer: yup.string().required("Trailer không được bỏ trống"),
+
+  trailer: yup
+    .string()
+    .required("Trailer không được bỏ trống")
+    .min(5, "Trailer phải có hơn 5 ký tự"),
   moTa: yup
     .string()
     .required("Mô Tả không được bỏ trống")
     .min(5, "Mô Tả phải từ 5 ký tự trở lên")
     .max(200, "Mô Tả tối đa 200 ký tự"),
-  // ngayKhoiChieu: yup
-  //   .date()
-  //   .min(yesterday, "Ngày Khởi Chiếu không hợp lệ")
-  //   .max(30 / 12 / 2222, "Ngày Khởi Chiếu không hợp lệ"),
-  danhGia: yup
-    .number()
-    .required("Đánh Giá không được để trống")
-    .min(0, "Đánh Giá có điểm bắt đầu từ 0")
-    .max(10, "Đánh Giá có điểm tối đa là 10"),
+  hinhAnh: yup.mixed().required("Phải chọn file hình ảnh!"),
 });
+ export const searchIdMovieAtAdmin = yup.object().shape({
+  maPhim:yup
+  .string()
+  .min(4, "Mã Phim phải có 4 ký tự")
+  .matches(/^[0-9]+$/)
+ })
