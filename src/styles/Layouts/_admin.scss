@@ -11,7 +11,8 @@
           margin-top: 360px;
           .sidebar-btn-wrapper {
             padding-top: 20px;
-            padding-bottom: 35px;
+            padding-bottom: 12px;
+            margin-top: 9px;
             a {
               text-decoration: none;
               color: #fff;
@@ -108,7 +109,7 @@
     .content__main {
       #cardMain {
         width: 100%;
-        background-image: linear-gradient(to left, #ffffff, #1d1d1d);
+        background-image: linear-gradient(to right, #1c1c1b, #fff);
         border: none;
         border-radius: 0;
         position: relative;
@@ -119,8 +120,9 @@
           height: 630px;
           border-radius: 10px;
           background-color: #fff;
-          overflow: hidden;
+
           .adminHome {
+            overflow: hidden;
             &::after {
               content: "";
               position: absolute;
@@ -195,9 +197,9 @@
             .userAdmin__content {
               width: 100%;
               .userAdmin__table {
-                width: 72%;
+                width: 85%;
                 margin: 0 auto;
-                font-size: 14px;
+                font-size: 15px;
                 td {
                   padding: 0 0.75rem;
                   padding-top: 0.75rem;
@@ -209,12 +211,12 @@
               }
               .userAdmin__pagination {
                 position: absolute;
-                bottom: 30px;
+                bottom: 40px;
                 left: 40%;
                 .pagination {
                   .page-item {
                     padding: 5px;
-                    border-radius:5px;
+                    border-radius: 5px;
                     margin-right: 5px;
                     border: 1px solid #000;
                     transition: all 0.2s;
@@ -227,9 +229,10 @@
                       text-decoration: none;
                     }
                     &:hover {
-                      background-color: #007bff;
-                      border-color: #007bff;
-                      a{
+                      background-color: #303f9f;
+                      border-color: #303f9f;
+                      a {
+                        color: #fff;
                         font-size: 16px;
                       }
                     }
@@ -249,83 +252,88 @@
               background-color: #fff;
               border-radius: 20px;
             }
-            .movieAdmin__linkTo{
+            .movieAdmin__linkTo {
               margin-left: 20px;
               margin-top: 10px;
               p {
                 font-size: 16px;
               }
             }
-            .movieAdmin__content{
+            .movieAdmin__content {
               width: 100%;
               margin-top: 15px;
-              .movieAdmin__cardList{
+              .movieAdmin__cardList {
                 width: 95%;
                 margin: auto;
                 margin-left: 74px;
-                .movieAdmin__cardItem{
+                .movieAdmin__cardItem {
                   margin: 0 10px;
                   border-radius: 5px;
                   box-shadow: 5px 3px 10px grey;
                   padding: 10px 0;
-                  .card-header,.card-footer{
+                  .card-header,
+                  .card-footer {
                     background-color: #fff;
-                    border:none;
+                    border: none;
                   }
-                  .card-header{
+                  .card-header {
                     text-align: center;
-                    padding:0;
-                    img{
+                    padding: 0;
+                    img {
                       width: 80%;
                     }
                   }
-                  .card-footer{
+                  .card-footer {
                     text-align: center;
                     padding: 10px 0;
                     button {
                       margin: 0 10px;
                     }
                   }
-                  .card-body{
+                  .card-body {
                     text-align: center;
                     padding: 0;
                     width: 80%;
-                    margin:10px auto;
+                    margin: 10px auto;
                   }
                 }
               }
-              .movieAdmin__pagination{
+              .movieAdmin__pagination {
                 position: absolute;
-                  bottom: 30px;
-                  left: 40%;
-                  .pagination {
-                    .page-item {
-                      padding: 5px;
-                      border-radius:5px;
-                      margin-right: 5px;
-                      border: 1px solid #000;
+                bottom: 30px;
+                left: 40%;
+                .pagination {
+                  .page-item {
+                    padding: 5px;
+                    border-radius: 5px;
+                    margin-right: 5px;
+                    border: 1px solid #000;
+                    transition: all 0.2s;
+                    a {
+                      width: 100%;
+                      padding: 7px;
+                      color: #000;
+                      font-size: 13px;
                       transition: all 0.2s;
+                      text-decoration: none;
+                    }
+                    &:hover {
+                      background-color: #303f9f;
+                      border-color: #303f9f;
                       a {
-                        width: 100%;
-                        padding: 7px;
-                        color: #000;
-                        font-size: 13px;
-                        transition: all 0.2s;
-                        text-decoration: none;
-                      }
-                      &:hover {
-                        background-color: #007bff;
-                        border-color: #007bff;
-                        a{
-                          font-size: 16px;
-                        }
+                        color: #fff;
+                        font-size: 16px;
                       }
                     }
                   }
+                }
               }
             }
           }
+          overflow: hidden;
           .cinemaAdmin {
+            // height: 600px;
+            // overflow-y: scroll;
             &::after {
               content: "";
               position: absolute;
@@ -336,7 +344,7 @@
               background-color: #fff;
               border-radius: 20px;
             }
-            .cinemaAdmin__linkTo{
+            .cinemaAdmin__linkTo {
               margin-left: 20px;
               margin-top: 10px;
               p {

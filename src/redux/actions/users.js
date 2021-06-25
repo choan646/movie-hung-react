@@ -66,7 +66,6 @@ export function addUser(values) {
     try {
       const { data } = await userAPI.addUser(values);
       Swal.fire("Thêm Thành Công!");
-
       dispatch({ type: ADD_USER_SUCCESS, payload: { data } });
     } catch (error) {
       Swal.fire(error.response?.data);

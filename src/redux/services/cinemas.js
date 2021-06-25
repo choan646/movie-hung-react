@@ -14,7 +14,7 @@ const cinemasAPI = {
   getShowTimesByIdMovie: (maPhim) => {
     return axiosClient.get(`/QuanLyRap/LayThongTinLichChieuPhim?MaPhim=${maPhim}
     `)
-  }
+  },
 
   }
 export default cinemasAPI;

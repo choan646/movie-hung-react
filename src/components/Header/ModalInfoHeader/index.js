@@ -1,10 +1,15 @@
 import { ErrorMessage, Form, Field, Formik } from "formik";
 import React from "react";
-import { Alert, Button, FormGroup, Label, Modal, ModalBody } from "reactstrap";
+import { Alert, FormGroup, Label, Modal, ModalBody } from "reactstrap";
 import { updateSchema } from "src/redux/services/schema";
+import Button from "@material-ui/core/Button";
 
-
-export default function ModalInfoHeader({ data,handleChangeInfoHome, modalInfo, toggleModalInfo }) {
+export default function ModalInfoHeader({
+  data,
+  handleChangeInfoHome,
+  modalInfo,
+  toggleModalInfo,
+}) {
   return (
     <div>
       <Modal id="modalInfo" isOpen={modalInfo} toggle={toggleModalInfo}>
@@ -12,7 +17,7 @@ export default function ModalInfoHeader({ data,handleChangeInfoHome, modalInfo, 
           <Formik
             initialValues={{
               taiKhoan: data.taiKhoan,
-              matKhau: data.matKhau? data.matKhau : "",
+              matKhau: data.matKhau ? data.matKhau : "",
               email: data.email,
               soDt: data.soDT,
               maNhom: "GP11",
@@ -85,7 +90,7 @@ export default function ModalInfoHeader({ data,handleChangeInfoHome, modalInfo, 
                     className="form-control"
                     name="maLoaiNguoiDung"
                     disabled
-                 />
+                  />
                 </FormGroup>
                 <FormGroup className="col-12">
                   <Label>Email </Label>
@@ -103,10 +108,19 @@ export default function ModalInfoHeader({ data,handleChangeInfoHome, modalInfo, 
                   className="col-12"
                   style={{ marginTop: "50px", textAlign: "center" }}
                 >
-                  <Button style={{ marginRight: "20px" }} color="primary">
+                  <Button
+                    style={{ marginRight: "20px" }}
+                    variant="contained"
+                    color="primary"
+                    type="submit"
+                  >
                     Chỉnh Sửa
                   </Button>
-                  <Button color="danger" onClick={toggleModalInfo}>
+                  <Button
+                    variant="outlined"
+                    color="secondary"
+                    onClick={toggleModalInfo}
+                  >
                     Hủy Bỏ
                   </Button>
                 </div>

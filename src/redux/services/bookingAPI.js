@@ -17,5 +17,8 @@ const bookingAPI = {
       valuesBookingTicket
     );
   },
+  addNewShowTimes:(values)=>{
+    return axiosClient.post("/QuanLyDatVe/TaoLichChieu", values)
+  }
 };
 export default bookingAPI;

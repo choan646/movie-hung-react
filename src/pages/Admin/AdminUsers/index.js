@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Button, Table, Pagination, PaginationItem } from "reactstrap";
+import { Table, Pagination, PaginationItem } from "reactstrap";
 import { SemipolarLoading } from "react-loadingg";
 import Swal from "sweetalert2";
 import { Link, useParams } from "react-router-dom";
@@ -9,6 +9,7 @@ import { IoPersonAdd } from "react-icons/io5";
 import AdminUsersAdd from "./AdminUsersAdd";
 import { addUser, updateUser } from "src/redux/actions/users";
 import ListUser from "./ListUser";
+import Button from "@material-ui/core/Button";
 
 export default function AdminUsers() {
   const dispatch = useDispatch();
@@ -63,12 +64,19 @@ export default function AdminUsers() {
         <p>Quản Lý Người Dùng</p>
       </div>
       <Button
+        variant="contained"
         color="primary"
         className="userAdmin__buttonAdd"
-        style={{ marginLeft: "82%", marginBottom: "30px", marginTop: "-55px" }}
+        style={{
+          marginLeft: "82%",
+          marginBottom: "30px",
+          marginTop: "-55px",
+          padding: "7px 10px",
+        }}
         onClick={toggleModalUser}
       >
-        Thêm Người Dùng <IoPersonAdd style={{ marginLeft: "10px", marginTop:"-5px"  }} />
+        Thêm Người Dùng{" "}
+        <IoPersonAdd style={{ marginLeft: "10px", marginTop: "-5px" }} />
       </Button>
       <AdminUsersAdd
         handleAddUser={handleAddUser}

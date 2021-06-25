@@ -1,5 +1,6 @@
 import React from "react";
-import { Button, Modal, ModalBody, ModalFooter, Table } from "reactstrap";
+import { Modal, ModalBody, ModalFooter, Table } from "reactstrap";
+import Button from "@material-ui/core/Button";
 
 export default function ModalHistoryHeader({
   data,
@@ -31,7 +32,9 @@ export default function ModalHistoryHeader({
             <div className="allInfo__booking__content col-12">
               {check ? (
                 <div className="allInfo__booking__null">
-                  <h3><i>Không Có Lịch Sử Đặt Chỗ !</i></h3>
+                  <h3>
+                    <i>Không Có Lịch Sử Đặt Chỗ !</i>
+                  </h3>
                 </div>
               ) : (
                 <div className="allInfo__booking__detail">
@@ -61,15 +64,17 @@ export default function ModalHistoryHeader({
                           </td>
                           <td>{item.giaVe} VNĐ</td>
                           <td>
-                            <Button color="warning">Xóa Lịch</Button>
+                            <Button
+                              variant="outlined"
+                              style={{
+                                color: "#f27b13",
+                                borderColor: "#f27b13",
+                                textTransform:"none"
+                              }}
+                            >
+                              Xóa Lịch
+                            </Button>
                           </td>
-                          {/* Cái này để lấy ra số ghế đã đặt */}
-                          {/* <td>
-                            {item.danhSachGhe?.map((dsg, indexDsg) => {
-                              console.log(dsg);
-                              return <p>{indexDsg + 1}</p>;
-                            })}
-                          </td>  */}
                         </tr>
                       ))}
                     </tbody>
@@ -80,7 +85,12 @@ export default function ModalHistoryHeader({
           </div>
         </ModalBody>
         <ModalFooter>
-          <Button color="danger" onClick={toggleModalHistory}>
+          <Button
+            variant="contained"
+            color="secondary"
+            onClick={toggleModalHistory}
+            style={{marginBottom:"10px", marginRight:"30px"}}
+          >
             Thoát
           </Button>
         </ModalFooter>

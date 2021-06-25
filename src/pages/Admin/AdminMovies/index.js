@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Button, Pagination, PaginationItem } from "reactstrap";
+import { Pagination, PaginationItem } from "reactstrap";
 import { getMoviePagination } from "src/redux/actions/movie";
 import { SemipolarLoading } from "react-loadingg";
 import { MdAddToQueue } from "react-icons/md";
@@ -9,6 +9,8 @@ import AdminMovieCardList from "./AdminMovieCardList";
 import AdminMovieAdd from "./AdminMovieAdd";
 import { addMovie, deleteMovie } from "src/redux/actions/movie";
 import Swal from "sweetalert2";
+import Button from '@material-ui/core/Button';
+
 
 export default function AdminMovies() {
   const dispatch = useDispatch();
@@ -64,12 +66,13 @@ export default function AdminMovies() {
         <p>Quản Lý Phim</p>
       </div>
       <Button
+      variant="contained" color="primary"
         color="primary"
         className="movieAdmin__buttonAdd"
-        style={{ marginLeft: "83%", marginBottom: "30px", marginTop: "-55px" }}
+        style={{ marginLeft: "80%", marginBottom: "30px", marginTop: "-55px" ,padding: "8px 20px" }}
         onClick={toggleModalMovie}
       >
-        Thêm Phim <MdAddToQueue style={{ marginLeft: "10px", marginTop:"-5px"  }} />
+        Thêm Phim <MdAddToQueue style={{ marginLeft: "15px", marginTop:"-3px"  }} />
       </Button>
 
       <AdminMovieAdd

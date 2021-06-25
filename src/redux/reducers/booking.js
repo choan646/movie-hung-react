@@ -8,6 +8,9 @@ import {
   DAT_VE_REQUEST,
   DAT_VE_SUCCESS,
   DAT_VE_FAILURE,
+  ADD_SHOWTIMES_REQUEST,
+  ADD_SHOWTIMES_SUCCESS,
+  ADD_SHOWTIMES_FAILURE,
 } from "../constants/booking";
 
 const initialState = {
@@ -26,7 +29,7 @@ function bookingReducer(state = initialState, action) {
       return {
         ...state,
         dataChiTietPhongVe: action.payload.data,
-        listGheDangChon:[],
+        listGheDangChon: [],
         isLoading: false,
       };
     case GET_BOOKING_FAILURE:
@@ -42,8 +45,7 @@ function bookingReducer(state = initialState, action) {
       );
       if (index !== -1) {
         listGheDangChonUpdate.splice(index, 1);
-      }
-      else{
+      } else {
         listGheDangChonUpdate.push(action.payload);
       }
       return {
@@ -53,20 +55,33 @@ function bookingReducer(state = initialState, action) {
       };
     case DAT_GHE_FAILURE:
       return { ...state, isLoading: false, error: action.payload.error };
-    
+
     //Hoàn thành đặt vé
     case DAT_VE_REQUEST:
       return { ...state, isLoading: true, error: null };
     case DAT_VE_SUCCESS:
       return {
         ...state,
-        listGheDangChon:[],
+        listGheDangChon: [],
         isLoading: false,
       };
     case DAT_VE_FAILURE:
       return { ...state, isLoading: false, error: action.payload.error };
 
-      default:
+    //Tạo Lịch Chiếu
+    case ADD_SHOWTIMES_REQUEST:
+      return { ...state, isLoading: true, error: null };
+
+    case ADD_SHOWTIMES_SUCCESS:
+      return {
+        ...state,
+        dataChiTietPhongVe: action.payload.data,
+        isLoading: false,
+      };
+    case ADD_SHOWTIMES_FAILURE:
+      return { ...state, isLoading: false, error: action.payload.error };
+
+    default:
       return state;
   }
 }

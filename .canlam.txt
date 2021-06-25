@@ -7,9 +7,9 @@
 									  //(Responsive)//
 
 
-		===\        -Trang admin:       .Sửa ở user, sửa movie ,tìm kiếm user theo tên, quản lí lịch chiếu => chưa làm được...                 
-		====\  				.Vấn đề về modal Sửa user lúc trước, khi bật lên màn hình ngoài màu đen do nó đang nằm trong <tr>==> xem lại css
-		=====*  			
+		===\        -Trang admin:       .Sửa ở user, sửa movie ,tìm kiếm user theo tên, quản lí lịch chiếu còn sai ở định dạng ngày(còn lại done)               
+		====\  						=> css lại hết modal, các trang vừa làm 
+		=====*  			.Vấn đề về modal Sửa user lúc trước, khi bật lên màn hình ngoài màu đen do nó đang nằm trong <tr>==> xem lại css
 		====/					
 		===/ 
 

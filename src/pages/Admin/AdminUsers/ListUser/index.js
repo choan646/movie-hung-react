@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button } from "reactstrap";
+import Button from '@material-ui/core/Button';
 import AdminUserUpdate from "./AdminUserUpdate";
 
 export default function ListUser({ data, handleDeleteUser ,handleUpdateUser,modalUser,toggleModalUser}) {
@@ -19,7 +19,7 @@ export default function ListUser({ data, handleDeleteUser ,handleUpdateUser,moda
           <td>{item.soDt}</td>
           <td>{item.maLoaiNguoiDung}</td>
           <td>
-            <Button color="secondary" onClick={()=>handleTest(item)}>
+            <Button variant="outlined" color="primary" onClick={()=>handleTest(item)}>
             {/* toggleModalUser */}
             {/* ()=>handleUpdateUser(item) */}
               Sửa
@@ -29,7 +29,7 @@ export default function ListUser({ data, handleDeleteUser ,handleUpdateUser,moda
           </td>
           <td>
             <Button
-              color="danger"
+              variant="outlined" color="secondary"
               onClick={() => handleDeleteUser(item.taiKhoan)}
             >
               Xóa

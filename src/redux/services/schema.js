@@ -126,9 +126,25 @@ export const addMovieSchema = yup.object().shape({
     .max(200, "Mô Tả tối đa 200 ký tự"),
   hinhAnh: yup.mixed().required("Phải chọn file hình ảnh!"),
 });
- export const searchIdMovieAtAdmin = yup.object().shape({
-  maPhim:yup
-  .string()
-  .min(4, "Mã Phim phải có 4 ký tự")
-  .matches(/^[0-9]+$/)
- })
+
+//Search at AdminCinema
+export const searchIdMovieAtAdmin = yup.object().shape({
+  maPhim: yup
+    .string()
+    .min(4, "Mã Phim phải có 4 ký tự")
+    .matches(/^[0-9]+$/),
+});
+
+//add Showtimes
+export const addShowTimes = yup.object().shape({
+  ngayChieuGioChieu: yup
+    .string()
+    .required("Ngày Khởi Chiếu không được để trống"),
+  maRap: yup
+    .string()
+    .required("Mã Rạp không được để trống")
+    .matches(/^[0-9]+$/)
+    .min(2, "Mã Rạp phải có 2 ký tự trở lên")
+    .max(5, "Mã Rạp tối đa 5 ký tự"),
+  giaVe: yup.string().required("Giá Vé không được để trống"),
+});

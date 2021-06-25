@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { AiOutlineAppstoreAdd } from "react-icons/ai";
 import { SemipolarLoading } from "react-loadingg";
 import { useDispatch, useSelector } from "react-redux";
 import { getShowTimesByIdMovie } from "src/redux/actions/cinemas";
+import { addNewShowTimes } from "src/redux/actions/booking";
+
 import AdminCinemaAdd from "./AdminCinemaAdd";
-import { Button } from "reactstrap";
+import Button from "@material-ui/core/Button";
 import AdminCinemaSearch from "./AdminCinemaSearch";
+import AdminCinemaTable from "./AdminCinemaTable";
 
 export default function AdminCinemas() {
   const dispatch = useDispatch();
@@ -22,8 +25,11 @@ export default function AdminCinemas() {
   };
   const handleAddShowTime = (values) => {
     console.log(values);
+    dispatch(addNewShowTimes(values))
+    toggleModalCinema();
+    dispatch(getShowTimesByIdMovie(values.maPhim));
   };
-  console.log(dataShowTimesByMovie);
+  // console.log(dataShowTimesByMovie);
   if (isLoading) {
     return (
       <div>
@@ -45,24 +51,36 @@ export default function AdminCinemas() {
         data={dataShowTimesByMovie}
       />
       <Button
+        variant="contained"
         color="primary"
         className="cinemaAdmin__buttonAdd"
-        style={{ marginLeft: "82%", marginBottom: "30px", marginTop: "-126px" }}
+        style={{
+          marginLeft: "82%",
+          marginBottom: "30px",
+          marginTop: "-126px",
+          padding: "8px 15px",
+        }}
         onClick={toggleModalCinema}
         disabled={disable}
       >
-        Thêm Lịch Chiếu{" "}
+        Tạo Lịch Chiếu{" "}
         <AiOutlineAppstoreAdd
           style={{ marginLeft: "10px", marginTop: "-5px" }}
         />
       </Button>
       <AdminCinemaAdd
+        data={dataShowTimesByMovie}
         modalCinema={modalCinema}
         toggleModalCinema={toggleModalCinema}
         handleAddShowTime={handleAddShowTime}
       />
 
-      <div className="cinemaAdmin__content"></div>
+      <div
+        className="cinemaAdmin__content"
+        style={{ width: "85%", margin: "auto" }}
+      >
+        <AdminCinemaTable data={dataShowTimesByMovie} />
+      </div>
     </div>
   );
 }

@@ -1,7 +1,8 @@
 import React from "react";
-import { Alert, Button, FormGroup, Label, Modal } from "reactstrap";
+import { Alert, FormGroup, Label, Modal } from "reactstrap";
 import { ErrorMessage, Form, Field, Formik } from "formik";
 import { addMovieSchema } from "src/redux/services/schema";
+import Button from "@material-ui/core/Button";
 
 export default function AdminMovieAdd({
   toggleModalMovie,
@@ -75,7 +76,7 @@ export default function AdminMovieAdd({
                 {(msg) => <Alert color="danger">{msg}</Alert>}
               </ErrorMessage>
             </FormGroup>
-           
+
             <FormGroup className="col-12">
               <Label>Hình Ảnh</Label>
               <Field
@@ -110,16 +111,24 @@ export default function AdminMovieAdd({
                 {(msg) => <Alert color="danger">{msg}</Alert>}
               </ErrorMessage>
             </FormGroup>
-            
 
             <div
               className="col-12"
-              style={{ marginTop: "50px", textAlign: "center" }}
+              style={{ marginTop: "30px", textAlign: "center" }}
             >
-              <Button style={{ marginRight: "20px" }} color="primary" >
+              <Button
+                style={{ marginRight: "20px" }}
+                variant="contained"
+                color="primary"
+                type="submit"
+              >
                 Thêm
               </Button>
-              <Button color="danger" onClick={toggleModalMovie}>
+              <Button
+                variant="outlined"
+                color="secondary"
+                onClick={toggleModalMovie}
+              >
                 Hủy Bỏ
               </Button>
             </div>
