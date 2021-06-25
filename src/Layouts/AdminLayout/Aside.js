@@ -17,7 +17,7 @@ import {
   FaRegLaughWink,
 } from "react-icons/fa";
 import { BiCameraMovie } from "react-icons/bi";
-import sidebarBg from "./assets/bg1.jpg";
+import sidebarBg from "./assets/d.jpg";
 import { IoMailOutline } from "react-icons/io5";
 
 const Aside = ({ collapsed, email }) => {

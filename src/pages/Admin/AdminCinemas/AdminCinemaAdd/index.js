@@ -15,7 +15,7 @@ export default function AdminCinemaAdd({
       <Formik
         initialValues={{
           maPhim: data?.maPhim,
-          ngayChieuGioChieu: "12/05/2021",
+          ngayChieuGioChieu: "12/05/2021 00:00:00",
           maRap: "",
           giaVe: "",
         }}
@@ -37,7 +37,7 @@ export default function AdminCinemaAdd({
               <Label>
                 Ngày Khởi Chiếu
                 <p style={{ fontSize: 12, color: "#f27b13" }}>
-                  ( Ex : 2021-05-12T00:00:00)
+                  ( Ex : 12/05/2021 00:00:00)
                 </p>
               </Label>
               <Field

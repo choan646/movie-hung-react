@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AiOutlineAppstoreAdd } from "react-icons/ai";
 import { SemipolarLoading } from "react-loadingg";
 import { useDispatch, useSelector } from "react-redux";
@@ -16,6 +16,10 @@ export default function AdminCinemas() {
   const [modalCinema, setModalCinema] = useState(false);
   const toggleModalCinema = () => setModalCinema(!modalCinema);
 
+  //IsAddDone set up
+  const [isDone, setIsDone] = useState(false);
+  const toggleAddIsDone = () => setIsDone(!isDone);
+
   const { dataShowTimesByMovie, isLoading, error } = useSelector(
     (state) => state.cinema
   );
@@ -24,12 +28,16 @@ export default function AdminCinemas() {
     dispatch(getShowTimesByIdMovie(values.maPhim));
   };
   const handleAddShowTime = (values) => {
-    console.log(values);
-    dispatch(addNewShowTimes(values))
+    toggleAddIsDone();
+    dispatch(addNewShowTimes(values));
     toggleModalCinema();
     dispatch(getShowTimesByIdMovie(values.maPhim));
   };
-  // console.log(dataShowTimesByMovie);
+
+  useEffect(() => {
+      dispatch(getShowTimesByIdMovie(dataShowTimesByMovie?.maPhim));
+  }, [modalCinema]);
+
   if (isLoading) {
     return (
       <div>

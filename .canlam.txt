@@ -1,13 +1,12 @@
 -danh sách việc làm ở home: .slider bự chạy video nhưng bị cái vòng lặp sinh ra 3 cái video chồng lên nhau, cái video cuối nằm trên cùng nên luôn luôn có nó
 			    .nút đổi thông tin ở navbar đã sửa được thông tin nhưng khi thay đổi thì nó chưa load lại, hiện tại chỉ yêu cầu người dùng đăng xuất và đăng nhập lại
-			    .có thể thì dùng các form-input-button của material,xem lại các modal
-			    .Tìm kiếm phim ngay dưới slide bự...
+			    .Tìm kiếm phim ngay dưới slide bự...mới chỉ nhập ô search được chứ chưa submit lên được(xem lại type="submit")
   									
 
 									  //(Responsive)//
 
 
-		===\        -Trang admin:       .Sửa ở user, sửa movie ,tìm kiếm user theo tên, quản lí lịch chiếu còn sai ở định dạng ngày(còn lại done)               
+		===\        -Trang admin:       .Sửa ở user, sửa movie ,tìm kiếm user theo tên             
 		====\  						=> css lại hết modal, các trang vừa làm 
 		=====*  			.Vấn đề về modal Sửa user lúc trước, khi bật lên màn hình ngoài màu đen do nó đang nằm trong <tr>==> xem lại css
 		====/					
