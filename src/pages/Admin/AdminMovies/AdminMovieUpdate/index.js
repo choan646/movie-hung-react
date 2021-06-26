@@ -1,112 +1,108 @@
 import { ErrorMessage, Form, Field, Formik } from "formik";
 import React from "react";
 import { Alert, FormGroup, Label, Modal } from "reactstrap";
-import { addUserSchema } from "src/redux/services/schema";
+import { addMovieSchema } from "src/redux/services/schema";
 import Button from "@material-ui/core/Button";
 
-export default function AdminUsersModalAdd({
-  handleAddUser,
-  modalUser,
-  toggleModalUser,
+export default function AdminMovieUpdate({
+  data,
+  toggleModalUpdateMovie,
+  modalUpdateMovie,
+  handleUpdateMovie,
 }) {
   return (
-    <Modal isOpen={modalUser} toggle={toggleModalUser} id="modalUser">
+    <Modal isOpen={modalUpdateMovie} toggle={toggleModalUpdateMovie} id="modalMovie">
       <Formik
         initialValues={{
-          taiKhoan: "",
-          matKhau: "",
-          email: "",
-          soDt: "",
+          hinhAnh: {},
+          maPhim: data.maPhim,
+          tenPhim: data.tenPhim,
+          trailer: data.trailer,
+          moTa: data.moTa,
           maNhom: "GP11",
-          maLoaiNguoiDung: "KhachHang",
-          hoTen: "",
         }}
-        validationSchema={addUserSchema}
-        onSubmit={handleAddUser}
+        validationSchema={addMovieSchema}
+        enableReinitialize={true}
+        onSubmit={handleUpdateMovie}
         render={(formikProps) => (
-          <Form className="form__addUser row">
+          <Form className="form__addMovie row">
             <FormGroup className="col-6">
-              <Label>Tài Khoản </Label>
+              <Label>Mã Phim</Label>
               <Field
                 type="text"
                 className="form-control"
-                name="taiKhoan"
+                name="maPhim"
+                disabled
+              />
+            </FormGroup>
+            <FormGroup className="col-6">
+              <Label>Mã Nhóm</Label>
+              <Field
+                type="text"
+                className="form-control"
+                name="maNhom"
+                disabled
+              />
+            </FormGroup>
+            <FormGroup className="col-6">
+              <Label>Tên Phim</Label>
+              <Field
+                type="text"
+                className="form-control"
+                name="tenPhim"
                 onChange={formikProps.handleChange}
               />
-              <ErrorMessage name="taiKhoan">
+              <ErrorMessage name="tenPhim">
                 {(msg) => <Alert color="danger">{msg}</Alert>}
               </ErrorMessage>
             </FormGroup>
             <FormGroup className="col-6">
-              <Label>Mật Khẩu </Label>
-              <Field
-                type="password"
-                className="form-control"
-                name="matKhau"
-                onChange={formikProps.handleChange}
-              />
-              <ErrorMessage name="matKhau">
-                {(msg) => <Alert color="danger">{msg}</Alert>}
-              </ErrorMessage>
-            </FormGroup>
-            <FormGroup className="col-6">
-              <Label>Họ Tên </Label>
+              <Label>
+                TraiLer
+                <span style={{ fontSize: 12, color: "#f27b13" }}>
+                  ( Ex : https://...)
+                </span>
+              </Label>
               <Field
                 type="text"
                 className="form-control"
-                name="hoTen"
+                name="trailer"
                 onChange={formikProps.handleChange}
               />
-              <ErrorMessage name="hoTen">
+              <ErrorMessage name="trailer">
                 {(msg) => <Alert color="danger">{msg}</Alert>}
               </ErrorMessage>
             </FormGroup>
 
-            <FormGroup className="col-6">
-              <Label>Số Điện Thoại </Label>
+            <FormGroup className="col-12">
+              <Label>Hình Ảnh</Label>
               <Field
-                type="text"
-                className="form-control"
-                name="soDt"
-                onChange={formikProps.handleChange}
+                type="file"
+                className="form-control form__add__img"
+                name="hinhAnh"
+                accept="image/*"
+                value={undefined}
+                onChange={(event) => {
+                  formikProps.setFieldValue("hinhAnh", event.target.files[0]);
+                }}
               />
-              <ErrorMessage name="soDt">
+              <ErrorMessage name="hinhAnh">
                 {(msg) => <Alert color="danger">{msg}</Alert>}
               </ErrorMessage>
             </FormGroup>
             <FormGroup className="col-12">
-              <Label>Email </Label>
+              <Label>Mô Tả</Label>
               <Field
-                type="email"
                 className="form-control"
-                name="email"
+                name="moTa"
+                as="textarea"
                 onChange={formikProps.handleChange}
+                style={{ resize: "none" }}
+                rows="5"
               />
-              <ErrorMessage name="email">
+              <ErrorMessage name="moTa">
                 {(msg) => <Alert color="danger">{msg}</Alert>}
               </ErrorMessage>
-            </FormGroup>
-
-            <FormGroup className="col-6">
-              <Label>Mã Loại Người Dùng</Label>
-              <Field
-                component="select"
-                className="form-control"
-                name="maLoaiNguoiDung"
-                onChange={formikProps.handleChange}
-              >
-                <option value="KhachHang">Khách Hàng</option>
-                <option value="QuanTri">Quản Trị</option>
-              </Field>
-            </FormGroup>
-            <FormGroup className="col-6">
-              <Label>Mã Nhóm </Label>
-              <Field
-                className="form-control"
-                disabled
-                value="GP11"
-                name="maNhom"
-              />
             </FormGroup>
 
             <div
@@ -119,12 +115,12 @@ export default function AdminUsersModalAdd({
                 color="primary"
                 type="submit"
               >
-                Thêm
+                Sửa
               </Button>
               <Button
                 variant="outlined"
                 color="secondary"
-                onClick={toggleModalUser}
+                onClick={toggleModalUpdateMovie}
               >
                 Hủy Bỏ
               </Button>

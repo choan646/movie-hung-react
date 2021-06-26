@@ -17,6 +17,7 @@ import {
 } from "../constants/users";
 const initialState = {
   user: [],
+  selectedUser:{},
   isLoading: false,
   error: null,
 };
@@ -45,7 +46,7 @@ function userReducer(state = initialState, action) {
       return { ...state, isLoading: true, error: null };
 
     case UPDATE_USER_SUCCESS:
-      return { ...state, user: action.payload.data, isLoading: false };
+      return { ...state, selectedUser: action.payload, isLoading: false };
     case UPDATE_USER_FAILURE:
       return { ...state, isLoading: false, error: action.payload.error };
 
@@ -66,7 +67,9 @@ function userReducer(state = initialState, action) {
     case ADD_USER_FAILURE:
       return { ...state, isLoading: false, error: action.payload.error };
 
-
+      //selected user
+    case "SET_USER_SELECTED":
+      return { ...state, selectedUser: action.payload, isLoading:false}
     default:
       return state;
   }

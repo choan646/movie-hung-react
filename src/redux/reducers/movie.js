@@ -15,12 +15,16 @@ import {
   DELETE_MOVIE_REQUEST,
   DELETE_MOVIE_SUCCESS,
   DELETE_MOVIE_FAILURE,
+  UPDATE_MOVIE_REQUEST,
+  UPDATE_MOVIE_SUCCESS,
+  UPDATE_MOVIE_FAILURE,
 } from "../constants/movie";
 
 const initialState = {
   data: [],
   dataSearch: null,
   dataPaginate: [],
+  selectedMovie: {},
   isLoading: false,
   error: null,
 };
@@ -83,6 +87,18 @@ function movieReducer(state = initialState, action) {
     case DELETE_MOVIE_FAILURE:
       return { ...state, isLoading: false };
 
+    //selected movie
+    case "SET_MOVIE_SELECTED":
+      return { ...state, selectedMovie: action.payload, isLoading: false };
+
+    //UPDATE_MOVIE
+    case UPDATE_MOVIE_REQUEST:
+      return { ...state, isLoading: true, error: null };
+
+    case UPDATE_MOVIE_SUCCESS:
+      return { ...state, selectedMovie: action.payload, isLoading: false };
+    case UPDATE_MOVIE_FAILURE:
+      return { ...state, isLoading: false, error: action.payload.error };
     default:
       return state;
   }

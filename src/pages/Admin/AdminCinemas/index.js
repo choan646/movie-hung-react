@@ -31,12 +31,11 @@ export default function AdminCinemas() {
     toggleAddIsDone();
     dispatch(addNewShowTimes(values));
     toggleModalCinema();
-    dispatch(getShowTimesByIdMovie(values.maPhim));
   };
 
   useEffect(() => {
       dispatch(getShowTimesByIdMovie(dataShowTimesByMovie?.maPhim));
-  }, [modalCinema]);
+  }, [isDone]);
 
   if (isLoading) {
     return (

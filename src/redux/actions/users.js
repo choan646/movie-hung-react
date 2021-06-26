@@ -11,15 +11,18 @@ import {
   ADD_USER_REQUEST,
   ADD_USER_SUCCESS,
   ADD_USER_FAILURE,
+  UPDATE_USER_REQUEST,
+  UPDATE_USER_SUCCESS,
+  UPDATE_USER_FAILURE,
 } from "../constants/users";
 import userAPI from "../services/userAPI";
 import Swal from "sweetalert2";
 
-export function getUser(currentPage) {
+export function getUser(currentPage, tukhoa) {
   return async (dispatch) => {
     dispatch({ type: GET_USER_REQUEST });
     try {
-      const { data } = await userAPI.getUserPagination(currentPage);
+      const { data } = await userAPI.getUserPagination(currentPage, tukhoa);
       dispatch({ type: GET_USER_SUCCESS, payload: { data } });
     } catch (error) {
       dispatch({
@@ -71,6 +74,27 @@ export function addUser(values) {
       Swal.fire(error.response?.data);
       dispatch({
         type: ADD_USER_FAILURE,
+        payload: { error: error.response.data },
+      });
+    }
+  };
+}
+export function setUserSelected(values) {
+  return (dispatch) => {
+    dispatch({ type: "SET_USER_SELECTED", payload: values });
+  };
+}
+export function updateUser(values) {
+  return async (dispatch) => {
+    dispatch({ type: UPDATE_USER_REQUEST });
+    try {
+      const { data } = await userAPI.updateUser(values);
+        Swal.fire("Sửa thành công");
+        dispatch({ type: UPDATE_USER_SUCCESS, payload: { data } });
+    } catch (error) {
+      Swal.fire(error.response?.data);
+      dispatch({
+        type: UPDATE_USER_FAILURE,
         payload: { error: error.response.data },
       });
     }

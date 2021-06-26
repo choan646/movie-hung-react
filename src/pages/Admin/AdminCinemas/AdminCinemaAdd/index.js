@@ -11,7 +11,7 @@ export default function AdminCinemaAdd({
   handleAddShowTime,
 }) {
   return (
-    <Modal isOpen={modalCinema} toggle={toggleModalCinema}>
+    <Modal isOpen={modalCinema} toggle={toggleModalCinema} id="modalCinema">
       <Formik
         initialValues={{
           maPhim: data?.maPhim,
@@ -76,10 +76,10 @@ export default function AdminCinemaAdd({
             </FormGroup>
             <div
               className="col-12"
-              style={{ marginTop: "30px", textAlign: "center" }}
+              style={{ marginTop: "50px", textAlign: "center" }}
             >
               <Button
-                style={{ marginRight: "20px" }}
+                style={{ marginRight: "40px" }}
                 variant="contained"
                 color="primary"
                 type="submit"

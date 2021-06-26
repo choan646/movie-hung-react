@@ -14,6 +14,9 @@ import {
   DELETE_MOVIE_REQUEST,
   DELETE_MOVIE_SUCCESS,
   DELETE_MOVIE_FAILURE,
+  UPDATE_MOVIE_REQUEST,
+  UPDATE_MOVIE_SUCCESS,
+  UPDATE_MOVIE_FAILURE,
 } from "../constants/movie";
 import moviesAPI from "../services/movieAPI";
 import Swal from "sweetalert2";
@@ -82,14 +85,37 @@ export function deleteMovie(values) {
     dispatch({ type: DELETE_MOVIE_REQUEST });
     try {
       const { data } = await moviesAPI.deleteMovie(values);
-      if(data=== "Xóa thành công"){
+      if (data === "Xóa thành công") {
         dispatch({ type: DELETE_MOVIE_SUCCESS, payload: values });
       }
     } catch (error) {
-      Swal.fire(error.response?.data)
+      Swal.fire(error.response?.data);
       dispatch({
         type: DELETE_MOVIE_FAILURE,
         payload: { error: error.response },
+      });
+    }
+  };
+}
+export function setMovieSelected(values) {
+  return (dispatch) => {
+    dispatch({ type: "SET_MOVIE_SELECTED", payload: values });
+  };
+}
+
+export function updateMovie(values, currentPage) {
+  return async (dispatch) => {
+    dispatch({ type: UPDATE_MOVIE_REQUEST });
+    try {
+      const { data } = await moviesAPI.updateMovie(values);
+      Swal.fire("Sửa Thành Công!");
+      dispatch({ type: UPDATE_MOVIE_SUCCESS, payload: { data } });
+      dispatch(getMoviePagination(currentPage));
+    } catch (error) {
+      Swal.fire(error.response?.data);
+      dispatch({
+        type: UPDATE_MOVIE_FAILURE,
+        payload: { error: error.response?.data },
       });
     }
   };

@@ -6,7 +6,7 @@ import { ErrorMessage, Form, Field, Formik } from "formik";
 
 export default function AdminCinemaSearch({handleSearchIdMovie, data}) {
     return (
-        <div className="cinemaAdmin__search" style={{ marginLeft: "35%", marginBottom: "30px", marginTop: "-45px" }}>
+        <div className="cinemaAdmin__search" style={{ marginLeft: "33%", marginBottom: "30px", marginTop: "-45px" }}>
           <Formik
             initialValues={{ maPhim: "" || data?.maPhim}}
             validationSchema={searchIdMovieAtAdmin}

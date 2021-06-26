@@ -332,8 +332,6 @@
           }
           overflow: hidden;
           .cinemaAdmin {
-            // height: 600px;
-            // overflow-y: scroll;
             &::after {
               content: "";
               position: absolute;
@@ -351,9 +349,82 @@
                 font-size: 16px;
               }
             }
+            .cinemaAdmin__content{
+              .nav-tabs {
+                border: none;
+                margin-bottom: 30px;
+                justify-content:space-evenly;
+                .nav-item {
+                  .nav-link {
+                    border: none;
+                    font-size: 16px;
+                    color: #000;
+                    margin-right: 10px;
+                    transition: font-size 0.2s;
+                    &:hover {
+                      cursor: pointer;
+                      font-size: 18px;
+                    }
+                  }
+                  .active {
+                    color: #F27B13 !important;
+                    font-size: 18px;
+                    font-weight: bold;
+                    border: 1px solid #F27B13;
+                    border-radius: 5px;
+                  }
+                }
+              }
+              .tab-content {
+                .cinemaAdmin__table{
+                  tbody{
+                    tr{
+                      td{
+                        tr{
+                          td{
+                            border-top: none;
+                            border-bottom: 1px solid #dee2e6;
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
     }
+  }
+}
+#modalUser,#modalUpdateUser{
+  margin-left:27%;
+  margin-top: 30px;
+  .modal-content{
+    padding:70px 80px;
+    width: 700px;
+  }
+}
+#modalMovie{
+  margin-left:24%;
+  margin-top: 30px;
+  .modal-content{
+    width: 800px;
+    padding:50px 80px;
+    .form__addMovie{
+      .form__add__img{
+        height:50px;
+        padding-top: 10px;
+      }
+    }
+  }
+}
+#modalCinema{
+  margin-left:30%;
+  margin-top: 100px;
+  .modal-content{
+    width: 600px;
+    padding:50px ;
   }
 }

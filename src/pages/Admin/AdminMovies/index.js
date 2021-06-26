@@ -7,10 +7,15 @@ import { MdAddToQueue } from "react-icons/md";
 import { Link, useParams } from "react-router-dom";
 import AdminMovieCardList from "./AdminMovieCardList";
 import AdminMovieAdd from "./AdminMovieAdd";
-import { addMovie, deleteMovie } from "src/redux/actions/movie";
+import {
+  addMovie,
+  deleteMovie,
+  setMovieSelected,
+  updateMovie
+} from "src/redux/actions/movie";
 import Swal from "sweetalert2";
-import Button from '@material-ui/core/Button';
-
+import Button from "@material-ui/core/Button";
+import AdminMovieUpdate from "./AdminMovieUpdate";
 
 export default function AdminMovies() {
   const dispatch = useDispatch();
@@ -20,7 +25,11 @@ export default function AdminMovies() {
   const [modalMovie, setModalMovie] = useState(false);
   const toggleModalMovie = () => setModalMovie(!modalMovie);
 
-  const { dataPaginate, isLoading, error } = useSelector(
+  //UpdateModal set up
+  const [modalUpdateMovie, setModalUpdateMovie] = useState(false);
+  const toggleModalUpdateMovie = () => setModalUpdateMovie(!modalUpdateMovie);
+
+  const { dataPaginate, selectedMovie, isLoading, error } = useSelector(
     (state) => state.movie
   );
 
@@ -48,10 +57,27 @@ export default function AdminMovies() {
     }).then((result) => {
       if (result.isConfirmed) {
         dispatch(deleteMovie(values));
-      dispatch(getMoviePagination(currentPage));
+        dispatch(getMoviePagination(currentPage));
         Swal.fire("Xóa Thành Công!", "", "success");
       }
     });
+  };
+
+  const getMovieSelected = (values) => {
+    dispatch(setMovieSelected(values));
+    toggleModalUpdateMovie();
+  };
+
+  const handleUpdateMovie = (values) => {
+    var form_data = new FormData();
+    for (var key in values) {
+      form_data.append(key, values[key]);
+      console.log(key,form_data.get(key))
+    }
+    // dispatch(updateMovie(form_data, currentPage));
+    toggleModalUpdateMovie();
+ 
+
   };
   if (isLoading) {
     return (
@@ -66,13 +92,20 @@ export default function AdminMovies() {
         <p>Quản Lý Phim</p>
       </div>
       <Button
-      variant="contained" color="primary"
+        variant="contained"
+        color="primary"
         color="primary"
         className="movieAdmin__buttonAdd"
-        style={{ marginLeft: "80%", marginBottom: "30px", marginTop: "-55px" ,padding: "8px 20px" }}
+        style={{
+          marginLeft: "80%",
+          marginBottom: "30px",
+          marginTop: "-55px",
+          padding: "8px 20px",
+        }}
         onClick={toggleModalMovie}
       >
-        Thêm Phim <MdAddToQueue style={{ marginLeft: "15px", marginTop:"-3px"  }} />
+        Thêm Phim{" "}
+        <MdAddToQueue style={{ marginLeft: "15px", marginTop: "-3px" }} />
       </Button>
 
       <AdminMovieAdd
@@ -85,6 +118,13 @@ export default function AdminMovies() {
         <AdminMovieCardList
           data={dataPaginate}
           handleDeleteMovie={handleDeleteMovie}
+          getMovieSelected={getMovieSelected}
+        />
+        <AdminMovieUpdate
+          data={selectedMovie}
+          toggleModalUpdateMovie={toggleModalUpdateMovie}
+          modalUpdateMovie={modalUpdateMovie}
+          handleUpdateMovie={handleUpdateMovie}
         />
         <div className="movieAdmin__pagination">
           <Pagination>

@@ -1,16 +1,18 @@
 import { ErrorMessage, Form, Field, Formik } from "formik";
 import React from "react";
-import { Alert, Button, FormGroup, Label, Modal } from "reactstrap";
+import { Alert, FormGroup, Label, Modal } from "reactstrap";
 import { updateSchema } from "src/redux/services/schema";
+import Button from "@material-ui/core/Button";
+
 
 export default function AdminUserUpdate({
   data,
   handleUpdateUser,
-  modalUser,
-  toggleModalUser,
+  modalUpdateUser,
+  toggleModalUpdateUser,
 }) {
   return (
-    <Modal toggle={toggleModalUser}>
+    <Modal isOpen={modalUpdateUser} toggle={toggleModalUpdateUser} id="modalUpdateUser">
       <Formik
         initialValues={{
           taiKhoan: data.taiKhoan,
@@ -110,10 +112,19 @@ export default function AdminUserUpdate({
               className="col-12"
               style={{ marginTop: "50px", textAlign: "center" }}
             >
-              <Button style={{ marginRight: "20px" }} color="primary">
-                Thêm
+              <Button
+                style={{ marginRight: "40px" }}
+                variant="contained"
+                color="primary"
+                type="submit"
+              >
+                Sửa
               </Button>
-              <Button color="danger" onClick={toggleModalUser}>
+              <Button
+                variant="outlined"
+                color="secondary"
+                onClick={toggleModalUpdateUser}
+              >
                 Hủy Bỏ
               </Button>
             </div>

@@ -10,6 +10,8 @@ import AdminUsersAdd from "./AdminUsersAdd";
 import { addUser, updateUser } from "src/redux/actions/users";
 import ListUser from "./ListUser";
 import Button from "@material-ui/core/Button";
+import { setUserSelected } from "src/redux/actions/users";
+import AdminUserUpdate from "./AdminUserUpdate";
 
 export default function AdminUsers() {
   const dispatch = useDispatch();
@@ -18,7 +20,13 @@ export default function AdminUsers() {
   const [modalUser, setModalUser] = useState(false);
   const toggleModalUser = () => setModalUser(!modalUser);
 
-  const { user, isLoading, error } = useSelector((state) => state.user);
+  //UpdateModal setup
+  const [modalUpdateUser, setModalUpdateUser] = useState(false);
+  const toggleModalUpdateUser = () => setModalUpdateUser(!modalUpdateUser);
+
+  const { user, selectedUser, isLoading, error } = useSelector(
+    (state) => state.user
+  );
 
   useEffect(() => {
     dispatch(getUser(currentPage));
@@ -47,8 +55,14 @@ export default function AdminUsers() {
       }
     });
   };
+  const getUserSelected = (item) => {
+    dispatch(setUserSelected(item));
+    toggleModalUpdateUser();
+  };
   const handleUpdateUser = (values) => {
-    console.log(values);
+    toggleModalUpdateUser();
+    dispatch(updateUser(values));
+    dispatch(getUser(currentPage));
   };
 
   if (isLoading) {
@@ -84,6 +98,9 @@ export default function AdminUsers() {
         toggleModalUser={toggleModalUser}
       />
 
+      <div className="searchUser">
+        <input type="text" name="search" value="tr" />
+      </div>
       <div className="userAdmin__content">
         <Table hover className="userAdmin__table">
           <thead>
@@ -101,10 +118,14 @@ export default function AdminUsers() {
           <tbody>
             <ListUser
               data={user}
+              getUserSelected={getUserSelected}
               handleDeleteUser={handleDeleteUser}
+            />
+            <AdminUserUpdate
+              data={selectedUser}
+              modalUpdateUser={modalUpdateUser}
               handleUpdateUser={handleUpdateUser}
-              modalUser={modalUser}
-              toggleModalUser={toggleModalUser}
+              toggleModalUpdateUser={toggleModalUpdateUser}
             />
           </tbody>
         </Table>

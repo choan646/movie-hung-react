@@ -101,7 +101,7 @@ export const addUserSchema = yup.object().shape({
     .max(30, "Họ Tên tối đa 30 ký tự"),
 });
 
-//Add movie
+//Add movie //Update Movie
 export const addMovieSchema = yup.object().shape({
   // maPhim: yup
   //   .string()
@@ -126,6 +126,8 @@ export const addMovieSchema = yup.object().shape({
     .max(200, "Mô Tả tối đa 200 ký tự"),
   hinhAnh: yup.mixed().required("Phải chọn file hình ảnh!"),
 });
+
+
 
 //Search at AdminCinema
 export const searchIdMovieAtAdmin = yup.object().shape({

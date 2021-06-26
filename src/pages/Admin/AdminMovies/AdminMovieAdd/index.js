@@ -10,7 +10,7 @@ export default function AdminMovieAdd({
   handleAddMovie,
 }) {
   return (
-    <Modal isOpen={modalMovie} toggle={toggleModalMovie}>
+    <Modal isOpen={modalMovie} toggle={toggleModalMovie} id="modalMovie">
       <Formik
         initialValues={{
           hinhAnh: {},
@@ -32,11 +32,7 @@ export default function AdminMovieAdd({
                 className="form-control"
                 name="maPhim"
                 disabled
-                // onChange={formikProps.handleChange}
               />
-              {/* <ErrorMessage name="maPhim">
-                {(msg) => <Alert color="danger">{msg}</Alert>}
-              </ErrorMessage> */}
             </FormGroup>
             <FormGroup className="col-6">
               <Label>Mã Nhóm</Label>
@@ -81,14 +77,11 @@ export default function AdminMovieAdd({
               <Label>Hình Ảnh</Label>
               <Field
                 type="file"
-                className="form-control"
+                className="form-control form__add__img"
                 name="hinhAnh"
                 accept="image/*"
                 value={undefined}
                 onChange={(event) => {
-                  // xong r nhá trong formikProps có function setFieldValue nhá
-                  // value của field này object nên phải để value={}
-                  // link bài viết cho value https://stackoverflow.com/questions/66876022/setfieldvalue-formik-and-invalidstateerror-failed-to-set-the-value-property
                   formikProps.setFieldValue("hinhAnh", event.target.files[0]);
                 }}
               />
@@ -104,7 +97,6 @@ export default function AdminMovieAdd({
                 as="textarea"
                 onChange={formikProps.handleChange}
                 style={{ resize: "none" }}
-                cols="30"
                 rows="5"
               />
               <ErrorMessage name="moTa">
@@ -114,10 +106,10 @@ export default function AdminMovieAdd({
 
             <div
               className="col-12"
-              style={{ marginTop: "30px", textAlign: "center" }}
+              style={{ marginTop: "50px", textAlign: "center" }}
             >
               <Button
-                style={{ marginRight: "20px" }}
+                style={{ marginRight: "40px" }}
                 variant="contained"
                 color="primary"
                 type="submit"
@@ -138,3 +130,5 @@ export default function AdminMovieAdd({
     </Modal>
   );
 }
+// value của field này object nên phải để value={}
+// link bài viết cho value https://stackoverflow.com/questions/66876022/setfieldvalue-formik-and-invalidstateerror-failed-to-set-the-value-property
