@@ -26,8 +26,8 @@ export default function DangChieu() {
   return (
     <div className="container">
       <div className="row">
-        {dataDangChieu.map((item) => (
-          <MovieCardList data={item}/>
+        {dataDangChieu.map((item, index) => (
+          <MovieCardList key={index} data={item}/>
         ))}
       </div>
     </div>

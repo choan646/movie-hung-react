@@ -24,8 +24,8 @@ export default function SapChieu() {
   return (
     <div className="container">
       <div className="row">
-        {dataSapChieu.map((item) => (
-          <MovieCardList data={item}/>
+        {dataSapChieu.map((item, index) => (
+          <MovieCardList key={index} data={item}/>
         ))}
       </div>
     </div>

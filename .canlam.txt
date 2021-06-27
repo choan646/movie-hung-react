@@ -1,21 +1,21 @@
 -danh sách việc làm ở home: .slider bự chạy video nhưng bị cái vòng lặp sinh ra 3 cái video chồng lên nhau, cái video cuối nằm trên cùng nên luôn luôn có nó
 			    .nút đổi thông tin ở navbar đã sửa được thông tin nhưng khi thay đổi thì nó chưa load lại, hiện tại chỉ yêu cầu người dùng đăng xuất và đăng nhập lại
-			    .Tìm kiếm phim ngay dưới slide bự...mới chỉ nhập ô search được chứ chưa submit lên được(xem lại type="submit")
+			    . [DONE]  
   									
 
 									  //(Responsive)//
 
 
-		===\        -Trang admin:       .Sửa ở user, sửa movie ,tìm kiếm user theo tên             
-		====\  						=> css lại hết modal, các trang vừa làm 
-		=====*  			.Vấn đề về modal Sửa user lúc trước, khi bật lên màn hình ngoài màu đen do nó đang nằm trong <tr>==> xem lại css
+		===\        -Trang admin:       .Thiết kế thêm avatar            
+		====\  				.Trang Chính thiết kế vài bản báo cáo...
+		=====*  			
 		====/					
 		===/ 
 
 						
 
 								=====  Còn nhiều thứ về logic và cả ux-ui ======
-						tách nhỏ các item đã làm /// đọc thêm doc của swal, router-dom, useParam, useRef()
+						tách nhỏ các item đã làm /// đọc thêm doc của swal, router-dom, useParam, useRef(), history, localtion
 
 
 			   

@@ -16,7 +16,7 @@ export default function ItemColThird({ data }) {
               {itemListCumRap?.danhSachPhim
                 ?.slice(0, 1)
                 .map((itemDanhSachPhim) => (
-                  <div className="item__danhSachPhim row">
+                  <div className="item__danhSachPhim row" key={itemDanhSachPhim.maPhim}>
                     <div className="item__danhSachPhim__img col-4">
                       <img src={itemDanhSachPhim.hinhAnh} alt="hinhAnh" />
                     </div>
@@ -35,6 +35,7 @@ export default function ItemColThird({ data }) {
                           .map((itemLichChieu) => (
                             <div
                               className="container col-6"
+                              key={itemLichChieu.maLichChieu}
                               style={{
                                 paddingLeft: "20px",
                                 paddingTop: "15px",

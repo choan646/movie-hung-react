@@ -1,21 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Table, Pagination, PaginationItem } from "reactstrap";
 import { SemipolarLoading } from "react-loadingg";
 import Swal from "sweetalert2";
 import { Link, useParams } from "react-router-dom";
-import { getUser, deleteUser } from "src/redux/actions/users";
+import {
+  getUser,
+  deleteUser,
+  addUser,
+  updateUser,
+  setUserSelected,
+} from "src/redux/actions/users";
 import { IoPersonAdd } from "react-icons/io5";
 import AdminUsersAdd from "./AdminUsersAdd";
-import { addUser, updateUser } from "src/redux/actions/users";
 import ListUser from "./ListUser";
 import Button from "@material-ui/core/Button";
-import { setUserSelected } from "src/redux/actions/users";
 import AdminUserUpdate from "./AdminUserUpdate";
+import TextField from "@material-ui/core/TextField";
 
 export default function AdminUsers() {
   const dispatch = useDispatch();
   const { currentPage } = useParams();
+
   //UserModal setup
   const [modalUser, setModalUser] = useState(false);
   const toggleModalUser = () => setModalUser(!modalUser);
@@ -24,10 +30,14 @@ export default function AdminUsers() {
   const [modalUpdateUser, setModalUpdateUser] = useState(false);
   const toggleModalUpdateUser = () => setModalUpdateUser(!modalUpdateUser);
 
+  //SearchUser set up
+  const [searchKey, setSearchKey] = useState("");
+  const typingTimeoutRef = useRef(null);
+  // Tạm thời phần Search hơi cùi, dùng debounce để khắc phục tạm thời, sau khi submit được từ khóa lên thì nó render và k focus vào ô search
+
   const { user, selectedUser, isLoading, error } = useSelector(
     (state) => state.user
   );
-
   useEffect(() => {
     dispatch(getUser(currentPage));
   }, [currentPage]);
@@ -64,6 +74,27 @@ export default function AdminUsers() {
     dispatch(updateUser(values));
     dispatch(getUser(currentPage));
   };
+  const handleChange = (event) => {
+    const value = event.target.value;
+    setSearchKey(value);
+    if (typingTimeoutRef.current) {
+      clearTimeout(typingTimeoutRef.current);
+    }
+    typingTimeoutRef.current = setTimeout(() => {
+      const formValues = {
+        searchKey: value,
+      };
+      handleSubmit(formValues);
+    }, 500);
+  };
+
+  const handleSubmit = (formValues) => {
+    if (formValues.searchKey != "") {
+      dispatch(getUser("soTrang=1", `tuKhoa=${formValues.searchKey}`));
+    } else {
+      dispatch(getUser(currentPage));
+    }
+  };
 
   if (isLoading) {
     return (
@@ -97,9 +128,18 @@ export default function AdminUsers() {
         modalUser={modalUser}
         toggleModalUser={toggleModalUser}
       />
-
-      <div className="searchUser">
-        <input type="text" name="search" value="tr" />
+      <div className="searchUser" style={{marginLeft: "35%",marginTop: "-70px",marginBottom: "60px",}}>
+        <form>
+          <TextField
+            label="Tìm Người Dùng"
+            size="small"
+            variant="outlined"
+            type="text"
+            value={searchKey}
+            style={{ width:"300px"}}
+            onChange={handleChange}
+          />
+        </form>
       </div>
       <div className="userAdmin__content">
         <Table hover className="userAdmin__table">

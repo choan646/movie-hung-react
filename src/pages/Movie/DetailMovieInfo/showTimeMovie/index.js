@@ -9,12 +9,10 @@ export default function ShowTimeMovie({ data }) {
     (state) => state.cinema
   );
   useEffect(() => {
-    dispatch(getShowTimesByIdMovie(data.maPhim));
-  }, [data.maPhim]);
+    dispatch(getShowTimesByIdMovie(data?.maPhim));
+  }, [data?.maPhim]);
   return (
     <div className="tab__lichChieuPhim">
-      {/* {console.log(dataShowTimesByMovie)} */}
-
       {dataShowTimesByMovie?.heThongRapChieu?.map((item) => (
         <div className="tab__lichChieuPhim__listItem" key={item?.maHeThongRap}>
           <div className="tab__lichChieuPhim__title d-flex">
@@ -28,11 +26,11 @@ export default function ShowTimeMovie({ data }) {
           </div>
           <div className="tab__lichChieuPhim__placeItem">
             {item?.cumRapChieu?.map((placeItem) => (
-              <>
+              <div key={placeItem.maCumRap}>
                 <h5><i>{placeItem?.tenCumRap}</i></h5>
                 <div className="tab__lichChieuPhim__timeItem row">
                   {placeItem?.lichChieuPhim?.map((timeItem) => (
-                    <div className="col">
+                    <div className="col" key={timeItem.maLichChieu}>
                       <button className="btn">
                       <Link to={`/checkout/${timeItem.maLichChieu}`}>
                       <p>
@@ -54,7 +52,7 @@ export default function ShowTimeMovie({ data }) {
                     </div>
                   ))}
                 </div>
-              </>
+              </div>
             ))}
           </div>
         </div>

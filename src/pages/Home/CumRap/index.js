@@ -57,13 +57,13 @@ export default function CumRap() {
       <div className="row">
         <div className="col-2">
           <Nav id="navBig" tabs className="row">
-            {dataCinemas.map((item, index) => (
+            {dataCinemas?.map((item, index) => (
               <NavItem key={index} className="item__rap__phim col-12">
                 <NavLink
-                  className={classnames({ active: activeTab === item.biDanh })}
-                  onClick={() => handleGetTest(item.maHeThongRap, item.biDanh)}
+                  className={classnames({ active: activeTab === item?.biDanh })}
+                  onClick={() => handleGetTest(item?.maHeThongRap, item?.biDanh)}
                 >
-                  <img src={item.logo} alt="logoRap" />
+                  <img src={item?.logo} alt="logoRap" />
                 </NavLink>
               </NavItem>
             ))}
@@ -71,8 +71,8 @@ export default function CumRap() {
         </div>
         <div className="col-10">
           <TabContent id="tabBig" activeTab={activeTab}>
-            {dataCinemas.map((item) => (
-              <TabPane tabId={item.biDanh}>
+            {dataCinemas?.map((item,index) => (
+              <TabPane key={index} tabId={item?.biDanh}>
                 <div className="row">
                   <ItemColSecond data={dataCumRapByCinemas} />
 

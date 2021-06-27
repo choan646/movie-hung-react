@@ -33,7 +33,7 @@
         padding: 0;
         position: relative;
         background-color: #fff;
-        border-bottom: none!important;
+        border-bottom: none !important;
         img {
           width: 100%;
           height: 300px;
@@ -52,7 +52,7 @@
             transition: all 0.2s;
             font-weight: 100;
             &:hover {
-              cursor: pointer!important;
+              cursor: pointer !important;
               color: #fa5238;
               opacity: 0.8;
             }
@@ -82,11 +82,11 @@
           h6,
           p {
             display: none;
-          cursor: pointer;
+            cursor: pointer;
           }
           .card__button {
             display: block;
-            &:hover{
+            &:hover {
               cursor: pointer;
             }
           }

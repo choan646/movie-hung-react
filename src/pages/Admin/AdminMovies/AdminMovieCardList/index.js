@@ -5,8 +5,8 @@ export default function AdminMovieCardList({ data ,handleDeleteMovie,getMovieSel
 
   return (
     <div className="movieAdmin__cardList d-flex row">
-      {data.items?.map((item) => (
-        <AdminMovieCardItem data={item} handleDeleteMovie={handleDeleteMovie} getMovieSelected={getMovieSelected}/>
+      {data.items?.map((item, index) => (
+        <AdminMovieCardItem key={index} data={item} handleDeleteMovie={handleDeleteMovie} getMovieSelected={getMovieSelected}/>
         ))}
     </div>
   );

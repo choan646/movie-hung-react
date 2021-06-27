@@ -1,7 +1,7 @@
 import { datVe, datGhe, getChiTietPhongVe } from "src/redux/actions/booking";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useParams, Redirect } from "react-router-dom";
+import { useParams, Redirect } from "react-router-dom";
 import { SemipolarLoading } from "react-loadingg";
 import AllActionDatVe from "./AllActionDatVe";
 import ComponentChonGhe from "./ComponentChonGhe";

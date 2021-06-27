@@ -48,9 +48,8 @@ export default function Cinemas() {
       }}
     >
       {cinemasSelected?.map((listHeThongRap) => {
-        return listHeThongRap?.map((cumRapSelected) => (
-          <div className="container" style={{ padding: "70px" }}>
-            {/* {console.log(cumRapSelected)} */}
+        return listHeThongRap?.map((cumRapSelected, index) => (
+          <div className="container" style={{ padding: "70px" }} key={index}>
             <div className="cinema__content row">
               <div className=" col-4 img__RapPhim">
                 <img

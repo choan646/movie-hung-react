@@ -69,15 +69,12 @@ export default function AdminMovies() {
   };
 
   const handleUpdateMovie = (values) => {
-    var form_data = new FormData();
+    var form_data_update = new FormData();
     for (var key in values) {
-      form_data.append(key, values[key]);
-      console.log(key,form_data.get(key))
+      form_data_update.append(key, values[key]);
     }
-    // dispatch(updateMovie(form_data, currentPage));
+    dispatch(updateMovie(form_data_update, currentPage));
     toggleModalUpdateMovie();
- 
-
   };
   if (isLoading) {
     return (

@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function DetailLichChieu({ data }) {
-    console.log(data)
   return (
     <>
       {data?.danhSachPhim?.map((dsp) => (
@@ -17,8 +16,8 @@ export default function DetailLichChieu({ data }) {
               </b>
             </h5>
             <div className="row">
-              {dsp?.lstLichChieuTheoPhim?.map((lstLichChieu, index) => (
-                <div className="col">
+              {dsp?.lstLichChieuTheoPhim?.map((lstLichChieu) => (
+                <div className="col" key={lstLichChieu.maLichChieu}>
                   <button className="btn">
                     <Link to={`/checkout/${lstLichChieu.maLichChieu}`}>
                       <p>

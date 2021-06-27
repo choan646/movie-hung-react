@@ -167,7 +167,7 @@
             }
             .infoAdmin__content {
               margin-top: 100px;
-              padding: 0 250px;
+              padding: 0 180px;
               .edit__info {
                 .edit__info__button {
                   margin-left: 300px;
@@ -211,7 +211,7 @@
               }
               .userAdmin__pagination {
                 position: absolute;
-                bottom: 40px;
+                bottom: 30px;
                 left: 40%;
                 .pagination {
                   .page-item {
@@ -301,7 +301,7 @@
               .movieAdmin__pagination {
                 position: absolute;
                 bottom: 30px;
-                left: 40%;
+                left: 37%;
                 .pagination {
                   .page-item {
                     padding: 5px;
@@ -349,11 +349,11 @@
                 font-size: 16px;
               }
             }
-            .cinemaAdmin__content{
+            .cinemaAdmin__content {
               .nav-tabs {
                 border: none;
                 margin-bottom: 30px;
-                justify-content:space-evenly;
+                justify-content: space-evenly;
                 .nav-item {
                   .nav-link {
                     border: none;
@@ -367,21 +367,21 @@
                     }
                   }
                   .active {
-                    color: #F27B13 !important;
+                    color: #f27b13 !important;
                     font-size: 18px;
                     font-weight: bold;
-                    border: 1px solid #F27B13;
+                    border: 1px solid #f27b13;
                     border-radius: 5px;
                   }
                 }
               }
               .tab-content {
-                .cinemaAdmin__table{
-                  tbody{
-                    tr{
-                      td{
-                        tr{
-                          td{
+                .cinemaAdmin__table {
+                  tbody {
+                    tr {
+                      td {
+                        tr {
+                          td {
                             border-top: none;
                             border-bottom: 1px solid #dee2e6;
                           }
@@ -398,33 +398,34 @@
     }
   }
 }
-#modalUser,#modalUpdateUser{
-  margin-left:27%;
+#modalUser,
+#modalUpdateUser {
+  margin-left: 27%;
   margin-top: 30px;
-  .modal-content{
-    padding:70px 80px;
+  .modal-content {
+    padding: 70px 80px;
     width: 700px;
   }
 }
-#modalMovie{
-  margin-left:24%;
+#modalMovie {
+  margin-left: 24%;
   margin-top: 30px;
-  .modal-content{
+  .modal-content {
     width: 800px;
-    padding:50px 80px;
-    .form__addMovie{
-      .form__add__img{
-        height:50px;
+    padding: 50px 80px;
+    .form__addMovie {
+      .form__add__img {
+        height: 50px;
         padding-top: 10px;
       }
     }
   }
 }
-#modalCinema{
-  margin-left:30%;
+#modalCinema {
+  margin-left: 30%;
   margin-top: 100px;
-  .modal-content{
+  .modal-content {
     width: 600px;
-    padding:50px ;
+    padding: 50px;
   }
 }

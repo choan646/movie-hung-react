@@ -5,7 +5,6 @@ import {
   Collapse,
   Navbar,
   NavbarToggler,
-  NavbarBrand,
   Nav,
   NavItem,
   NavLink,
@@ -38,12 +37,12 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const toggleNav = () => setIsOpen(!isOpen);
 
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const toggleDropdown = () => setDropdownOpen((prevState) => !prevState);
+
   const { userInfo, userInfoHistoryBooking, isLoading, error } = useSelector(
     (state) => state.auth
   );
-
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const toggleDropdown = () => setDropdownOpen((prevState) => !prevState);
 
   const handleLogout = () => {
     dispatch(logout());
@@ -59,7 +58,7 @@ export default function Header() {
 
   //Scroll
   const scrollToLichChieu = () =>
-    window.scrollTo({ top: 707, behavior:"smooth" });
+    window.scrollTo({ top: 707, behavior: "smooth" });
   const scrollToCumRap = () =>
     window.scrollTo({ top: 2323, behavior: "smooth" });
   const scrollToUngDung = () =>
@@ -86,22 +85,15 @@ export default function Header() {
       <Navbar expand="md">
         <Row lg={2}>
           <Col lg={5}>
-            <NavbarBrand>
-              <Link to="/">
-                <img
-                  className="webLogo"
-                  styleLogo
-                  src="/img/logoAdc.png"
-                  alt="logo"
-                />
-              </Link>
-            </NavbarBrand>
+            <Link to="/">
+              <img className="webLogo" src="/img/logoAdc.png" alt="logo" style={{marginTop:"5px", marginBottom:"0px"}}/>
+            </Link>
           </Col>
           <Col lg={7} style={{ marginLeft: "-80px" }}>
             <Row lg={1}>
               <Collapse isOpen={isOpen} navbar>
                 <Nav navbar>
-                  <Col lg={7} className="d-flex">
+                  <Col lg={7} className="d-flex" style={{marginTop:"5px"}}>
                     <NavItem style={styleLink}>
                       <Link to="/" onClick={scrollToLichChieu}>
                         Lịch Chiếu
@@ -121,7 +113,7 @@ export default function Header() {
                       </Link>
                     </NavItem>
                   </Col>
-                  <Col lg={5}>
+                  <Col lg={5} style={{ marginTop: 10 }}>
                     {userInfo ? (
                       <NavItem>
                         <Dropdown

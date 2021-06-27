@@ -30,5 +30,4 @@ import './Layouts/_admin.scss';
 
 
 //RESPONSIVE
-import './Layouts/_responsive.scss';
 

@@ -6,7 +6,7 @@ const userAPI = {
   },
   getUserPagination: (currentPage,tukhoa) => {
     return axiosClient.get(
-      `/QuanLyNguoiDung/TimKiemNguoiDungPhanTrang?MaNhom=GP11&${tukhoa}&${currentPage}&soPhanTuTrenTrang=7`
+      `/QuanLyNguoiDung/LayDanhSachNguoiDungPhanTrang?MaNhom=GP11&${tukhoa}&${currentPage}&soPhanTuTrenTrang=7`
     );
   },
   getUserByTuKhoa: (tuKhoa) => {

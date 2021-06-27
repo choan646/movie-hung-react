@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import { Link } from "react-router-dom";
 import {
@@ -66,7 +65,7 @@ const Aside = ({ collapsed, email }) => {
         </Menu>
       </SidebarContent>
 
-      <SidebarFooter iconShape="circle">
+      <SidebarFooter>
         <div className="sidebar-btn-wrapper">
           <a href="#">
             <IoMailOutline />

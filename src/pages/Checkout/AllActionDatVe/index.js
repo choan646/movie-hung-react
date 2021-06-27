@@ -1,5 +1,4 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
@@ -18,7 +17,6 @@ export default function AllActionDatVe({
 }) {
   let tongTien = 0;
   let disabled = true;
-
   return (
     <TableContainer component={Paper} className="form__booking">
       <Table aria-label="simple table">
@@ -55,7 +53,6 @@ export default function AllActionDatVe({
             </TableRow>
           ))}
           <TableRow>
-            {/* <TableCell rowSpan={2} /> */}
             <TableCell
               colSpan={2}
               style={{

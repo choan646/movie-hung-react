@@ -1,7 +1,6 @@
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import { SemipolarLoading } from "react-loadingg";
-import { IntlProvider } from "react-intl";
 
 //Layout
 import AppLayout from "./Layouts/AppLayout";
@@ -31,28 +30,26 @@ function App() {
         <Switch>
           {/* Route Admin */}
           <Route path="/admin">
-            <IntlProvider>
-              <AdminLayout>
-                <Switch>
-                  <Redirect exact from="/admin" to="/admin/home" />
-                  <AdminRoute path="/admin/home">
-                    <AdminHome />
-                  </AdminRoute>
-                  <AdminRoute path="/admin/info">
-                    <AdminInfomation />
-                  </AdminRoute>
-                  <AdminRoute path="/admin/movies/:currentPage">
-                    <AdminMovies />
-                  </AdminRoute>
-                  <AdminRoute path="/admin/users/:currentPage">
-                    <AdminUsers />
-                  </AdminRoute>
-                  <AdminRoute path="/admin/cinemas">
-                    <AdminCinemas />
-                  </AdminRoute>
-                </Switch>
-              </AdminLayout>
-            </IntlProvider>
+            <AdminLayout>
+              <Switch>
+                <Redirect exact from="/admin" to="/admin/home" />
+                <AdminRoute path="/admin/home">
+                  <AdminHome />
+                </AdminRoute>
+                <AdminRoute path="/admin/info">
+                  <AdminInfomation />
+                </AdminRoute>
+                <AdminRoute path="/admin/movies/:currentPage">
+                  <AdminMovies />
+                </AdminRoute>
+                <AdminRoute path="/admin/users/:currentPage">
+                  <AdminUsers />
+                </AdminRoute>
+                <AdminRoute path="/admin/cinemas">
+                  <AdminCinemas />
+                </AdminRoute>
+              </Switch>
+            </AdminLayout>
           </Route>
 
           {/* Route Login */}

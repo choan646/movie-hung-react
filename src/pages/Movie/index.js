@@ -12,17 +12,16 @@ export default function Movie() {
   const { movieId } = useParams();
   const { data, isLoading, error } = useSelector((state) => state.movie);
 
-  const movieSelected = data.filter((item) => {
+  const movieSelected = data?.filter((item) => {
     return Number(item.maPhim) === Number(movieId);
   });
 
   const toggleTrailer = () => setModalTrailer(!modalTrailer);
   const [modalTrailer, setModalTrailer] = useState(false);
   
-
-  // useEffect(() => {
-  //   dispatch(getMovie());
-  // }, []);
+  useEffect(() => {
+    dispatch(getMovie());
+  }, []);
   const userCheck = localStorage.getItem("userInfo")
   if(userCheck== null) {
     return <Redirect to="/login"/>
@@ -40,7 +39,7 @@ export default function Movie() {
   return (
     <>
       {movieSelected.map((itemTrue) => (
-        <div id="detailMovie">
+        <div id="detailMovie" key={itemTrue.maPhim}>
           <div className="container">
             <div className="row detailMovie__content">
               {/* {console.log(itemTrue)} */}
