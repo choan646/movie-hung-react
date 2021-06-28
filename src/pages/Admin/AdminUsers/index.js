@@ -85,7 +85,7 @@ export default function AdminUsers() {
         searchKey: value,
       };
       handleSubmit(formValues);
-    }, 500);
+    }, 700);
   };
 
   const handleSubmit = (formValues) => {

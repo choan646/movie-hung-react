@@ -37,6 +37,7 @@ export default function SearchMovie() {
         groupBy={(item) => item.firstLetter}
         getOptionLabel={(item) => item.tenPhim}
         style={{ width: 700, marginTop: "70px" }}
+        size="small"
         renderInput={(params) => (
           <div className="d-flex">
             <TextField {...params} label="Tìm Kiếm Phim" variant="standard" />

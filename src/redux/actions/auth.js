@@ -14,11 +14,12 @@ import {
   UPDATE_AT_USER_REQUEST,
   UPDATE_AT_USER_SUCCESS,
   UPDATE_AT_USER_FAILURE,
+  GET_INFO_USER_REQUEST,
+  GET_INFO_USER_SUCCESS,
+  GET_INFO_USER_FAILURE,
 } from "../constants/auth";
 import Swal from "sweetalert2";
-
 import authAPI from "../services/authAPI";
-import { Redirect } from "react-router-dom";
 
 export function getUserInfoHistoryBooking(values) {
   return async (dispatch) => {
@@ -34,18 +35,40 @@ export function getUserInfoHistoryBooking(values) {
     }
   };
 }
+
+//Thay vì dùng cách này, có thể sử dụng lại login(lấy cái values,taiKhoan + values.matKhau tạo thành obj đăng nhập)
+//Nhưng thế thì phải bỏ cái Swal ra trang hàm handleLogin để đúng về mặt ui/ux
+export function getInfoUser(values) {
+  return async (dispatch) => {
+    dispatch({ type: GET_INFO_USER_REQUEST });
+    try {
+      const { data } = await authAPI.getInfoUser(values);
+      dispatch({ type: GET_INFO_USER_SUCCESS, payload:  data[0]  });
+    } catch (error) {
+      Swal.fire(error.response?.data);
+      dispatch({
+        type: GET_INFO_USER_FAILURE,
+        payload: { error: error.response?.data },
+      });
+    }
+  };
+}
+
 export function updateAtUser(values) {
   return async (dispatch) => {
     dispatch({ type: UPDATE_AT_USER_REQUEST });
     try {
       const { data } = await authAPI.updateAtUser(values);
-      localStorage.clear();
-      Swal.fire("Sửa Thành Công!<br> Yêu Cầu Đăng Nhập Lại!");
+      //Tạm thời chỉ thay đổi trên store chứ k xét xuống localStorage, vì như thế bị mất accessToken
+      //Hoạt động bình thường (movie, cine, booking)
+      // localStorage.setItem("userInfo", JSON.stringify(data));
+      Swal.fire("Sửa Thành Công ! <br/> Đã thay đổi một số thông tin.. <br/> hãy Đăng Nhập lại!");
       dispatch({ type: UPDATE_AT_USER_SUCCESS, payload: { data } });
     } catch (error) {
+      Swal.fire(error.response?.data);
       dispatch({
         type: UPDATE_AT_USER_FAILURE,
-        payload: { error: error.response.data },
+        payload: { error: error.response?.data },
       });
     }
   };
@@ -55,17 +78,16 @@ export function login(values) {
     dispatch({ type: LOGIN_REQUEST });
     try {
       const { data } = await authAPI.login(values);
-
       //Lưu thông tin xuống localStorage để giữ trạng thái đăng nhập khi user tắt trang web hoặc refresh
       localStorage.setItem("userInfo", JSON.stringify(data));
-      Swal.fire("Đăng Nhập Thành Công!");
+      Swal.fire("Đăng Nhập Thành Công !");
       //JSON.stringify(data) chuyển obj thành chuỗi
-
       dispatch({ type: LOGIN_SUCCESS, payload: { data } });
     } catch (error) {
+      Swal.fire(error.response?.data);
       dispatch({
         type: LOGIN_FAILURE,
-        payload: { error: error.response.data },
+        payload: { error: error.response?.data },
       });
     }
   };
@@ -99,7 +121,7 @@ export function logout() {
     } catch (error) {
       dispatch({
         type: LOGOUT_FAILURE,
-        payload: { error: error.response.data },
+        payload: { error: error.response?.data },
       });
     }
   };

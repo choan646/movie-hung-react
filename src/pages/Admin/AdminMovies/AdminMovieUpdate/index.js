@@ -3,6 +3,8 @@ import React from "react";
 import { Alert, FormGroup, Label, Modal } from "reactstrap";
 import { addMovieSchema } from "src/redux/services/schema";
 import Button from "@material-ui/core/Button";
+import IconButton from "@material-ui/core/IconButton";
+import PhotoCamera from "@material-ui/icons/PhotoCamera";
 
 export default function AdminMovieUpdate({
   data,
@@ -11,10 +13,14 @@ export default function AdminMovieUpdate({
   handleUpdateMovie,
 }) {
   return (
-    <Modal isOpen={modalUpdateMovie} toggle={toggleModalUpdateMovie} id="modalMovie">
+    <Modal
+      isOpen={modalUpdateMovie}
+      toggle={toggleModalUpdateMovie}
+      id="modalMovie"
+    >
       <Formik
         initialValues={{
-          hinhAnh: {},
+          hinhAnh: data.hinhAnh ? data.hinhAnh : {},
           maPhim: data.maPhim,
           tenPhim: data.tenPhim,
           trailer: data.trailer,
@@ -74,23 +80,47 @@ export default function AdminMovieUpdate({
               </ErrorMessage>
             </FormGroup>
 
-            <FormGroup className="col-12">
-              <Label>Hình Ảnh</Label>
-              <Field
+            <FormGroup className="col-6 mt-3">
+              <Label
+                htmlFor="icon-button-file"
+                style={{ position: "relative" }}
+              >
+                Hình Ảnh
+                <IconButton
+                  color="primary"
+                  aria-label="upload picture"
+                  component="span"
+                  style={{ position: "absolute", top: "213px", left: "350px" }}
+                  size="normal"
+                >
+                  <PhotoCamera style={{ fontSize: "40px" }} />
+                </IconButton>
+              </Label>
+              <input
+                id="icon-button-file"
                 type="file"
                 className="form-control form__add__img"
                 name="hinhAnh"
                 accept="image/*"
+                style={{ display: "none" }}
                 value={undefined}
                 onChange={(event) => {
                   formikProps.setFieldValue("hinhAnh", event.target.files[0]);
+                  console.log(event.target.files[0]);
                 }}
+              />
+              <img
+                src={data.hinhAnh}
+                width="200px"
+                height="250px"
+                alt="hinhAnh"
+                style={{ marginLeft: "150px", marginTop: "-24px" }}
               />
               <ErrorMessage name="hinhAnh">
                 {(msg) => <Alert color="danger">{msg}</Alert>}
               </ErrorMessage>
             </FormGroup>
-            <FormGroup className="col-12">
+            <FormGroup className="col-12 mt-2">
               <Label>Mô Tả</Label>
               <Field
                 className="form-control"
@@ -98,7 +128,7 @@ export default function AdminMovieUpdate({
                 as="textarea"
                 onChange={formikProps.handleChange}
                 style={{ resize: "none" }}
-                rows="5"
+                rows="7"
               />
               <ErrorMessage name="moTa">
                 {(msg) => <Alert color="danger">{msg}</Alert>}

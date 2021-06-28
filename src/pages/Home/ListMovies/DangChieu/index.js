@@ -19,10 +19,6 @@ export default function DangChieu() {
       </div>
     );
   }
-  if (error) {
-    return <div>{error}</div>;
-  }
-
   return (
     <div className="container">
       <div className="row">

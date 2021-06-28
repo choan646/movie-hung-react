@@ -14,6 +14,9 @@ import {
   UPDATE_AT_USER_REQUEST,
   UPDATE_AT_USER_SUCCESS,
   UPDATE_AT_USER_FAILURE,
+  GET_INFO_USER_REQUEST,
+  GET_INFO_USER_SUCCESS,
+  GET_INFO_USER_FAILURE,
 } from "../constants/auth";
 
 const userInfo = localStorage.getItem("userInfo")
@@ -84,6 +87,18 @@ function authReducer(state = initialState, action) {
     case UPDATE_AT_USER_FAILURE: {
       return { ...state, isLoading: false, error: action.payload.error };
     }
+
+    //getUserInfo
+    case GET_INFO_USER_REQUEST: {
+      return { ...state, isLoading: true, error: null };
+    }
+    case GET_INFO_USER_SUCCESS: {
+      return { ...state, isLoading: false, userInfo: action.payload.data };
+    }
+    case GET_INFO_USER_FAILURE: {
+      return { ...state, isLoading: false, error: action.payload.error };
+    }
+
     default:
       return state;
   }

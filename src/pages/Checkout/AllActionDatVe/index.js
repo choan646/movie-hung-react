@@ -41,7 +41,8 @@ export default function AllActionDatVe({
               <TableCell align="center">
                 {item.giaVe.toLocaleString()}
               </TableCell>
-              <TableCell align="center">
+              <td align="center"
+              style={{borderBottom: "1px solid rgba(224, 224, 224, 1)"}}>
                 <Button
                   variant="outlined"
                   color="secondary"
@@ -49,7 +50,7 @@ export default function AllActionDatVe({
                 >
                   Xóa Ghế
                 </Button>
-              </TableCell>
+              </td>
             </TableRow>
           ))}
           <TableRow>
@@ -72,7 +73,7 @@ export default function AllActionDatVe({
             >
               {tongTien.toLocaleString()}
             </TableCell>
-            <TableCell
+            <td
               align="center"
               style={{ border: "none", paddingTop: "30px" }}
             >
@@ -88,7 +89,7 @@ export default function AllActionDatVe({
               >
                 Thanh Toán
               </Button>
-            </TableCell>
+            </td>
           </TableRow>
         </TableBody>
       </Table>

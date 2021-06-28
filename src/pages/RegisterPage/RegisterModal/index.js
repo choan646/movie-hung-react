@@ -42,7 +42,6 @@ export default function RegisterModal({ handleRegister }) {
                 <Link to="/">
                   <img
                     className="webLogo"
-                    styleLogo
                     src="/img/group@2x.png"
                     alt="logo"
                   />

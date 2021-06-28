@@ -48,9 +48,6 @@ export default function CumRap() {
       </div>
     );
   }
-  if (error) {
-    return <div>{error}</div>;
-  }
   return (
     <div id="cumRap" className="container">
       <TopSide/>

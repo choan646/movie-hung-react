@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Row, Col } from "reactstrap";
 import {
@@ -19,6 +19,7 @@ import {
   logout,
   getUserInfoHistoryBooking,
   updateAtUser,
+  getInfoUser
 } from "src/redux/actions/auth";
 import { SemipolarLoading } from "react-loadingg";
 import ModalInfoHeader from "./ModalInfoHeader";
@@ -34,6 +35,10 @@ export default function Header() {
   const [modalHistory, setModalHistory] = useState(false);
   const toggleModalHistory = () => setModalHistory(!modalHistory);
 
+  //reload header when update info's user
+  const [isUpdateUser, setIsUpdateUser] = useState(false);
+  const toggleUpdateUser = () => setIsUpdateUser(!isUpdateUser);
+
   const [isOpen, setIsOpen] = useState(false);
   const toggleNav = () => setIsOpen(!isOpen);
 
@@ -44,6 +49,9 @@ export default function Header() {
     (state) => state.auth
   );
 
+  useEffect(() => {
+  }, [isUpdateUser]);
+
   const handleLogout = () => {
     dispatch(logout());
   };
@@ -53,9 +61,10 @@ export default function Header() {
   };
   const handleChangeInfoHome = (values) => {
     toggleModalInfo();
+    toggleUpdateUser();
     dispatch(updateAtUser(values));
+    dispatch(getInfoUser(userInfo?.taiKhoan));
   };
-
   //Scroll
   const scrollToLichChieu = () =>
     window.scrollTo({ top: 707, behavior: "smooth" });
@@ -77,23 +86,26 @@ export default function Header() {
       </div>
     );
   }
-  if (error) {
-    return <div>{error}</div>;
-  }
+// console.log(userInfo)
   return (
     <div id="header">
       <Navbar expand="md">
         <Row lg={2}>
           <Col lg={5}>
             <Link to="/">
-              <img className="webLogo" src="/img/logoAdc.png" alt="logo" style={{marginTop:"5px", marginBottom:"0px"}}/>
+              <img
+                className="webLogo"
+                src="/img/logoAdc.png"
+                alt="logo"
+                style={{ marginTop: "5px", marginBottom: "0px" }}
+              />
             </Link>
           </Col>
           <Col lg={7} style={{ marginLeft: "-80px" }}>
             <Row lg={1}>
               <Collapse isOpen={isOpen} navbar>
                 <Nav navbar>
-                  <Col lg={7} className="d-flex" style={{marginTop:"5px"}}>
+                  <Col lg={7} className="d-flex" style={{ marginTop: "5px" }}>
                     <NavItem style={styleLink}>
                       <Link to="/" onClick={scrollToLichChieu}>
                         Lịch Chiếu
@@ -114,7 +126,7 @@ export default function Header() {
                     </NavItem>
                   </Col>
                   <Col lg={5} style={{ marginTop: 10 }}>
-                    {userInfo ? (
+                    {userInfo ? 
                       <NavItem>
                         <Dropdown
                           className="dropOptions navRight"
@@ -122,7 +134,7 @@ export default function Header() {
                           toggle={toggleDropdown}
                         >
                           <DropdownToggle caret>
-                            {userInfo.hoTen}
+                            {userInfo?.hoTen}
                           </DropdownToggle>
                           <DropdownMenu>
                             <DropdownItem onClick={toggleModalInfo}>
@@ -150,7 +162,7 @@ export default function Header() {
                           </DropdownMenu>
                         </Dropdown>
                       </NavItem>
-                    ) : (
+                     : 
                       <NavItem className="navRight d-flex">
                         <NavLink>
                           <Link to="/login" className="btnLogin">
@@ -163,7 +175,7 @@ export default function Header() {
                           </Link>
                         </NavLink>
                       </NavItem>
-                    )}
+                    }
                   </Col>
                 </Nav>
               </Collapse>

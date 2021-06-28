@@ -108,8 +108,8 @@ export function updateMovie(values, currentPage) {
     dispatch({ type: UPDATE_MOVIE_REQUEST });
     try {
       const { data } = await moviesAPI.updateMovie(values);
-      Swal.fire("Sửa Thành Công!");
       dispatch({ type: UPDATE_MOVIE_SUCCESS, payload: { data } });
+      Swal.fire("Sửa Thành Công!");
       dispatch(getMoviePagination(currentPage));
     } catch (error) {
       Swal.fire(error.response?.data);

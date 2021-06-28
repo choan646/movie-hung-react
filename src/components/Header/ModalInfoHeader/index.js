@@ -16,13 +16,13 @@ export default function ModalInfoHeader({
         <ModalBody>
           <Formik
             initialValues={{
-              taiKhoan: data.taiKhoan,
-              matKhau: data.matKhau ? data.matKhau : "",
-              email: data.email,
-              soDt: data.soDT,
+              taiKhoan: data?.taiKhoan,
+              matKhau: data?.matKhau ? data?.matKhau : "",
+              email: data?.email,
+              soDt: data?.soDT,
               maNhom: "GP11",
-              maLoaiNguoiDung: data.maLoaiNguoiDung,
-              hoTen: data.hoTen,
+              maLoaiNguoiDung: data?.maLoaiNguoiDung ? data?.maLoaiNguoiDung : data?.loaiNguoiDung,
+              hoTen: data?.hoTen,
             }}
             validationSchema={updateSchema}
             onSubmit={handleChangeInfoHome}

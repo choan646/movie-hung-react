@@ -33,9 +33,6 @@ export default function Movie() {
       </div>
     );
   }
-  if (error) {
-    return <div>{error}</div>;
-  }
   return (
     <>
       {movieSelected.map((itemTrue) => (

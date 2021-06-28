@@ -5,11 +5,12 @@ import { Input, FormGroup, Label, Alert, Modal } from "reactstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { login } from "../../redux/actions/auth";
 import { Redirect, Link } from "react-router-dom";
-import {loginSchema} from 'src/redux/services/schema'
+import { loginSchema } from "src/redux/services/schema";
 
 
 export default function LoginPage() {
   const dispatch = useDispatch();
+
   const { userInfo, isLoading, error } = useSelector((state) => state.auth);
 
   const {
@@ -29,8 +30,8 @@ export default function LoginPage() {
       return <Redirect to="/admin" />;
     }
     return <Redirect to="/" />;
+    
   }
-  
   return (
     <div
       id="login"
@@ -44,12 +45,7 @@ export default function LoginPage() {
         <form className="form__login" onSubmit={handleSubmit(handleLogin)}>
           <div className="logo__login">
             <Link to="/">
-              <img
-                className="webLogo"
-                styleLogo
-                src="/img/group@2x.png"
-                alt="logo"
-              />
+              <img className="webLogo" src="/img/group@2x.png" alt="logo" />
             </Link>
           </div>
           <div className="content__login">

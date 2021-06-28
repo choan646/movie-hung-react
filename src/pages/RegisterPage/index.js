@@ -16,9 +16,7 @@ export default function Register() {
   if (userInfo) {
     return <Redirect to="/" />;
   }
-
-
-
+  
   return (
     <div
       id="register"

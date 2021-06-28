@@ -143,6 +143,55 @@
                 }
               }
             }
+            .adminHome__content {
+              .adminHome__statistical {
+                &:hover {
+                  cursor: pointer;
+                }
+              }
+              .adminHome__activity {
+                &:hover {
+                  cursor: pointer;
+                }
+                ::-webkit-scrollbar {
+                  width: 10px;
+                }
+
+                /* Track */
+                ::-webkit-scrollbar-track {
+                  box-shadow: inset 0 0 5px #d7d7d7;
+                  border-radius: 10px;
+                  padding-left: 30px;
+                }
+
+                /* Handle */
+                ::-webkit-scrollbar-thumb {
+                  background: #f8c89e;
+                  border-radius: 20px;
+                }
+
+                /* Handle on hover */
+                ::-webkit-scrollbar-thumb:hover {
+                  background: #f27b13;
+                  cursor: pointer;
+                }
+                table {
+                  tr {
+                    transition: all 0.2s;
+                    display: block;
+                    border-radius: 5px;
+                    &:hover {
+                      background-color: rgb(224, 220, 220);
+                    }
+                    p {
+                      padding: 10px;
+                      margin-bottom: 0 !important;
+                      font-size: 13px;
+                    }
+                  }
+                }
+              }
+            }
           }
           .infoAdmin {
             &::after {
@@ -376,14 +425,39 @@
                 }
               }
               .tab-content {
-                .cinemaAdmin__table {
-                  tbody {
-                    tr {
-                      td {
-                        tr {
-                          td {
-                            border-top: none;
-                            border-bottom: 1px solid #dee2e6;
+                ::-webkit-scrollbar {
+                  width: 10px;
+                }
+
+                /* Track */
+                ::-webkit-scrollbar-track {
+                  box-shadow: inset 0 0 5px #d7d7d7;
+                  border-radius: 10px;
+                  padding-left: 30px;
+                }
+
+                /* Handle */
+                ::-webkit-scrollbar-thumb {
+                  background: #f8c89e;
+                  border-radius: 20px;
+                  height: 100px;
+                }
+
+                /* Handle on hover */
+                ::-webkit-scrollbar-thumb:hover {
+                  background: #f27b13;
+                  cursor: pointer;
+                }
+                .tab-pane {
+                  .cinemaAdmin__table {
+                    tbody {
+                      tr {
+                        td {
+                          tr {
+                            td {
+                              border-top: none;
+                              border-bottom: 1px solid #dee2e6;
+                            }
                           }
                         }
                       }
