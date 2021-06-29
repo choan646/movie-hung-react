@@ -1,8 +1,12 @@
 import React from "react";
-import Button from '@material-ui/core/Button';
+import Button from "@material-ui/core/Button";
 import { Card, CardBody, CardFooter, CardHeader } from "reactstrap";
 
-export default function AdminMovieCardItem({ data,handleDeleteMovie ,getMovieSelected}) {
+export default function AdminMovieCardItem({
+  data,
+  handleDeleteMovie,
+  getMovieSelected,
+}) {
   return (
     <Card className="movieAdmin__cardItem col-2">
       <CardHeader>
@@ -19,8 +23,20 @@ export default function AdminMovieCardItem({ data,handleDeleteMovie ,getMovieSel
         </h5>
       </CardBody>
       <CardFooter>
-        <Button variant="outlined" color="primary" onClick={()=>getMovieSelected(data)}>Sửa</Button>
-        <Button variant="outlined" color="secondary" onClick={()=>handleDeleteMovie(data?.maPhim,data?.tenPhim)}>Xóa</Button>
+        <Button
+          variant="outlined"
+          color="primary"
+          onClick={() => getMovieSelected(data)}
+        >
+          Sửa
+        </Button>
+        <Button
+          variant="outlined"
+          color="secondary"
+          onClick={() => handleDeleteMovie(data?.maPhim, data?.tenPhim)}
+        >
+          Xóa
+        </Button>
       </CardFooter>
     </Card>
   );

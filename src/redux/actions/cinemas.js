@@ -15,6 +15,7 @@ import {
 import cinemasAPI from "../services/cinemas";
 import Swal from "sweetalert2";
 
+
 export function getCinemas() {
   return async (dispatch) => {
     dispatch({ type: GET_CINEMA_REQUEST });
@@ -57,7 +58,6 @@ export function getShowTimesByCinemas(maHeThongRap) {
     }
   };
 }
-
 export function getShowTimesByIdMovie(maPhim) {
   return async (dispatch) => {
     dispatch({ type: GET_SHOWTIMESBY_MOVIE_REQUEST });

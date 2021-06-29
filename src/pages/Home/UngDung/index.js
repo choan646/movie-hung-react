@@ -35,7 +35,7 @@ export default function UngDung() {
       <BackNews />
       <div id="ungDung" style={{ backgroundImage: `url(/img/backapp.jpg)` }}>
         <div className="row content">
-          <div className="col-md-6 content__left">
+          <div className="col-lg-7 col-12 content__left">
             <h3>Ứng dụng tiện lợi dành cho người yêu điện ảnh</h3>
             <p className="text__first">
               Không chỉ đặt vé, bạn còn có thể bình luận phim, chấm điểm rạp và
@@ -65,7 +65,7 @@ export default function UngDung() {
               </a>
             </p>
           </div>
-          <div className="col-md-5 content__right">
+          <div className="col-lg-5 col-12 content__right">
             <img
               className="vien__mobile"
               src="/img/mobile.png"

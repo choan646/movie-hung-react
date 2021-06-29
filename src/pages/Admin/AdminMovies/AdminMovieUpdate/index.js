@@ -1,7 +1,7 @@
-import { ErrorMessage, Form, Field, Formik } from "formik";
 import React from "react";
-import { Alert, FormGroup, Label, Modal } from "reactstrap";
+import { ErrorMessage, Form, Field, Formik } from "formik";
 import { addMovieSchema } from "src/redux/services/schema";
+import { Alert, FormGroup, Label, Modal } from "reactstrap";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import PhotoCamera from "@material-ui/icons/PhotoCamera";

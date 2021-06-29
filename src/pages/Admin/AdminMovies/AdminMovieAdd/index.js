@@ -1,7 +1,7 @@
 import React from "react";
 import { Alert, FormGroup, Label, Modal } from "reactstrap";
-import { ErrorMessage, Form, Field, Formik } from "formik";
 import { addMovieSchema } from "src/redux/services/schema";
+import { ErrorMessage, Form, Field, Formik } from "formik";
 import Button from "@material-ui/core/Button";
 
 export default function AdminMovieAdd({

@@ -14,8 +14,17 @@ export default function AdminInfomation() {
         </p>
       </div>
       <div className="infoAdmin__content row">
-        <div className="col-4" style={{marginRight:"30px"}}>
-          <img src="/img/ava.jpg" width="250px" height="250px" style={{borderRadius: "50%", marginTop:"-10px", boxShadow:"0 0 20px #594757"}}/>
+        <div className="col-4" style={{ marginRight: "30px" }}>
+          <img
+            src="/img/ava.jpg"
+            width="250px"
+            height="250px"
+            style={{
+              borderRadius: "50%",
+              marginTop: "-10px",
+              boxShadow: "0 0 20px #594757",
+            }}
+          />
         </div>
         <div className="col-7">
           <Table>

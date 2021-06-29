@@ -1,5 +1,6 @@
 import React from "react";
 
+
 export default function InfoMovie({ data }) {
   return (
     <div className="tab__ThongTinPhim row">

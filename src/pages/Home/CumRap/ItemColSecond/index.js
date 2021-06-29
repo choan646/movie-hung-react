@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function ItemColSecond({ data }) {
   return (
@@ -8,7 +8,9 @@ export default function ItemColSecond({ data }) {
         <div className="item__colSecond__detail" key={index}>
           <p>{item.tenCumRap}</p>
           <p>Địa Chỉ : {item.diaChi}</p>
-          <Link to={`/rap-chieu-phim/${item.maCumRap}`}><i>[ Chi Tiết ]</i></Link>
+          <Link to={`/rap-chieu-phim/${item.maCumRap}`}>
+            <i>[ Chi Tiết ]</i>
+          </Link>
         </div>
       ))}
     </div>

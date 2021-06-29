@@ -18,6 +18,7 @@ import {
 import userAPI from "../services/userAPI";
 import Swal from "sweetalert2";
 
+
 export function getUser(currentPage, tukhoa) {
   return async (dispatch) => {
     dispatch({ type: GET_USER_REQUEST });
@@ -32,7 +33,6 @@ export function getUser(currentPage, tukhoa) {
     }
   };
 }
-
 export function getUserByTuKhoa(tuKhoa) {
   return async (dispatch) => {
     dispatch({ type: GET_USERBY_REQUEST });
@@ -47,7 +47,6 @@ export function getUserByTuKhoa(tuKhoa) {
     }
   };
 }
-
 export function deleteUser(taiKhoan) {
   return async (dispatch) => {
     dispatch({ type: DELETE_USER_REQUEST });
@@ -62,7 +61,6 @@ export function deleteUser(taiKhoan) {
     }
   };
 }
-
 export function addUser(values) {
   return async (dispatch) => {
     dispatch({ type: ADD_USER_REQUEST });

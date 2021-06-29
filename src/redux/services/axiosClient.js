@@ -8,7 +8,6 @@ const axiosClient = axios.create({
   //Bỏ qua giá trị null và undefined trong params
   paramsSerializer: (params) => qs.stringify(params, { skipNulls: true }),
 });
-
 axiosClient.interceptors.request.use(
   (config) => {
     //Xử lý trước khi request được gửi lên server
@@ -18,7 +17,6 @@ axiosClient.interceptors.request.use(
       const { accessToken } = JSON.parse(userInfo);
       config.headers.Authorization = `Bearer ${accessToken}`;
     }
-
     return config;
   },
   (error) => {
@@ -26,7 +24,6 @@ axiosClient.interceptors.request.use(
     return Promise.reject(error);
   }
 );
-
 axiosClient.interceptors.response.use(
   (response) => {
     //Xử lý kết quả trả về từ Server
@@ -46,7 +43,7 @@ axiosClient.interceptors.response.use(
         confirmButtonText: "Đồng ý",
       });
     }
-    if(error.status === 404){
+    if (error.status === 404) {
       Swal.fire({
         icon: "warning",
         title: "Không thể thực hiện hành động này!",
@@ -57,5 +54,4 @@ axiosClient.interceptors.response.use(
     return Promise.reject(error);
   }
 );
-
 export default axiosClient;

@@ -38,7 +38,7 @@ export default function DetailMovieInfo({ data }) {
           <InfoMovie data={data} />
         </TabPane>
         <TabPane tabId="lichChieu">
-          <ShowTimeMovie  data={data} />
+          <ShowTimeMovie data={data} />
         </TabPane>
       </TabContent>
     </div>

@@ -7,7 +7,6 @@ import { login } from "../../redux/actions/auth";
 import { Redirect, Link } from "react-router-dom";
 import { loginSchema } from "src/redux/services/schema";
 
-
 export default function LoginPage() {
   const dispatch = useDispatch();
 
@@ -30,7 +29,6 @@ export default function LoginPage() {
       return <Redirect to="/admin" />;
     }
     return <Redirect to="/" />;
-    
   }
   return (
     <div

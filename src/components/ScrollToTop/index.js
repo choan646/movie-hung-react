@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { BiArrowToTop } from "react-icons/bi";
 import { useWindowScroll } from "react-use";
+import { BiArrowToTop } from "react-icons/bi";
 
 export default function ScrollToTop() {
   const { y: pageYOffset } = useWindowScroll();

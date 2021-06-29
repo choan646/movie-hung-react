@@ -21,6 +21,7 @@ import {
 import moviesAPI from "../services/movieAPI";
 import Swal from "sweetalert2";
 
+
 export function getMovie() {
   return async (dispatch) => {
     dispatch({ type: GET_MOVIE_REQUEST });
@@ -102,7 +103,6 @@ export function setMovieSelected(values) {
     dispatch({ type: "SET_MOVIE_SELECTED", payload: values });
   };
 }
-
 export function updateMovie(values, currentPage) {
   return async (dispatch) => {
     dispatch({ type: UPDATE_MOVIE_REQUEST });

@@ -11,7 +11,8 @@ export default function RegisterModal({ handleRegister }) {
     <>
       <Prompt
         when={true} // true | false
-        message={() => ("Bạn Thực Sự Muốn Thoát Khỏi Trang Này ?")
+        message={
+          () => "Bạn Thực Sự Muốn Thoát Khỏi Trang Này ?"
           // {Swal.fire({
           //   title: "Bạn Thực Sự Muốn Thoát Khỏi Trang Này?",
           //   icon: "warning",
@@ -19,7 +20,6 @@ export default function RegisterModal({ handleRegister }) {
           //   showDenyButton: true,
           //   confirmButtonText: "Ở Lại",
           //   denyButtonText: "Đồng Ý Thoát",
-            
           // })}
         }
       />
@@ -40,11 +40,7 @@ export default function RegisterModal({ handleRegister }) {
             <Form className="form__register">
               <div className="logo__register">
                 <Link to="/">
-                  <img
-                    className="webLogo"
-                    src="/img/group@2x.png"
-                    alt="logo"
-                  />
+                  <img className="webLogo" src="/img/group@2x.png" alt="logo" />
                 </Link>
               </div>
               <div className="content__register">

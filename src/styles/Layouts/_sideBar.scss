@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
-
 $sidebar-bg-color: #1d1d1d;
 $submenu-bg-color: rgba(255, 255, 255, 0.05);
 $submenu-bg-color-collapsed: rgba(29, 29, 29, 0.95);
@@ -7,24 +6,19 @@ $sidebar-color: #adadad;
 $highlight-color: #d8d8d8;
 $icon-bg-color: rgba(255, 255, 255, 0.05);
 $icon-size: 35px;
-
 @import '~react-pro-sidebar/dist/scss/styles.scss';
 body {
   margin: 0;
-  // height: 100vh;
   color: #353535;
   font-family: 'Roboto', sans-serif;
 }
-
 #root {
   height: 100%;
 }
-
 .admin {
   height: 100%;
   display: flex;
   position: relative;
-
   .btn-toggle {
     cursor: pointer;
     width: 35px;
@@ -39,7 +33,6 @@ body {
     font-size: 15px;
     display: none;
   }
-
   .sidebar-btn-wrapper {
     display: flex;
     align-items: center;
@@ -66,7 +59,6 @@ body {
       }
     }
   }
-
   .collapsed {
     .sidebar-btn {
       display: inline-block;
@@ -77,7 +69,6 @@ body {
       padding: 0;
     }
   }
-
   main {
     padding: 24px;
     flex-grow: 1;
@@ -93,7 +84,6 @@ body {
         transform: translateX(-20px);
       }
     }
-
     footer {
       margin-top: auto;
       color: #888;
@@ -113,7 +103,6 @@ body {
       margin: 5px;
     }
   }
-
   .block {
     display: flex;
     margin-bottom: 24px;
@@ -123,11 +112,9 @@ body {
       margin-left: 10px;
     }
   }
-
   &.rtl {
     direction: rtl;
     text-align: right;
-
     header {
       h1 {
         transform: translateX(20px);
@@ -149,7 +136,6 @@ body {
       }
     }
   }
-
   @media (max-width: 767.98px) {
     overflow-x: hidden;
     header {
@@ -170,7 +156,6 @@ body {
     }
   }
 }
-
 .badge {
   padding: 3px 6px;
   font-size: 9px;

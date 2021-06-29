@@ -46,7 +46,7 @@ export default function AdminCinemaTable({ data }) {
               height: "420px",
               width: "1111px",
               marginLeft: "10px",
-              paddingRight: 10
+              paddingRight: 10,
             }}
           >
             <Table className="cinemaAdmin__table">

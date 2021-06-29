@@ -12,13 +12,10 @@ const bookingAPI = {
       danhSachVe: danhSachVe,
       taiKhoanNguoiDung: taiKhoanNguoiDung,
     };
-    return axiosClient.post(
-      "/QuanLyDatVe/DatVe",
-      valuesBookingTicket
-    );
+    return axiosClient.post("/QuanLyDatVe/DatVe", valuesBookingTicket);
   },
-  addNewShowTimes:(values)=>{
-    return axiosClient.post("/QuanLyDatVe/TaoLichChieu", values)
-  }
+  addNewShowTimes: (values) => {
+    return axiosClient.post("/QuanLyDatVe/TaoLichChieu", values);
+  },
 };
 export default bookingAPI;

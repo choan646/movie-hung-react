@@ -20,8 +20,8 @@ const movieAPI = {
   deleteMovie: (values) => {
     return axiosClient.delete(`QuanLyPhim/XoaPhim?MaPhim=${values}`);
   },
-  updateMovie : (values) => {
-    return axiosClient.post("/QuanLyPhim/CapNhatPhimUpload" , values);
-  }
+  updateMovie: (values) => {
+    return axiosClient.post("/QuanLyPhim/CapNhatPhimUpload", values);
+  },
 };
 export default movieAPI;

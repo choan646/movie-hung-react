@@ -22,6 +22,7 @@ const initialState = {
   error: null,
 };
 
+
 function cinemaReducer(state = initialState, action) {
   switch (action.type) {
     //

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getMovie } from "src/redux/actions/movie";
 import { SemipolarLoading } from "react-loadingg";
-import { useParams , Redirect} from "react-router-dom";
+import { useParams, Redirect } from "react-router-dom";
 import { PlayCircle } from "react-bootstrap-icons";
 import { Modal } from "reactstrap";
 import DetailMovieInfo from "./DetailMovieInfo";
@@ -18,13 +18,13 @@ export default function Movie() {
 
   const toggleTrailer = () => setModalTrailer(!modalTrailer);
   const [modalTrailer, setModalTrailer] = useState(false);
-  
+
   useEffect(() => {
     dispatch(getMovie());
   }, []);
-  const userCheck = localStorage.getItem("userInfo")
-  if(userCheck== null) {
-    return <Redirect to="/login"/>
+  const userCheck = localStorage.getItem("userInfo");
+  if (userCheck == null) {
+    return <Redirect to="/login" />;
   }
   if (isLoading) {
     return (
@@ -51,7 +51,7 @@ export default function Movie() {
               <div className="col-8 detailMovie__item__right">
                 <h3>{itemTrue.tenPhim}</h3>
               </div>
-              <DetailMovieInfo data={itemTrue}/>
+              <DetailMovieInfo data={itemTrue} />
               <Modal
                 className="modalTrailler"
                 isOpen={modalTrailer}

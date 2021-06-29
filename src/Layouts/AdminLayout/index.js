@@ -8,12 +8,13 @@ import {
 } from "reactstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, Link } from "react-router-dom";
-import { logout } from "src/redux/actions/auth";
 import { FaUserCircle } from "react-icons/fa";
 import { IoNotificationsOutline, IoSettingsOutline } from "react-icons/io5";
 import Switch from "react-switch";
 import Main from "./Main";
 import Badge from "@material-ui/core/Badge";
+import { logout } from "src/redux/actions/auth";
+
 
 function Layout({ children }) {
   const dispatch = useDispatch();

@@ -2,8 +2,9 @@ import React, { useEffect } from "react";
 import { useParams, Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getShowTimesByCinemas } from "src/redux/actions/cinemas";
-import { SemipolarLoading } from "react-loadingg";
 import DetailCinema from "./DetailCinema";
+import { SemipolarLoading } from "react-loadingg";
+
 
 export default function Cinemas() {
   const dispatch = useDispatch();

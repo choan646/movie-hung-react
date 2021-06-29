@@ -15,64 +15,62 @@ import {
   ADD_USER_SUCCESS,
   ADD_USER_FAILURE,
 } from "../constants/users";
+
 const initialState = {
   user: [],
-  selectedUser:{},
+  selectedUser: {},
   isLoading: false,
   error: null,
 };
+
 function userReducer(state = initialState, action) {
   switch (action.type) {
     //GET_USER
     case GET_USER_REQUEST:
       return { ...state, isLoading: true, error: null };
-
     case GET_USER_SUCCESS:
       return { ...state, user: action.payload.data, isLoading: false };
     case GET_USER_FAILURE:
       return { ...state, isLoading: false, error: action.payload.error };
-
     //GET_USERBY
     case GET_USERBY_REQUEST:
       return { ...state, isLoading: true, error: null };
-
     case GET_USERBY_SUCCESS:
       return { ...state, user: action.payload.data, isLoading: false };
     case GET_USERBY_FAILURE:
       return { ...state, isLoading: false, error: action.payload.error };
-
     //UPDATE_USER
     case UPDATE_USER_REQUEST:
       return { ...state, isLoading: true, error: null };
-
     case UPDATE_USER_SUCCESS:
       return { ...state, selectedUser: action.payload, isLoading: false };
     case UPDATE_USER_FAILURE:
       return { ...state, isLoading: false, error: action.payload.error };
-
     //DELETE_USER_
     case DELETE_USER_REQUEST:
       return { ...state, isLoading: true, error: null };
     case DELETE_USER_SUCCESS:
-      return { ...state,user: state.user.filter((userDel)=>userDel.taiKhoan !== action.payload), isLoading: false };
+      return {
+        ...state,
+        user: state.user.filter(
+          (userDel) => userDel.taiKhoan !== action.payload
+        ),
+        isLoading: false,
+      };
     case DELETE_USER_FAILURE:
-      return { ...state, isLoading: false};
-
+      return { ...state, isLoading: false };
     //ADD_USER
     case ADD_USER_REQUEST:
       return { ...state, isLoading: true, error: null };
-
     case ADD_USER_SUCCESS:
       return { ...state, user: action.payload.data, isLoading: false };
     case ADD_USER_FAILURE:
       return { ...state, isLoading: false, error: action.payload.error };
-
-      //selected user
+    //selected user
     case "SET_USER_SELECTED":
-      return { ...state, selectedUser: action.payload, isLoading:false}
+      return { ...state, selectedUser: action.payload, isLoading: false };
     default:
       return state;
   }
-
 }
 export default userReducer;

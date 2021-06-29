@@ -11,11 +11,12 @@ import {
   addMovie,
   deleteMovie,
   setMovieSelected,
-  updateMovie
+  updateMovie,
 } from "src/redux/actions/movie";
 import Swal from "sweetalert2";
 import Button from "@material-ui/core/Button";
 import AdminMovieUpdate from "./AdminMovieUpdate";
+
 
 export default function AdminMovies() {
   const dispatch = useDispatch();
@@ -67,7 +68,6 @@ export default function AdminMovies() {
     dispatch(setMovieSelected(values));
     toggleModalUpdateMovie();
   };
-
   const handleUpdateMovie = (values) => {
     var form_data_update = new FormData();
     for (var key in values) {
@@ -76,6 +76,7 @@ export default function AdminMovies() {
     dispatch(updateMovie(form_data_update, currentPage));
     toggleModalUpdateMovie();
   };
+
   if (isLoading) {
     return (
       <div>
@@ -83,6 +84,7 @@ export default function AdminMovies() {
       </div>
     );
   }
+
   return (
     <div className="movieAdmin">
       <div className="movieAdmin__linkTo">

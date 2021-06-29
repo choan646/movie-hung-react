@@ -41,8 +41,10 @@ export default function AllActionDatVe({
               <TableCell align="center">
                 {item.giaVe.toLocaleString()}
               </TableCell>
-              <td align="center"
-              style={{borderBottom: "1px solid rgba(224, 224, 224, 1)"}}>
+              <td
+                align="center"
+                style={{ borderBottom: "1px solid rgba(224, 224, 224, 1)" }}
+              >
                 <Button
                   variant="outlined"
                   color="secondary"
@@ -73,10 +75,7 @@ export default function AllActionDatVe({
             >
               {tongTien.toLocaleString()}
             </TableCell>
-            <td
-              align="center"
-              style={{ border: "none", paddingTop: "30px" }}
-            >
+            <td align="center" style={{ border: "none", paddingTop: "30px" }}>
               {tongTien == 0 ? (disabled = true) : (disabled = false)}
               <Button
                 variant="contained"

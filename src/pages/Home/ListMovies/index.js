@@ -12,7 +12,6 @@ import classnames from "classnames";
 import DangChieu from "./DangChieu";
 import SapChieu from "./SapChieu";
 
-
 export default function ListMovies() {
   const [activeTab, setActiveTab] = useState("dangChieu");
 
@@ -50,14 +49,14 @@ export default function ListMovies() {
         <TabPane tabId="dangChieu">
           <Row>
             <Col sm="12">
-              <DangChieu/>
+              <DangChieu />
             </Col>
           </Row>
         </TabPane>
         <TabPane tabId="sapChieu">
           <Row>
             <Col sm="12">
-              <SapChieu/>
+              <SapChieu />
             </Col>
           </Row>
         </TabPane>

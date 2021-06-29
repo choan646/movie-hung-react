@@ -20,6 +20,7 @@ const initialState = {
   error: null,
 };
 
+
 function bookingReducer(state = initialState, action) {
   switch (action.type) {
     //lấy chi tiết phòng vé:
@@ -34,7 +35,6 @@ function bookingReducer(state = initialState, action) {
       };
     case GET_BOOKING_FAILURE:
       return { ...state, isLoading: false, error: action.payload.error };
-
     //Quá trình đặt ghế:
     case DAT_GHE_REQUEST:
       return { ...state, isLoading: true, error: null };
@@ -55,7 +55,6 @@ function bookingReducer(state = initialState, action) {
       };
     case DAT_GHE_FAILURE:
       return { ...state, isLoading: false, error: action.payload.error };
-
     //Hoàn thành đặt vé
     case DAT_VE_REQUEST:
       return { ...state, isLoading: true, error: null };
@@ -67,11 +66,9 @@ function bookingReducer(state = initialState, action) {
       };
     case DAT_VE_FAILURE:
       return { ...state, isLoading: false, error: action.payload.error };
-
     //Tạo Lịch Chiếu
     case ADD_SHOWTIMES_REQUEST:
       return { ...state, isLoading: true, error: null };
-
     case ADD_SHOWTIMES_SUCCESS:
       return {
         ...state,
@@ -80,7 +77,6 @@ function bookingReducer(state = initialState, action) {
       };
     case ADD_SHOWTIMES_FAILURE:
       return { ...state, isLoading: false, error: action.payload.error };
-
     default:
       return state;
   }

@@ -4,7 +4,6 @@ import { SemipolarLoading } from "react-loadingg";
 import { useDispatch, useSelector } from "react-redux";
 import { getShowTimesByIdMovie } from "src/redux/actions/cinemas";
 import { addNewShowTimes } from "src/redux/actions/booking";
-
 import AdminCinemaAdd from "./AdminCinemaAdd";
 import Button from "@material-ui/core/Button";
 import AdminCinemaSearch from "./AdminCinemaSearch";
@@ -34,7 +33,7 @@ export default function AdminCinemas() {
   };
 
   useEffect(() => {
-      dispatch(getShowTimesByIdMovie(dataShowTimesByMovie?.maPhim));
+    dispatch(getShowTimesByIdMovie(dataShowTimesByMovie?.maPhim));
   }, [isDone]);
 
   if (isLoading) {

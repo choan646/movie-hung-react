@@ -53,8 +53,8 @@
         .dropdown-toggle {
           background-color: #fff;
           color: #9b9b9b;
-          box-shadow:none;
-          &:focus{
+          box-shadow: none;
+          &:focus {
             box-shadow: none;
           }
           &::after {
@@ -67,12 +67,12 @@
             &:first-child {
               margin-bottom: 5px;
             }
-            &:last-child{
-              &:hover{
+            &:last-child {
+              &:hover {
                 background-color: #fd6d57;
               }
             }
-            &:focus{
+            &:focus {
               background-color: #e9ecef;
             }
           }
@@ -80,6 +80,16 @@
       }
     }
   }
+  // // RESPONSIVE
+  // @media screen and(max-width:1367px) {
+    
+  // }
+  // @media screen and(max-width:768.1px) {
+
+  // }
+  // @media screen and(max-width:576px) {
+    
+  // }
 }
 #header .navbar .row ul li a {
   text-align: right !important;

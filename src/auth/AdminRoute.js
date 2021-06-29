@@ -1,8 +1,8 @@
 import React from "react";
-import { Route, Redirect } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { Route, Redirect } from "react-router-dom";
 
-export default function AdminRoute({children,...props}) {
+export default function AdminRoute({ children, ...props }) {
   const { userInfo } = useSelector((state) => state.auth);
   //Chua dang nhap
   if (!userInfo) {

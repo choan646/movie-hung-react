@@ -38,7 +38,7 @@ export default function Checkout() {
   }, [isDone]);
 
   const userCheck = localStorage.getItem("userInfo");
-  
+
   if (userCheck == null) {
     return <Redirect to="/login" />;
   }
@@ -77,7 +77,11 @@ export default function Checkout() {
           />
           <div className="row checkout__comment">
             <div className="col-6 d-flex">
-              <button disabled className="btn styleButtonDangChon" style={{backgroundColor:"rgb(213, 3, 3)"}}>
+              <button
+                disabled
+                className="btn styleButtonDangChon"
+                style={{ backgroundColor: "rgb(213, 3, 3)" }}
+              >
                 STT
               </button>
               <p>Đang Chọn</p>

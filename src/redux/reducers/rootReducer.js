@@ -5,6 +5,8 @@ import cinemaReducer from "./cinemas";
 import userReducer from "./users";
 import bookingReducer from "./booking";
 
+
+
 const rootReducer = combineReducers({
   // nơi khai báo reducers con
    movie : movieReducer,

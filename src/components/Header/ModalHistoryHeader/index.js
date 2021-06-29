@@ -69,7 +69,7 @@ export default function ModalHistoryHeader({
                               style={{
                                 color: "#f27b13",
                                 borderColor: "#f27b13",
-                                textTransform:"none"
+                                textTransform: "none",
                               }}
                             >
                               Xóa Lịch
@@ -89,7 +89,7 @@ export default function ModalHistoryHeader({
             variant="contained"
             color="secondary"
             onClick={toggleModalHistory}
-            style={{marginBottom:"10px", marginRight:"30px"}}
+            style={{ marginBottom: "10px", marginRight: "30px" }}
           >
             Thoát
           </Button>

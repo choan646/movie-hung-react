@@ -21,20 +21,16 @@ import TextField from "@material-ui/core/TextField";
 export default function AdminUsers() {
   const dispatch = useDispatch();
   const { currentPage } = useParams();
-
   //UserModal setup
   const [modalUser, setModalUser] = useState(false);
   const toggleModalUser = () => setModalUser(!modalUser);
-
   //UpdateModal setup
   const [modalUpdateUser, setModalUpdateUser] = useState(false);
   const toggleModalUpdateUser = () => setModalUpdateUser(!modalUpdateUser);
-
   //SearchUser set up
   const [searchKey, setSearchKey] = useState("");
   const typingTimeoutRef = useRef(null);
   // Tạm thời phần Search hơi cùi, dùng debounce để khắc phục tạm thời, sau khi submit được từ khóa lên thì nó render và k focus vào ô search
-
   const { user, selectedUser, isLoading, error } = useSelector(
     (state) => state.user
   );
@@ -47,7 +43,6 @@ export default function AdminUsers() {
     toggleModalUser();
     dispatch(getUser(currentPage));
   };
-
   const handleDeleteUser = (taiKhoan) => {
     Swal.fire({
       title: `Bạn có muốn xóa ${taiKhoan}?`,
@@ -87,7 +82,6 @@ export default function AdminUsers() {
       handleSubmit(formValues);
     }, 700);
   };
-
   const handleSubmit = (formValues) => {
     if (formValues.searchKey != "") {
       dispatch(getUser("soTrang=1", `tuKhoa=${formValues.searchKey}`));
@@ -128,7 +122,10 @@ export default function AdminUsers() {
         modalUser={modalUser}
         toggleModalUser={toggleModalUser}
       />
-      <div className="searchUser" style={{marginLeft: "35%",marginTop: "-70px",marginBottom: "60px",}}>
+      <div
+        className="searchUser"
+        style={{ marginLeft: "35%", marginTop: "-70px", marginBottom: "60px" }}
+      >
         <form>
           <TextField
             label="Tìm Người Dùng"
@@ -136,7 +133,7 @@ export default function AdminUsers() {
             variant="outlined"
             type="text"
             value={searchKey}
-            style={{ width:"300px"}}
+            style={{ width: "300px" }}
             onChange={handleChange}
           />
         </form>

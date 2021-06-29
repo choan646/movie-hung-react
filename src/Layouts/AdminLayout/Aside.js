@@ -21,8 +21,7 @@ import { IoMailOutline } from "react-icons/io5";
 
 const Aside = ({ collapsed, email }) => {
   return (
-    <ProSidebar   image={sidebarBg}  collapsed={!collapsed} breakPoint="md">
-     
+    <ProSidebar image={sidebarBg} collapsed={!collapsed} breakPoint="md">
       <SidebarHeader>
         <div
           style={{
@@ -41,7 +40,6 @@ const Aside = ({ collapsed, email }) => {
           </Link>
         </div>
       </SidebarHeader>
-
       <SidebarContent>
         <Menu iconShape="circle">
           <SubMenu icon={<FaHome />} title="Home">

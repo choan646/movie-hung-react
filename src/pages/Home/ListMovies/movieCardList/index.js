@@ -3,7 +3,7 @@ import { Card, CardImg } from "reactstrap";
 import MovieCardItem from "../movieCardList/movieCardItem";
 import * as Icon from "react-bootstrap-icons";
 
-export default function MovieCardList({data}) {
+export default function MovieCardList({ data }) {
   const toggleTrailer = () => setModalTrailer(!modalTrailer);
   const [modalTrailer, setModalTrailer] = useState(false);
   return (

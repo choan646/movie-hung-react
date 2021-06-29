@@ -21,6 +21,7 @@ import {
 import Swal from "sweetalert2";
 import authAPI from "../services/authAPI";
 
+
 export function getUserInfoHistoryBooking(values) {
   return async (dispatch) => {
     dispatch({ type: GET_USER_HISTORY_REQUEST });
@@ -35,7 +36,6 @@ export function getUserInfoHistoryBooking(values) {
     }
   };
 }
-
 //Thay vì dùng cách này, có thể sử dụng lại login(lấy cái values,taiKhoan + values.matKhau tạo thành obj đăng nhập)
 //Nhưng thế thì phải bỏ cái Swal ra trang hàm handleLogin để đúng về mặt ui/ux
 export function getInfoUser(values) {
@@ -53,7 +53,6 @@ export function getInfoUser(values) {
     }
   };
 }
-
 export function updateAtUser(values) {
   return async (dispatch) => {
     dispatch({ type: UPDATE_AT_USER_REQUEST });

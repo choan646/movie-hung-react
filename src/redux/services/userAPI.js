@@ -4,7 +4,7 @@ const userAPI = {
   getUser: () => {
     return axiosClient.get("/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP11");
   },
-  getUserPagination: (currentPage,tukhoa) => {
+  getUserPagination: (currentPage, tukhoa) => {
     return axiosClient.get(
       `/QuanLyNguoiDung/LayDanhSachNguoiDungPhanTrang?MaNhom=GP11&${tukhoa}&${currentPage}&soPhanTuTrenTrang=7`
     );
@@ -19,11 +19,11 @@ const userAPI = {
       `/QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${taiKhoan}`
     );
   },
-  addUser:(values) => {
-    return axiosClient.post("/QuanLyNguoiDung/ThemNguoiDung", values)
+  addUser: (values) => {
+    return axiosClient.post("/QuanLyNguoiDung/ThemNguoiDung", values);
   },
-  updateUser:(values) => {
-    return axiosClient.put("/QuanLyNguoiDung/CapNhatThongTinNguoiDung", values)
-  }
+  updateUser: (values) => {
+    return axiosClient.put("/QuanLyNguoiDung/CapNhatThongTinNguoiDung", values);
+  },
 };
 export default userAPI;

@@ -1,20 +1,20 @@
-.scroll-to-top{
-    position: fixed;
-    bottom: 40px;
-    right: 50px;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background:#fa5238;
-    color:#fdfcf0;
-    z-index: 10;
-    cursor: pointer;
+.scroll-to-top {
+  position: fixed;
+  bottom: 40px;
+  right: 50px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: #fdfcf0;
+  background: #fa5238;
+  z-index: 10;
+  cursor: pointer;
 }
 @keyframes scrollTop {
-    from {
-        transform: translateY(2px);
-    }
-    to{
-        transform: translateY(-1px);
-    }
+  from {
+    transform: translateY(2px);
+  }
+  to {
+    transform: translateY(-1px);
+  }
 }

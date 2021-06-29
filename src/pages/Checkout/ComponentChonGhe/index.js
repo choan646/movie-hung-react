@@ -24,6 +24,7 @@ export default function ComponentChonGhe({
         if (indexGheDangChon !== -1) {
           styleGheDangChon = "styleButtonDangChon";
         }
+        
         return (
           <div className="col-1" key={index}>
             <button

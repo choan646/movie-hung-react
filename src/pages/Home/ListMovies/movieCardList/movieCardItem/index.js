@@ -1,6 +1,7 @@
 import React from "react";
-import { CardText, CardBody, CardTitle, Modal } from "reactstrap";
 import { Link } from "react-router-dom";
+import { CardText, CardBody, CardTitle, Modal } from "reactstrap";
+
 
 export default function MovieCardItem({ data, isOpen, toggle }) {
   return (

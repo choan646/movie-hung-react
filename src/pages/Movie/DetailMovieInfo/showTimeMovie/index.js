@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 import { getShowTimesByIdMovie } from "src/redux/actions/cinemas";
 
 export default function ShowTimeMovie({ data }) {
@@ -27,27 +27,28 @@ export default function ShowTimeMovie({ data }) {
           <div className="tab__lichChieuPhim__placeItem">
             {item?.cumRapChieu?.map((placeItem) => (
               <div key={placeItem.maCumRap}>
-                <h5><i>{placeItem?.tenCumRap}</i></h5>
+                <h5>
+                  <i>{placeItem?.tenCumRap}</i>
+                </h5>
                 <div className="tab__lichChieuPhim__timeItem row">
                   {placeItem?.lichChieuPhim?.map((timeItem) => (
                     <div className="col" key={timeItem.maLichChieu}>
                       <button className="btn">
-                      <Link to={`/checkout/${timeItem.maLichChieu}`}>
-                      <p>
-                        {timeItem?.ngayChieuGioChieu.substring(11, 13) +
-                          "h" +
-                          timeItem?.ngayChieuGioChieu.substring(14,16) +
-                          "p"}
-                      </p>
-                      <p>
-                      {
-                          timeItem?.ngayChieuGioChieu.substring(8, 10) +
-                          "/" +
-                          timeItem?.ngayChieuGioChieu.substring(5, 7) +
-                          "/" +
-                          timeItem?.ngayChieuGioChieu.substring(0, 4)}
-                      </p>
-                      </Link>
+                        <Link to={`/checkout/${timeItem.maLichChieu}`}>
+                          <p>
+                            {timeItem?.ngayChieuGioChieu.substring(11, 13) +
+                              "h" +
+                              timeItem?.ngayChieuGioChieu.substring(14, 16) +
+                              "p"}
+                          </p>
+                          <p>
+                            {timeItem?.ngayChieuGioChieu.substring(8, 10) +
+                              "/" +
+                              timeItem?.ngayChieuGioChieu.substring(5, 7) +
+                              "/" +
+                              timeItem?.ngayChieuGioChieu.substring(0, 4)}
+                          </p>
+                        </Link>
                       </button>
                     </div>
                   ))}

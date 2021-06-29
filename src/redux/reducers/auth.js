@@ -30,6 +30,7 @@ const initialState = {
   error: null,
 };
 
+
 function authReducer(state = initialState, action) {
   switch (action.type) {
     // LOGIN
@@ -76,7 +77,6 @@ function authReducer(state = initialState, action) {
     case GET_USER_HISTORY_FAILURE: {
       return { ...state, isLoading: false, error: action.payload.error };
     }
-
     // UpdateAtUser
     case UPDATE_AT_USER_REQUEST: {
       return { ...state, isLoading: true, error: null };
@@ -87,7 +87,6 @@ function authReducer(state = initialState, action) {
     case UPDATE_AT_USER_FAILURE: {
       return { ...state, isLoading: false, error: action.payload.error };
     }
-
     //getUserInfo
     case GET_INFO_USER_REQUEST: {
       return { ...state, isLoading: true, error: null };
@@ -98,7 +97,6 @@ function authReducer(state = initialState, action) {
     case GET_INFO_USER_FAILURE: {
       return { ...state, isLoading: false, error: action.payload.error };
     }
-
     default:
       return state;
   }

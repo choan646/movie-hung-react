@@ -84,43 +84,42 @@
             margin-bottom: 30px;
           }
           p {
-        color: rgb(222, 222, 222);
-
+            color: rgb(222, 222, 222);
             font-size: 14px;
           }
         }
         .tab__lichChieuPhim {
-          .tab__lichChieuPhim__listItem{
-            .tab__lichChieuPhim__title{
+          .tab__lichChieuPhim__listItem {
+            .tab__lichChieuPhim__title {
               margin-top: 30px;
               margin-left: -50px;
-              img{
-                margin-right:30px;
+              img {
+                margin-right: 30px;
               }
-              h3{
+              h3 {
                 text-transform: uppercase;
                 font-size: 36px;
               }
             }
-            .tab__lichChieuPhim__placeItem{
+            .tab__lichChieuPhim__placeItem {
               padding-bottom: 30px;
               border-top: 1px solid rgb(125, 125, 125);
-              h5{
+              h5 {
                 width: 100%;
                 margin: 30px 0;
                 text-align: center;
               }
-              .tab__lichChieuPhim__timeItem{
-                button{
+              .tab__lichChieuPhim__timeItem {
+                button {
                   background-color: #fa5238;
                   margin-bottom: 20px;
-                  padding: 5px!important;
+                  padding: 5px !important;
                   box-shadow: 2px 5px 10px rgb(125, 125, 125);
-                  a{
+                  a {
                     text-decoration: none;
-                    p{
+                    p {
                       color: rgb(222, 222, 222);
-                      margin: 0!important;
+                      margin: 0 !important;
                     }
                   }
                   &:hover {

@@ -1,5 +1,5 @@
-import ListMovies from "src/pages/Home/ListMovies";
 import React from "react";
+import ListMovies from "src/pages/Home/ListMovies";
 import Slider from "src/pages/Home/Slider";
 import UngDung from "./UngDung";
 import CumRap from "./CumRap";

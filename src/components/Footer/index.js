@@ -5,24 +5,24 @@ export default function Footer() {
     <div id="footer">
       <div className="container">
         <div className="row footer__top">
-          <div className="col-md-4">
-            <p className="footer__title">TIX</p>
+          <div className="col-lg-4 col-md-6">
+            <p className="footer__title d-lg-block d-md-none">TIX</p>
             <div className="row footer__detail">
-              <div className="col-md-6 footer__detail__item">
+              <div className="col-sm-6 d-lg-block d-md-none footer__detail__item">
                 <a href="#">FAQ</a>
               </div>
-              <div className="col-md-6 footer__detail__item">
+              <div className="col-sm-6 footer__detail__item">
                 <a href="#">Thỏa thuận sử dụng</a>
               </div>
-              <div className="col-md-6 footer__detail__item">
+              <div className="col-sm-6 d-lg-block d-md-none footer__detail__item">
                 <a href="#">Brand Guidelines</a>
               </div>
-              <div className="col-md-6 footer__detail__item">
+              <div className="col-sm-6 footer__detail__item">
                 <a href="#">Chính sách bảo mật</a>
               </div>
             </div>
           </div>
-          <div className="col-md-4">
+          <div className="col-lg-4 d-lg-block d-md-none">
             <p className="footer__title">ĐỐI TÁC</p>
             <div className="row footer__detail">
               <div className="col-sm-2 footer__detail__logo">
@@ -180,9 +180,9 @@ export default function Footer() {
               </div>
             </div>
           </div>
-          <div className="col-md-4">
+          <div className="col-lg-4 col-md-6">
             <div className="row footer__detail">
-              <div className="col-sm-6">
+              <div className="col-sm-6 d-lg-block d-md-none">
                 <p className="footer__title">MOBILE APP</p>
                 <a
                   className="footer__app"
@@ -203,7 +203,7 @@ export default function Footer() {
                 </a>
               </div>
               <div className="col-sm-6">
-                <p className="footer__title ml-3">SOCIAL</p>
+                <p className="footer__title ml-3 d-lg-block d-md-none">SOCIAL</p>
                 <a
                   className="footer__app"
                   target="_blank"

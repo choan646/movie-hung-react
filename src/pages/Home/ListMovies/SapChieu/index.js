@@ -14,7 +14,7 @@ export default function SapChieu() {
   if (isLoading) {
     return (
       <div>
-        <SemipolarLoading color="#6B439B"/>
+        <SemipolarLoading color="#6B439B" />
       </div>
     );
   }
@@ -22,7 +22,7 @@ export default function SapChieu() {
     <div className="container">
       <div className="row">
         {dataSapChieu.map((item, index) => (
-          <MovieCardList key={index} data={item}/>
+          <MovieCardList key={index} data={item} />
         ))}
       </div>
     </div>

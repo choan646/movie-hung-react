@@ -10,7 +10,7 @@ export default function DetailLichChieu({ data }) {
             <img width="100%" height="200px" src={dsp.hinhAnh} alt="hinhAnh" />
           </div>
           <div className="col-9 lichChieuAtCinema__detail">
-            <h5 style={{ color: "#fff", marginBottom:"25px" }}>
+            <h5 style={{ color: "#fff", marginBottom: "25px" }}>
               <b>
                 <i>{dsp.tenPhim}</i>
               </b>

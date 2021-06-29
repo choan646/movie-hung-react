@@ -4,7 +4,6 @@ import { Alert, FormGroup, Label, Modal } from "reactstrap";
 import { updateSchema } from "src/redux/services/schema";
 import Button from "@material-ui/core/Button";
 
-
 export default function AdminUserUpdate({
   data,
   handleUpdateUser,
@@ -12,7 +11,11 @@ export default function AdminUserUpdate({
   toggleModalUpdateUser,
 }) {
   return (
-    <Modal isOpen={modalUpdateUser} toggle={toggleModalUpdateUser} id="modalUpdateUser">
+    <Modal
+      isOpen={modalUpdateUser}
+      toggle={toggleModalUpdateUser}
+      id="modalUpdateUser"
+    >
       <Formik
         initialValues={{
           taiKhoan: data.taiKhoan,

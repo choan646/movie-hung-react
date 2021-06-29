@@ -21,7 +21,9 @@ export default function ModalInfoHeader({
               email: data?.email,
               soDt: data?.soDT,
               maNhom: "GP11",
-              maLoaiNguoiDung: data?.maLoaiNguoiDung ? data?.maLoaiNguoiDung : data?.loaiNguoiDung,
+              maLoaiNguoiDung: data?.maLoaiNguoiDung
+                ? data?.maLoaiNguoiDung
+                : data?.loaiNguoiDung,
               hoTen: data?.hoTen,
             }}
             validationSchema={updateSchema}

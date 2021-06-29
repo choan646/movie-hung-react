@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Row, Col } from "reactstrap";
 import {
   Collapse,
   Navbar,
@@ -19,7 +18,7 @@ import {
   logout,
   getUserInfoHistoryBooking,
   updateAtUser,
-  getInfoUser
+  getInfoUser,
 } from "src/redux/actions/auth";
 import { SemipolarLoading } from "react-loadingg";
 import ModalInfoHeader from "./ModalInfoHeader";
@@ -49,8 +48,7 @@ export default function Header() {
     (state) => state.auth
   );
 
-  useEffect(() => {
-  }, [isUpdateUser]);
+  useEffect(() => {}, [isUpdateUser]);
 
   const handleLogout = () => {
     dispatch(logout());
@@ -86,12 +84,12 @@ export default function Header() {
       </div>
     );
   }
-// console.log(userInfo)
+  // console.log(userInfo)
   return (
     <div id="header">
       <Navbar expand="md">
-        <Row lg={2}>
-          <Col lg={5}>
+        <div className="row">
+          <div className="col-5">
             <Link to="/">
               <img
                 className="webLogo"
@@ -100,12 +98,13 @@ export default function Header() {
                 style={{ marginTop: "5px", marginBottom: "0px" }}
               />
             </Link>
-          </Col>
-          <Col lg={7} style={{ marginLeft: "-80px" }}>
-            <Row lg={1}>
+          </div>
+          <div className="col-7" style={{ marginLeft: "-80px" }}>
+            <div className="row">
+              <NavbarToggler onClick={toggleNav} />
               <Collapse isOpen={isOpen} navbar>
                 <Nav navbar>
-                  <Col lg={7} className="d-flex" style={{ marginTop: "5px" }}>
+                  <div className="col-7 d-flex" style={{ marginTop: "5px" }}>
                     <NavItem style={styleLink}>
                       <Link to="/" onClick={scrollToLichChieu}>
                         Lịch Chiếu
@@ -124,9 +123,9 @@ export default function Header() {
                         Ứng Dụng
                       </Link>
                     </NavItem>
-                  </Col>
-                  <Col lg={5} style={{ marginTop: 10 }}>
-                    {userInfo ? 
+                  </div>
+                  <div className="col-5" style={{ marginTop: 10 }}>
+                    {userInfo ? (
                       <NavItem>
                         <Dropdown
                           className="dropOptions navRight"
@@ -162,7 +161,7 @@ export default function Header() {
                           </DropdownMenu>
                         </Dropdown>
                       </NavItem>
-                     : 
+                    ) : (
                       <NavItem className="navRight d-flex">
                         <NavLink>
                           <Link to="/login" className="btnLogin">
@@ -175,16 +174,13 @@ export default function Header() {
                           </Link>
                         </NavLink>
                       </NavItem>
-                    }
-                  </Col>
+                    )}
+                  </div>
                 </Nav>
               </Collapse>
-            </Row>
-          </Col>
-          <Col lg={12}>
-            <NavbarToggler onClick={toggleNav} />
-          </Col>
-        </Row>
+            </div>
+          </div>
+        </div>
       </Navbar>
     </div>
   );

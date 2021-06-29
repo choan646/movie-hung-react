@@ -15,6 +15,7 @@ import {
 import bookingAPI from "../services/bookingAPI";
 import Swal from "sweetalert2";
 
+
 export function getChiTietPhongVe(maLichChieu) {
   return async (dispatch) => {
     dispatch({ type: GET_BOOKING_REQUEST });

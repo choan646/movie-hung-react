@@ -10,17 +10,17 @@ import * as Icon from "react-bootstrap-icons";
 
 const items = [
   {
-    id:"slide01",
+    id: "slide01",
     src: "../img/trang-ti-16194117174325.jpg",
     trailer: "https://www.youtube.com/embed/l2XBzUZidig",
   },
   {
-    id:"slide02",
+    id: "slide02",
     src: "../img/lat-mat-48h-16177782153424.png",
     trailer: "https://www.youtube.com/embed/kBY2k3G6LsM",
   },
   {
-    id:"slide03",
+    id: "slide03",
     src: "../img/ban-tay-diet-quy-evil-expeller-16177781815781.png",
     trailer: "https://www.youtube.com/embed/uqJ9u7GSaYM",
   },
@@ -56,31 +56,31 @@ export default function Slider() {
         activeIndex={activeIndex}
         onClickHandler={goToIndex}
       />
-      {items.map((item, index)=>(
+      {items.map((item, index) => (
         <CarouselItem
-      onExiting={() => setAnimating(true)}
-      onExited={() => setAnimating(false)}
-      key={index}
-    >
-      <img src={item.src} />
-      <div className="slider__iconPlayTrailer">
-        <Icon.PlayCircle size={60} onClick={toggleTrailer} />
-        <Modal
-          className="modalTrailler"
-          isOpen={modalTrailer}
-          toggle={toggleTrailer}
-          id={item.id}
+          onExiting={() => setAnimating(true)}
+          onExited={() => setAnimating(false)}
+          key={index}
         >
-          <iframe
-            src={item.trailer}
-            width="900px"
-            height="468px"
-            frameborder="1"
-            autoplay
-          />
-        </Modal>
-      </div>
-    </CarouselItem>
+          <img src={item.src} />
+          <div className="slider__iconPlayTrailer">
+            <Icon.PlayCircle size={60} onClick={toggleTrailer} />
+            <Modal
+              className="modalTrailler"
+              isOpen={modalTrailer}
+              toggle={toggleTrailer}
+              id={item.id}
+            >
+              <iframe
+                src={item.trailer}
+                width="900px"
+                height="468px"
+                frameborder="1"
+                autoplay
+              />
+            </Modal>
+          </div>
+        </CarouselItem>
       ))}
       <CarouselControl
         direction="prev"
@@ -93,6 +93,5 @@ export default function Slider() {
         onClickHandler={next}
       />
     </Carousel>
-    
   );
 }

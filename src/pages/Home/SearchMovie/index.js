@@ -3,9 +3,10 @@ import React from "react";
 import { useSelector } from "react-redux";
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
-import { useHistory } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import SearchIcon from "@material-ui/icons/Search";
+import { useHistory } from "react-router-dom";
+
 
 export default function SearchMovie() {
   const history = useHistory();

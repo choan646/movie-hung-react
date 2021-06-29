@@ -127,8 +127,6 @@ export const addMovieSchema = yup.object().shape({
   hinhAnh: yup.mixed().required("Phải chọn file hình ảnh!"),
 });
 
-
-
 //Search at AdminCinema
 export const searchIdMovieAtAdmin = yup.object().shape({
   maPhim: yup
