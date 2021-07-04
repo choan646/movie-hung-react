@@ -9,7 +9,7 @@ export default function MovieCardList({ data }) {
   return (
     <Card
       key={data.maPhim}
-      className="col-md-3 card px-2 my-3"
+      className="col-lg-3 col-md-4 col-sm-6 col-12 card px-2 my-3"
       style={{ border: "none" }}
     >
       <div className="card-header">

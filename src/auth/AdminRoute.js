@@ -7,8 +7,9 @@ export default function AdminRoute({ children, ...props }) {
   //Chua dang nhap
   if (!userInfo) {
     return <Redirect to={`/login?redirectTo=${props.path}`} />;
+    // redirectTo ở đây hiện tại chỉ để sử dụng cho trang admin, và search = undefine (ở trang login)
   }
-  //Neu dang nhap roi nhung maLoaiNguoiDung khong phai la GV
+  //Neu dang nhap roi nhung maLoaiNguoiDung khong phai la QuanTri
   if (userInfo.maLoaiNguoiDung !== "QuanTri") {
     return <Redirect to="/" />;
   }
